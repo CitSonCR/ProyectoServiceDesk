@@ -98,28 +98,28 @@ namespace ProyectoServiceDesk.Modelo
             return bandera;
         }
 
-        public SqlDataReader getDataReader(String strSQL)
-        {
-            try
-            {
+        //public SqlDataReader getDataReader(String strSQL)
+        //{
+        //    try
+        //    {
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = strSQL;
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = ObtenerConexion();
-                return cmd.ExecuteReader();
-            }
-            catch (Exception ex)
-            {
+        //        SqlCommand cmd = new SqlCommand();
+        //        cmd.CommandText = strSQL;
+        //        cmd.CommandType = CommandType.Text;
+        //        cmd.Connection = ObtenerConexion();
+        //        return cmd.ExecuteReader();
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                MessageBox.Show("Error al ejecutar sentencia: " + ex.Message);
-                return null;
-            }
-            finally
-            {
-                //conexion.Close();
-            }
-        }
+        //        MessageBox.Show("Error al ejecutar sentencia: " + ex.Message);
+        //        return null;
+        //    }
+        //    finally
+        //    {
+        //        //conexion.Close();
+        //    }
+        //}
 
     }
 }
