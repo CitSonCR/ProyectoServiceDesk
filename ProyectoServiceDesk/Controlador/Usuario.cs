@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoServiceDesk.Controlador
 {
-    class ClsUsuario
+    class Usuario
     {
         public int DepartamentoId { get; set; }
         public int EquipoId { get; set; }
@@ -19,7 +19,7 @@ namespace ProyectoServiceDesk.Controlador
         public DateTime FechaNacimiento { get; set; }
         public DateTime FechaIngreso { get; set; }
 
-        public ClsUsuario(int departamentoId, int equipoId, string nombre, string primerApellido, string segundoApellido, string email, int telefono, DateTime fechaNacimiento, DateTime fechaIngreso)
+        public Usuario(int departamentoId, int equipoId, string nombre, string primerApellido, string segundoApellido, string email, int telefono, DateTime fechaNacimiento, DateTime fechaIngreso)
         {
             DepartamentoId = departamentoId;
             EquipoId = equipoId;

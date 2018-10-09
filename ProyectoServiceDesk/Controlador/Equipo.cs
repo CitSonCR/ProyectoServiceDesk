@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ProyectoServiceDesk.Controlador
 {
-    class ClsEquipo
+    class Equipo
     {
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
 
-        public ClsEquipo(string nombreEquipo, string descripcion)
+        public Equipo(string nombreEquipo, string descripcion)
         {
             Nombre = nombreEquipo;
             Descripcion = descripcion;

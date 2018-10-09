@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoServiceDesk.Controlador
 {
-    class ClsTarea
+    class Tarea
     {
         public int ID { get; set; }
         public string Nombre { get; set; }
@@ -15,7 +15,7 @@ namespace ProyectoServiceDesk.Controlador
         public int Dificultad { get; set; }
         public int UsuarioAtiende { get; set; }
 
-        public ClsTarea(int tareaId, string nombre, string prioridad, int tiempoHoras, int dificultad, int usuarioAtiende)
+        public Tarea(int tareaId, string nombre, string prioridad, int tiempoHoras, int dificultad, int usuarioAtiende)
         {
             ID = tareaId;
             Nombre = nombre;

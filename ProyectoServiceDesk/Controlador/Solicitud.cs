@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoServiceDesk.Controlador
 {
-    class ClsSolicitud
+    class Solicitudes
     {
         public int ID { get; set; }
         public string Titulo { get; set; }
@@ -21,7 +21,7 @@ namespace ProyectoServiceDesk.Controlador
         public int UsuarioAtenconId { get; set; }
         public DateTime FechaAtencion { get; set; }
 
-        public ClsSolicitud(int solicitudId, string tituloSolicitud, string tipoSolicitud, string detalle, string estado, string prioridad, string solicitud, int usuarioIngresoId, DateTime fechaIngreso, int usuarioAtenconId, DateTime fechaAtencion)
+        public Solicitudes(int solicitudId, string tituloSolicitud, string tipoSolicitud, string detalle, string estado, string prioridad, string solicitud, int usuarioIngresoId, DateTime fechaIngreso, int usuarioAtenconId, DateTime fechaAtencion)
         {
             ID = solicitudId;
             Titulo = tituloSolicitud;
