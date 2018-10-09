@@ -8,14 +8,12 @@ namespace ProyectoServiceDesk.Controlador
 {
     class ClsEquipo
     {
-        public int EquipoId { get; set; }
-        public string NombreEquipo { get; set; }
+        public string Nombre { get; set; }
         public string Descripcion { get; set; }
 
-        public ClsEquipo(int equipoId, string nombreEquipo, string descripcion)
+        public ClsEquipo(string nombreEquipo, string descripcion)
         {
-            EquipoId = equipoId;
-            NombreEquipo = nombreEquipo;
+            Nombre = nombreEquipo;
             Descripcion = descripcion;
         }
     }

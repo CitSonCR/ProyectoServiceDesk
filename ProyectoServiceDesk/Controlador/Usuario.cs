@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,6 @@ namespace ProyectoServiceDesk.Controlador
 {
     class ClsUsuario
     {
-        public int UsuarioId { get; set; }
         public int DepartamentoId { get; set; }
         public int EquipoId { get; set; }
         public string Nombre { get; set; }
@@ -19,9 +19,8 @@ namespace ProyectoServiceDesk.Controlador
         public DateTime FechaNacimiento { get; set; }
         public DateTime FechaIngreso { get; set; }
 
-        public ClsUsuario(int usuarioId, int departamentoId, int equipoId, string nombre, string primerApellido, string segundoApellido, string email, int telefono, DateTime fechaNacimiento, DateTime fechaIngreso)
+        public ClsUsuario(int departamentoId, int equipoId, string nombre, string primerApellido, string segundoApellido, string email, int telefono, DateTime fechaNacimiento, DateTime fechaIngreso)
         {
-            UsuarioId = usuarioId;
             DepartamentoId = departamentoId;
             EquipoId = equipoId;
             Nombre = nombre;
