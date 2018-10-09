@@ -14,6 +14,15 @@ namespace ProyectoServiceDesk.Controlador
         public int TiempoHoras { get; set; }
         public int Dificultad { get; set; }
         public int UsuarioAtiende { get; set; }
-        
+
+        public ClsTarea(int tareaId, string nombre, string prioridad, int tiempoHoras, int dificultad, int usuarioAtiende)
+        {
+            TareaId = tareaId;
+            Nombre = nombre;
+            Prioridad = prioridad;
+            TiempoHoras = tiempoHoras;
+            Dificultad = dificultad;
+            UsuarioAtiende = usuarioAtiende;
+        }
     }
 }

@@ -18,5 +18,19 @@ namespace ProyectoServiceDesk.Controlador
         public int Telefono { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public DateTime FechaIngreso { get; set; }
+
+        public ClsUsuario(int usuarioId, int departamentoId, int equipoId, string nombre, string primerApellido, string segundoApellido, string email, int telefono, DateTime fechaNacimiento, DateTime fechaIngreso)
+        {
+            UsuarioId = usuarioId;
+            DepartamentoId = departamentoId;
+            EquipoId = equipoId;
+            Nombre = nombre;
+            PrimerApellido = primerApellido;
+            SegundoApellido = segundoApellido;
+            Email = email;
+            Telefono = telefono;
+            FechaNacimiento = fechaNacimiento;
+            FechaIngreso = fechaIngreso;
+        }
     }
 }

@@ -11,5 +11,12 @@ namespace ProyectoServiceDesk.Controlador
         public int EquipoId { get; set; }
         public string NombreEquipo { get; set; }
         public string Descripcion { get; set; }
+
+        public ClsEquipo(int equipoId, string nombreEquipo, string descripcion)
+        {
+            EquipoId = equipoId;
+            NombreEquipo = nombreEquipo;
+            Descripcion = descripcion;
+        }
     }
 }

@@ -19,5 +19,20 @@ namespace ProyectoServiceDesk.Controlador
         public DateTime FechaIngreso { get; set; }
         public int UsuarioAtenconId { get; set; }
         public DateTime FechaAtencion { get; set; }
+
+        public ClsSolicitud(int solicitudId, string tituloSolicitud, string tipoSolicitud, string detalle, string estado, string prioridad, string solicion, int usuarioIngresoId, DateTime fechaIngreso, int usuarioAtenconId, DateTime fechaAtencion)
+        {
+            SolicitudId = solicitudId;
+            TituloSolicitud = tituloSolicitud;
+            TipoSolicitud = tipoSolicitud;
+            Detalle = detalle;
+            Estado = estado;
+            Prioridad = prioridad;
+            Solicion = solicion;
+            UsuarioIngresoId = usuarioIngresoId;
+            FechaIngreso = fechaIngreso;
+            UsuarioAtenconId = usuarioAtenconId;
+            FechaAtencion = fechaAtencion;
+        }
     }
 }

@@ -12,5 +12,13 @@ namespace ProyectoServiceDesk.Controlador
         public string NombreDepartamento { get; set; }
         public string TipoDepartamento { get; set; }
         public string Descripcion { get; set; }
+
+        public ClsDepartamento(int departamentoId, string nombreDepartamento, string tipoDepartamento, string descripcion)
+        {
+            DepartamentoId = departamentoId;
+            NombreDepartamento = nombreDepartamento;
+            TipoDepartamento = tipoDepartamento;
+            Descripcion = descripcion;
+        }
     }
 }
