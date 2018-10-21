@@ -11,7 +11,9 @@ namespace ProyectoServiceDesk.Modelo
 
         public SqlConnection ObtenerConexion()
         {
-            conexion = new SqlConnection("Server=tcp:analisis.database.windows.net,1433;Initial Catalog=AnalisisDataBase;Persist Security Info=False;User ID=AnalisisSabados;Password=Analisis2018;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            conexion = new SqlConnection("Server = tcp:analisis.database.windows.net,1433; Initial Catalog = SERVICE_DESK; Persist Security Info = False; User ID = AnalisisSabados; Password = Analisis2018; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;");           
+            //Server=tcp:analisis.database.windows.net,1433;Initial Catalog=AnalisisDataBase;Persist Security Info=False;User ID=AnalisisSabados;Password=Analisis2018;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+
             try
             {
                 conexion.Open();
