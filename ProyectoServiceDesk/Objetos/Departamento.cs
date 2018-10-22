@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoServiceDesk.Controlador
 {
-    class Departamento
+    public class Departamento
     {
         public string Nombre { get; set; }
         public string Tipo { get; set; }

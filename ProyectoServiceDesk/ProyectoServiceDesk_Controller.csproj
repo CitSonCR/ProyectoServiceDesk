@@ -51,7 +51,6 @@
     <Compile Include="Objetos\Solicitud.cs" />
     <Compile Include="Objetos\Solucion.cs" />
     <Compile Include="Objetos\Tarea.cs" />
-    <Compile Include="Objetos\Tecnico.cs" />
     <Compile Include="Objetos\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

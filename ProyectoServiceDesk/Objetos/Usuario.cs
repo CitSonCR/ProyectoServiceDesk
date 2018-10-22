@@ -1,4 +1,5 @@
 ﻿
+using ProyectoServiceDesk_Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,29 +8,16 @@ using System.Threading.Tasks;
 
 namespace ProyectoServiceDesk.Controlador
 {
-    class Usuario
+    public class Usuario : Persona
     {
-        public int DepartamentoId { get; set; }
-        public int EquipoId { get; set; }
-        public string Nombre { get; set; }
-        public string PrimerApellido { get; set; }
-        public string SegundoApellido { get; set; }
-        public string Email { get; set; }
-        public int Telefono { get; set; }
-        public DateTime FechaNacimiento { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
         public DateTime FechaIngreso { get; set; }
+        public string TipoUsuario { get; set; }
+        public Equipo Equipo { get; set; }
 
-        public Usuario(int departamentoId, int equipoId, string nombre, string primerApellido, string segundoApellido, string email, int telefono, DateTime fechaNacimiento, DateTime fechaIngreso)
+        public Usuario(int numeroIdentificacion, string nombre, string primerApellido, string segundoApellido, int edad, string direccion, int telefono, string correoElectronico, string genero, DateTime fechaNacimiento) : base(numeroIdentificacion, nombre, primerApellido, segundoApellido, edad, direccion, telefono, correoElectronico, genero, fechaNacimiento)
         {
-            DepartamentoId = departamentoId;
-            EquipoId = equipoId;
-            Nombre = nombre;
-            PrimerApellido = primerApellido;
-            SegundoApellido = segundoApellido;
-            Email = email;
-            Telefono = telefono;
-            FechaNacimiento = fechaNacimiento;
-            FechaIngreso = fechaIngreso;
         }
     }
 }
