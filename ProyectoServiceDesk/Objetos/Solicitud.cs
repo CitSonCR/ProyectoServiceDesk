@@ -9,30 +9,27 @@ namespace ProyectoServiceDesk.Controlador
 {
     public class Solicitud
     {
-        public int ID { get; set; }
+        public int NumeroIdentificador { get; set; }
         public string Titulo { get; set; }
         public string Tipo { get; set; }
         public string Detalle { get; set; }
         public string Estado { get; set; }
-        public string Prioridad { get; set; }
-        
-        public Usuario UsuarioIngresoId { get; set; }
+        public int Prioridad { get; set; }
+        public string Solucion { get; set; }
+        public Usuario UsuarioIngreso { get; set; }
         public DateTime FechaIngreso { get; set; }
-        public Usuario UsuarioAtenconId { get; set; }
-        public DateTime FechaAtencion { get; set; }
 
-        public Solicitud(int iD, string titulo, string tipo, string detalle, string estado, string prioridad, Usuario usuarioIngresoId, DateTime fechaIngreso, Usuario usuarioAtenconId, DateTime fechaAtencion)
+        public Solicitud(int numeroIdentificador, string titulo, string tipo, string detalle, string estado, int prioridad, string solucion, Usuario usuarioIngreso, DateTime fechaIngreso)
         {
-            ID = iD;
+            NumeroIdentificador = numeroIdentificador;
             Titulo = titulo;
             Tipo = tipo;
             Detalle = detalle;
             Estado = estado;
             Prioridad = prioridad;
-            UsuarioIngresoId = usuarioIngresoId;
+            Solucion = solucion;
+            UsuarioIngreso = usuarioIngreso;
             FechaIngreso = fechaIngreso;
-            UsuarioAtenconId = usuarioAtenconId;
-            FechaAtencion = fechaAtencion;
         }
     }
 }
