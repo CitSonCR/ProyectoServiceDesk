@@ -48,6 +48,7 @@
     <Compile Include="Controlador\Departamento.cs" />
     <Compile Include="Controlador\Equipo.cs" />
     <Compile Include="Controlador\Solicitud.cs" />
+    <Compile Include="Controlador\Solucion.cs" />
     <Compile Include="Controlador\Tarea.cs" />
     <Compile Include="Controlador\Usuario.cs" />
     <Compile Include="Modelo\ConexionDB.cs" />
