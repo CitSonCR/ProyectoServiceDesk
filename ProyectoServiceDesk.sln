@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoServiceDesk", "ProyectoServiceDesk\ProyectoServiceDesk.csproj", "{2EB36AEE-ADB0-40D1-8153-22530C7DB697}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoServiceDesk_Controller", "ProyectoServiceDesk\ProyectoServiceDesk_Controller.csproj", "{2EB36AEE-ADB0-40D1-8153-22530C7DB697}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoServiceDesk_Model", "ProyectoServiceDesk_Mod\ProyectoServiceDesk_Model.csproj", "{AF2791D2-FA87-4E23-A2DB-C27C8FF818DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoServiceDesk_View", "ProyectoServiceDesk_View\ProyectoServiceDesk_View.csproj", "{04DF359F-EAD3-48CC-8EC2-D2E1531A3778}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{2EB36AEE-ADB0-40D1-8153-22530C7DB697}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EB36AEE-ADB0-40D1-8153-22530C7DB697}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EB36AEE-ADB0-40D1-8153-22530C7DB697}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF2791D2-FA87-4E23-A2DB-C27C8FF818DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF2791D2-FA87-4E23-A2DB-C27C8FF818DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF2791D2-FA87-4E23-A2DB-C27C8FF818DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF2791D2-FA87-4E23-A2DB-C27C8FF818DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04DF359F-EAD3-48CC-8EC2-D2E1531A3778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04DF359F-EAD3-48CC-8EC2-D2E1531A3778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04DF359F-EAD3-48CC-8EC2-D2E1531A3778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04DF359F-EAD3-48CC-8EC2-D2E1531A3778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
