@@ -18,5 +18,44 @@ namespace ProyectoServiceDesk.Controlador
             Tipo = tipoDepartamento;
             Descripcion = descripcion;
         }
+
+
+        public void InsertarDepartamento()
+        {
+            String consulta = String.Empty;
+            try { 
+            
+                consulta = " INSERT INTO Equipo (                 ";
+                consulta += " NOMBRE,                             ";
+                consulta += " TIPO,                        ";
+                consulta += " DESCRIPCION)                       ";
+                consulta += " VALUES(                               ";
+                consulta += " '" + Nombre + "',            ";
+                consulta += " '" + Tipo + "',                 ";
+                consulta += " '" + Descripcion + "',                 ";
+                consulta += " )                                     ";
+
+                return connect.ExecuteQuery(consulta);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void eliminarequipo()
+        {
+            String consulta = String.Empty;
+            try
+            {
+                consulta = " DELETE FROM Equipo WHERE Nombre =  " + Nombre + "   ";
+
+                return connect.ExecuteQuery(consulta);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

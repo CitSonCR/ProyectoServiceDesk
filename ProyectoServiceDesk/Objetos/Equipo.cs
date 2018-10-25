@@ -10,13 +10,54 @@ namespace ProyectoServiceDesk.Controlador
     {
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public Departamento Departamento { get; set; }
+        public string Departamento { get; set; }
 
-        public Equipo(string nombre, string descripcion, Departamento departamento)
+        public Equipo(string nombre, string descripcion, string departamento)
         {
             Nombre = nombre;
             Descripcion = descripcion;
             Departamento = departamento;
         }
+
+        public void InsertarEquipo()
+        {
+            String consulta = String.Empty;
+            try
+            {
+                consulta = " INSERT INTO Equipo (                 ";
+                consulta += " NOMBRE,                             ";
+                consulta += " DESCRIPCIÓN,                        ";
+                consulta += " DEPARTAMENTO)                       ";
+                consulta += " VALUES(                               ";
+                consulta += " '" + Nombre + "',            ";
+                consulta += " '" + Descripcion + "',                 ";
+                consulta += " '" + Departamento + "',                 ";   
+                consulta += " )                                     ";
+
+                return connect.ExecuteQuery(consulta);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void eliminarequipo()
+        {
+            String consulta = String.Empty;
+            try
+            {
+                consulta = " DELETE FROM Equipo WHERE Nombre =  " + Nombre + "   ";
+
+                return connect.ExecuteQuery(consulta);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+
     }
 }
