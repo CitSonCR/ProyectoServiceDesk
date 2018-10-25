@@ -22,8 +22,5 @@ namespace ProyectoServiceDesk.Controlador
         }
 
 
-
-
-
     }
 }
