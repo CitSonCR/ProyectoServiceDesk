@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,13 @@ namespace ProyectoServiceDesk.Controlador
         public string Tipo { get; set; }
         public string Descripcion { get; set; }
 
+
+
         public Departamento(string nombreDepartamento, string tipoDepartamento, string descripcion)
         {
-            Nombre = nombreDepartamento;
-            Tipo = tipoDepartamento;
-            Descripcion = descripcion;
+            this.Nombre = nombreDepartamento;
+            this.Tipo = tipoDepartamento;
+            this.Descripcion = descripcion;
         }
 
 
@@ -24,6 +27,7 @@ namespace ProyectoServiceDesk.Controlador
         {
             String consulta = String.Empty;
             try { 
+
             
                 consulta = " INSERT INTO Equipo (                 ";
                 consulta += " NOMBRE,                             ";
@@ -57,5 +61,64 @@ namespace ProyectoServiceDesk.Controlador
                 throw;
             }
         }
+
+            public void ActualizarDatosEquipo()
+            {
+                String consulta = String.Empty;
+                try
+                {
+                    consulta = " UPDATE Departamento                   ";
+                    consulta += " SET NOMBRE = '" + Nombre + "',    ";
+                    consulta += " TIPO = '" + Tipo + "',        ";
+                    consulta += " DESCRIPCION = " + Descripcion + ",          ";
+                    consulta += " WHERE  NOMBRE =  " + Nombre + "     ";
+
+                    return connect.ExecuteQuery(consulta);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+
+            public DataTable CargarDepartamento()
+            {
+                try
+                {
+                    String Consulta = " SELECT NOMBRE AS Name" +
+                                       ",TIPO AS Type " +
+                                       ",DESCRIPCION AS Description" +
+                                       "FROM DEPARTAMENTO ";
+
+                    return connect.getDatosToDT(Consulta);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+
+        public DataTable CargarGridDepartamento(String strWhere)
+        {
+            try
+            {
+                String Consulta = "SELECT NOMBRE AS Name,TIPO,DESCRIPCION, CARGO FROM DEPARTAMENTO" +
+                    " ";
+
+                if (!String.Empty.Equals(strWhere))
+                {
+                    Consulta = Consulta + " WHERE " + strWhere;
+                }
+
+                return connect.getDatosToDT(Consulta);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }
