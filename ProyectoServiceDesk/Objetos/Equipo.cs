@@ -9,19 +9,20 @@ namespace ProyectoServiceDesk.Controlador
 {
     public class Equipo
     {
-        private string Nombre { get; set; }
-        private string Descripcion { get; set; }
-        private string Departamento { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+        public string Departamento { get; set; }
+        public string CodigoEquipo { get; set; }
 
-        public Equipo(string nombre, string descripcion, string departamento)
+        public Equipo(string nombre, string descripcion, string departamento, string codigoEquipo)
         {
             Nombre = nombre;
             Descripcion = descripcion;
             Departamento = departamento;
+            CodigoEquipo = codigoEquipo;
         }
 
-
-        public void InsertarEquipo()
+        public void InsertarEquipo(string nombre, string descripcion, string departamento, string codigoEquipo)
         {
             String consulta = String.Empty;
             try
@@ -44,7 +45,7 @@ namespace ProyectoServiceDesk.Controlador
             }
         }
 
-        public void eliminarequipo()
+        public void eliminarequipo(string nombre, string descripcion, string departamento, string codigoEquipo)
         {
             String consulta = String.Empty;
             try
@@ -59,7 +60,7 @@ namespace ProyectoServiceDesk.Controlador
             }
         }
 
-        public void ActualizarDatosEquipo()
+        public void ActualizarDatosEquipo(string nombre, string descripcion, string departamento, string codigoEquipo)
         {
             String consulta = String.Empty;
             try

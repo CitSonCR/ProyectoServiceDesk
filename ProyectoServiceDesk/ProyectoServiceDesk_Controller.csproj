@@ -77,6 +77,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProyectoServiceDesk_Mod\ProyectoServiceDesk_Model.csproj">
+      <Project>{AF2791D2-FA87-4E23-A2DB-C27C8FF818DB}</Project>
+      <Name>ProyectoServiceDesk_Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
