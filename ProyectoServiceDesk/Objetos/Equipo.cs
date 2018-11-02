@@ -1,121 +1,116 @@
-﻿using System;
+﻿using ProyectoServiceDesk.Modelo;
+using ProyectoServiceDesk_Controller;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProyectoServiceDesk.Controlador
 {
-    public class Equipo
+    public class Equipo : Departamento
     {
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public string Departamento { get; set; }
         public string CodigoEquipo { get; set; }
+        public Departamento departamento { get; set; }
 
-        public Equipo(string nombre, string descripcion, string departamento, string codigoEquipo)
+        public Equipo(string nombre, string descripcion, string tipo) : base(nombre, tipo, descripcion)
         {
-            Nombre = nombre;
-            Descripcion = descripcion;
-            Departamento = departamento;
-            CodigoEquipo = codigoEquipo;
         }
 
-        public void InsertarEquipo(string nombre, string descripcion, string departamento, string codigoEquipo)
+        public Boolean IngresarEquipo(string nombre, string descripcion, Departamento departamento, string codigoequipo)
         {
-            String consulta = String.Empty;
+
+            ConexionDB conexion = new ConexionDB();
+            bool resultado = true;
+            string strInsert = string.Empty;
             try
             {
-                consulta = " INSERT INTO Equipo (                 ";
-                consulta += " NOMBRE,                             ";
-                consulta += " DESCRIPCIÓN,                        ";
-                consulta += " DEPARTAMENTO)                       ";
-                consulta += " VALUES(                               ";
-                consulta += " '" + Nombre + "',            ";
-                consulta += " '" + Descripcion + "',                 ";
-                consulta += " '" + Departamento + "',                 ";   
-                consulta += " )                                     ";
+                strInsert = "INSERT INTO PSD_EQUIPO (NOMBRE, DESCRIPCION,PSD_DEPARTAMENTO_ID,CODIGO_EQUIPO) " +
+                           " VALUES (@P_USUARIO,@P_DESCRIPCION,@PSD_DEPARTAMENTO_ID,@_CODIGO_EQUIPO)";
 
-                return connect.ExecuteQuery(consulta);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+                Utils.Utils utils = new Utils.Utils();
+                utils.LimpiarSqlParameterCollection();
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_USUARIO", nombre));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_DESCRIPCION", descripcion));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_DEPARTAMENTO_ID", GetPsdDepartamentoIdPorNumeroIdentificador(departamento.Nombre)));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_CODIGO_EQUIPO", codigoequipo));
 
-        public void eliminarequipo(string nombre, string descripcion, string departamento, string codigoEquipo)
-        {
-            String consulta = String.Empty;
-            try
-            {
-                consulta = " DELETE FROM Equipo WHERE Nombre =  " + Nombre + "   ";
 
-                return connect.ExecuteQuery(consulta);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
 
-        public void ActualizarDatosEquipo(string nombre, string descripcion, string departamento, string codigoEquipo)
-        {
-            String consulta = String.Empty;
-            try
-            {
-                consulta = " UPDATE Departamento                   ";
-                consulta += " SET NOMBRE = '" + Nombre + "',    ";
-                consulta += " DESCRIPCION = " + Descripcion + ",          ";
-                consulta += " DEPARTAMENTO = '" + Departamento + "',        ";
-                consulta += " WHERE  NOMBRE =  " + Nombre + "     ";
-
-                return connect.ExecuteQuery(consulta);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public DataTable CargarEquipo()
-        {
-            try
-            {
-                String Consulta = " SELECT NOMBRE AS Name" +
-                                   ",DESCRIPCION AS Description" +
-                                   ",DEPARTAMENTO AS Department" +
-                                   "FROM EQUIPO ";
-
-                return connect.getDatosToDT(Consulta);
+                conexion.setDatosBD(strInsert, utils.parameterCollection);
             }
             catch (Exception)
             {
 
                 throw;
             }
+
+
+            return resultado;
         }
 
-        public DataTable CargarGridEquipo(String strWhere)
+        public Boolean EditarEquipo(string nombre,string descripcion,Departamento departamento, string codigoequipo)
         {
+
+            ConexionDB conexion = new ConexionDB();
+            bool resultado = true;
+            string strUpdate = string.Empty;
             try
             {
-                String Consulta = "SELECT NOMBRE AS Name ,DESCRIPCION, DEPARTAMENTO, CARGO FROM EQUIPO ";
+                strUpdate = " UPDATE PSD_EQUIPO " +
+                            " SET    NOMBRE = @NOMBRE," +
+                            "        DESCRIPCION = @DESCRIPCION, " +
+                            "        CODIGO_EQUIPO = @CODIGO_EQUIPO, " +
+                            " WHERE  PSD_EQUIPO_NOMBRE = @PSD_EQUIPO_NOMBRE ";
 
-                if (!String.Empty.Equals(strWhere))
-                {
-                    Consulta = Consulta + " WHERE " + strWhere;
-                }
+                Utils utils = new Utils();
+                utils.LimpiarSqlParameterCollection();
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DESCRIPCION", descripcion));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@CODIGO_EQUIPO", codigoequipo));
 
-                return connect.getDatosToDT(Consulta);
+
+
+                conexion.setDatosBD(strUpdate, utils.parameterCollection);
             }
             catch (Exception)
             {
 
                 throw;
             }
+
+
+            return resultado;
         }
+
+        public Boolean EliminarEquipo(int psdEquipoonombre)
+        {
+
+            ConexionDB conexion = new ConexionDB();
+            bool resultado = true;
+            string strDelete = string.Empty;
+            try
+            {
+                strDelete = " DELETE FROM PSD_EQUIPO WHERE  PSD_EQUIPO_NOMBRE = @PSD_EQUIPO_NOMBRE ";
+
+                Utils utils = new Utils();
+                utils.LimpiarSqlParameterCollection();
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_EQUIPO", psdEquipoonombre));
+
+                conexion.setDatosBD(strDelete, utils.parameterCollection);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            return resultado;
+        }
+
 
     }
 }
