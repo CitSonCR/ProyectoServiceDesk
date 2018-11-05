@@ -22,7 +22,9 @@ namespace ProyectoServiceDesk_Controller
         public string Genero { get; set; }
         public DateTime FechaNacimiento { get; set; }
 
-        
+        public Persona()
+        {
+        }
 
         public Persona(int numeroIdentificacion, string nombre, string primerApellido, string segundoApellido, int edad, string direccion, int telefono, string correoElectronico, string genero, DateTime fechaNacimiento)
         {

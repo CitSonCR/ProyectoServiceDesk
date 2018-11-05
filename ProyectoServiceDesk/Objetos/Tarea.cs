@@ -17,9 +17,13 @@ namespace ProyectoServiceDesk.Controlador
         public Usuario UsuarioAtiende { get; set; }
         public DateTime FechaAtencion { get; set; }
 
-        public Tarea(int numeroIdentificador, string titulo, string tipo, string detalle, string estado, int prioridad, Usuario usuarioIngreso, DateTime fechaIngreso) : base(numeroIdentificador, titulo, tipo, detalle, estado, prioridad, usuarioIngreso, fechaIngreso)
+        public Tarea(int numeroIdentificador, string titulo, string tipo, string detalle, string estado, int prioridad, string solucion, Usuario usuarioIngreso, DateTime fechaIngreso) : base(numeroIdentificador, titulo, tipo, detalle, estado, prioridad, solucion, usuarioIngreso, fechaIngreso)
         {
         }
+
+
+
+
 
 
     }
