@@ -65,7 +65,7 @@ namespace ProyectoServiceDesk.Controlador
                             "        CODIGO_EQUIPO = @CODIGO_EQUIPO, " +
                             " WHERE  PSD_EQUIPO_NOMBRE = @PSD_EQUIPO_NOMBRE ";
 
-                Utils utils = new Utils();
+                Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
                 utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DESCRIPCION", descripcion));
@@ -95,7 +95,7 @@ namespace ProyectoServiceDesk.Controlador
             {
                 strDelete = " DELETE FROM PSD_EQUIPO WHERE  PSD_EQUIPO_NOMBRE = @PSD_EQUIPO_NOMBRE ";
 
-                Utils utils = new Utils();
+                Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_EQUIPO", psdEquipoonombre));
 

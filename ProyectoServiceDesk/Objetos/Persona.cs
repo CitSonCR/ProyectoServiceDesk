@@ -44,8 +44,8 @@ namespace ProyectoServiceDesk_Controller
         {
             
             ConexionDB conexion = new ConexionDB();
-            bool resultado = true;
-            string strInsert = string.Empty;
+                bool resultado = true;
+                string strInsert = string.Empty;
             try
             {
                 strInsert = "INSERT INTO PSD_PERSONA (NUMERO_IDENTIFICACION, NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, EDAD, DIRECCION, TELEFONO, CORREO, GENERO, FECHA_NACIMIENTO) " +

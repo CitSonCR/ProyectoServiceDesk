@@ -31,8 +31,7 @@ namespace ProyectoServiceDesk.Controlador
             {
                 strInsert = "INSERT INTO PSD_DEPARTAMENTO (NOMBRE,TIPO,DESCRIPCION) " +
                             " VALUES (@NOMBRE,@APELLIDO1,@APELLIDO2,@TIPO,@DESCRIPCION)";
-
-                Utils utils = new Utils();
+                Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
                 utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@EDAD", tipo));
@@ -65,7 +64,7 @@ namespace ProyectoServiceDesk.Controlador
                             "        DESCRIPCION = @DESCRIPCION, " +
                             " WHERE  PSD_DEPARTAMENTO_NOMBRE = @PSD_DEPARTAMENTO_NOMBRE ";
 
-                Utils utils = new Utils();
+                Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
                 utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@EDAD", tipo));
@@ -94,7 +93,7 @@ namespace ProyectoServiceDesk.Controlador
             {
                 strDelete = " DELETE FROM PSD_DEPARTAMENTO WHERE  PSD_DEPARTAMENTO_NOMBRE = @PSD_PERSONA_NOMBRE ";
 
-                Utils utils = new Utils();
+                Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_DEPARTAMENTO", psdDepartamentonombre));
 
@@ -118,7 +117,7 @@ namespace ProyectoServiceDesk.Controlador
             {
                 string strSelect = " SELECT PSD_DEPARTAMENTO_NOMBRE FROM PSD_DEPARTAMENTO WHERE NOMBRE = @NOMBRE ";
 
-                Utils utils = new Utils();
+                Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
 
