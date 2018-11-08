@@ -1,6 +1,6 @@
 ﻿namespace ProyectoServiceDesk_View.Forms
 {
-    partial class UsuarioNuevo
+    partial class PersonaNueva
     {
         /// <summary>
         /// Required designer variable.

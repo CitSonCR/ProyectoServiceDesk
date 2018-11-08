@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProyectoServiceDesk_View.Forms
 {
-    public partial class UsuarioNuevo : Form
+    public partial class PersonaNueva : Form
     {
-        public UsuarioNuevo()
+        public PersonaNueva()
         {
             InitializeComponent();
         }
