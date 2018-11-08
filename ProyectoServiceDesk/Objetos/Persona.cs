@@ -22,7 +22,9 @@ namespace ProyectoServiceDesk_Controller
         public string Genero { get; set; }
         public DateTime FechaNacimiento { get; set; }
 
-        
+        public Persona()
+        {
+        }
 
         public Persona(int numeroIdentificacion, string nombre, string primerApellido, string segundoApellido, int edad, string direccion, int telefono, string correoElectronico, string genero, DateTime fechaNacimiento)
         {
@@ -42,8 +44,8 @@ namespace ProyectoServiceDesk_Controller
         {
             
             ConexionDB conexion = new ConexionDB();
-            bool resultado = true;
-            string strInsert = string.Empty;
+                bool resultado = true;
+                string strInsert = string.Empty;
             try
             {
                 strInsert = "INSERT INTO PSD_PERSONA (NUMERO_IDENTIFICACION, NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, EDAD, DIRECCION, TELEFONO, CORREO, GENERO, FECHA_NACIMIENTO) " +

@@ -56,40 +56,32 @@ namespace ProyectoServiceDesk.Controlador
             return resultado;
         }
 
-        public Boolean EditarPersona(int numeroIdentificacion, string nombre, string primerApellido, string segundoApellido, int edad, string direccion, int telefono, string correoElectronico, string genero, DateTime fechaNacimiento, int psdPersonaId)
+        public Boolean EditarUsuario(string userName, string password, DateTime fechaIngreso, string tipoUsuario, Equipo equipo, int numeroIdentificacionPersona, int psdUsuarioId)
         {
 
             ConexionDB conexion = new ConexionDB();
             bool resultado = true;
             string strUpdate = string.Empty;
+            Persona persona = new Persona();
             try
             {
-                strUpdate = " UPDATE PSD_PERSONA " +
-                            " SET   NUMERO_IDENTIFICACION = @IDENTIFICACION, " +
-                            "       NOMBRE = @NOMBRE, " +
-                            "       PRIMER_APELLIDO = @APELLIDO1, " +
-                            "       SEGUNDO_APELLIDO = @APELLIDO2, " +
-                            "       EDAD = @EDAD, " +
-                            "       DIRECCION = @DIRECCION, " +
-                            "       TELEFONO = @TELEFONO, " +
-                            "       CORREO = @CORREO, " +
-                            "       GENERO = @GENERO, " +
-                            "       FECHA_NACIMIENTO = @FECHA_NACIMIENTO, " +
-                            " WHERE  PSD_PERSONA_ID = @PSD_PERSONA_ID ";
+                strUpdate = " UPDATE PSD_USUARIO " +
+                            " SET   USERNAME = @P_USERNAME, " +
+                            "       FECHA_INGRESO = @P_FECHA_INGRESO, " +
+                            "       TIPO_USUARIO_CODIGO_ID = @P_TIPO_USUARIO_CODIGO_ID, " +
+                            "       PSD_EQUIPO_ID = @P_PSD_EQUIPO_ID, " +
+                            "       PSD_PERSONA_ID = @P_PSD_PERSONA_ID, " +
+                            " WHERE PSD_USUARIO_ID = @P_PSD_USUARIO_ID ";
 
                 Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@IDENTIFICACION", numeroIdentificacion));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@APELLIDO1", primerApellido));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@APELLIDO2", segundoApellido));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@EDAD", edad));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DIRECCION", direccion));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TELEFONO", telefono));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@CORREO", correoElectronico));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@GENERO", genero));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@FECHA_NACIMIENTO", fechaNacimiento));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_PERSONA_ID", psdPersonaId));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_USERNAME", userName));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PASSWORD", password));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_FECHA_INGRESO", fechaIngreso));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_TIPO_USUARIO_CODIGO_ID", tipoUsuario));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_EQUIPO_ID", equipo.CodigoEquipo));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_PERSONA_ID", persona.GetPsdPersonaIdPorNumeroIdentificador(numeroIdentificacionPersona)));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_USUARIO_ID", psdUsuarioId));
 
 
                 conexion.setDatosBD(strUpdate, utils.parameterCollection);
@@ -104,7 +96,7 @@ namespace ProyectoServiceDesk.Controlador
             return resultado;
         }
 
-        public Boolean EliminarPersona(int psdPersonaId)
+        public Boolean EliminarUsuario(int psdUsuarioId)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -112,11 +104,11 @@ namespace ProyectoServiceDesk.Controlador
             string strDelete = string.Empty;
             try
             {
-                strDelete = " DELETE FROM PSD_PERSONA WHERE  PSD_PERSONA_ID = @PSD_PERSONA_ID ";
+                strDelete = " DELETE FROM PSD_USUARIO WHERE PSD_USUARIO_ID = @PSD_USUARIO_ID ";
 
                 Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_PERSONA_ID", psdPersonaId));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_USUARIO_ID", psdUsuarioId));
 
                 conexion.setDatosBD(strDelete, utils.parameterCollection);
             }
