@@ -55,6 +55,18 @@
     <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Nuevo Equipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Nuevo Equipo.Designer.cs">
+      <DependentUpon>Nuevo Equipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NuevoDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NuevoDepartamento.Designer.cs">
+      <DependentUpon>NuevoDepartamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PersonaNueva.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +81,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Nuevo Equipo.resx">
+      <DependentUpon>Nuevo Equipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NuevoDepartamento.resx">
+      <DependentUpon>NuevoDepartamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PersonaNueva.resx">
       <DependentUpon>PersonaNueva.cs</DependentUpon>
