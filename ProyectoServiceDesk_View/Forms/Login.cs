@@ -19,7 +19,8 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnRegistro_Click(object sender, EventArgs e)
         {
-
+            PersonaNueva person = new PersonaNueva();
+            person.Show();
         }
     }
 }
