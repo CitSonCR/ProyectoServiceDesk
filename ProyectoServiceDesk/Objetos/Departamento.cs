@@ -13,15 +13,18 @@ namespace ProyectoServiceDesk.Controlador
         public string Nombre { get; set; }
         public string Tipo { get; set; }
         public string Descripcion { get; set; }
+        public int DepartamentoID { get; set; }
 
-        public Departamento(string nombre, string tipo, string descripcion)
+        public Departamento(string nombre, string tipo, string descripcion,int id)
         {
             Nombre = nombre;
             Tipo = tipo;
             Descripcion = descripcion;
+            DepartamentoID = id;
+            
         }
 
-        public Boolean IngresarDepartamento(string nombre, string tipo,string descripcion)
+        public Boolean IngresarDepartamento(string nombre, string tipo,string descripcion,int id)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -29,13 +32,14 @@ namespace ProyectoServiceDesk.Controlador
             string strInsert = string.Empty;
             try
             {
-                strInsert = "INSERT INTO PSD_DEPARTAMENTO (NOMBRE,TIPO,DESCRIPCION) " +
-                            " VALUES (@NOMBRE,@APELLIDO1,@APELLIDO2,@TIPO,@DESCRIPCION)";
+                strInsert = "INSERT INTO DEPARTAMENTO(NOMBRE,TIPO,DESCRIPCION,PSD_DEPARTAMENTO_ID) " +
+                            " VALUES (@NOMBRE,@TIPO,@DESCRIPCION,@PSD_DEPARTAMENTO_ID)";
                 Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@EDAD", tipo));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DIRECCION", descripcion));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TIPO", tipo));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DESCRIPCION", descripcion));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_DEPARTAMENTO_ID", id));
 
 
                 conexion.setDatosBD(strInsert, utils.parameterCollection);
@@ -50,7 +54,7 @@ namespace ProyectoServiceDesk.Controlador
             return resultado;
         }
 
-        public Boolean EditarDepartamento(string nombre,string tipo,string descripcion)
+        public Boolean EditarDepartamento(string nombre,string tipo,string descripcion,string id)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -62,13 +66,15 @@ namespace ProyectoServiceDesk.Controlador
                             " SET    NOMBRE = @NOMBRE," +
                             "        TIPO = @TIPO, " +
                             "        DESCRIPCION = @DESCRIPCION, " +
-                            " WHERE  PSD_DEPARTAMENTO_NOMBRE = @PSD_DEPARTAMENTO_NOMBRE ";
+                            "        PSD_DEPARTAMENTO_ID = @PSD_DEPARTAMENTO, " +
+                            " WHERE  NOMBRE = @NOMBRE ";
 
                 Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@EDAD", tipo));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DIRECCION", descripcion));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TIPO", tipo));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DESCRIPCION", descripcion));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_DEPARTAMENTO_ID",id));
 
 
                 conexion.setDatosBD(strUpdate, utils.parameterCollection);
@@ -83,7 +89,7 @@ namespace ProyectoServiceDesk.Controlador
             return resultado;
         }
 
-        public Boolean EliminarPersona(int psdDepartamentonombre)
+        public Boolean EliminarPersona(int psdDepartamentoID)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -91,11 +97,11 @@ namespace ProyectoServiceDesk.Controlador
             string strDelete = string.Empty;
             try
             {
-                strDelete = " DELETE FROM PSD_DEPARTAMENTO WHERE  PSD_DEPARTAMENTO_NOMBRE = @PSD_PERSONA_NOMBRE ";
+                strDelete = " DELETE FROM PSD_DEPARTAMENTO WHERE PSD_DEPARTAMENTO_ID = @PSD_DEPARTAMENTO_ID";
 
                 Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_DEPARTAMENTO", psdDepartamentonombre));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_DEPARTAMENTO_ID", psdDepartamentoID));
 
                 conexion.setDatosBD(strDelete, utils.parameterCollection);
             }
@@ -109,17 +115,17 @@ namespace ProyectoServiceDesk.Controlador
             return resultado;
         }
 
-        public int GetPsdDepartamentoIdPorNumeroIdentificador(string nombre)
+        public int GetPsdDepartamentoIdPorNumeroIdentificador(int id)
         {
             ConexionDB conexion = new ConexionDB();
             int resultado = 0;
             try
             {
-                string strSelect = " SELECT PSD_DEPARTAMENTO_NOMBRE FROM PSD_DEPARTAMENTO WHERE NOMBRE = @NOMBRE ";
+                string strSelect = " SELECT * FROM PSD_DEPARTAMENTO WHERE PSD_DEPARTAMENTO_ID = @PSD_DEPARTAMENTO_ID";
 
                 Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
+                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_DEPARTAMENTO_ID", id));
 
                 resultado = int.Parse(conexion.getDatosBD(strSelect, utils.parameterCollection).Rows[0][0].ToString());
 
@@ -133,7 +139,6 @@ namespace ProyectoServiceDesk.Controlador
 
             return resultado;
         }
-
 
     }
 
