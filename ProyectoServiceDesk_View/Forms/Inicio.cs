@@ -16,6 +16,8 @@ namespace ProyectoServiceDesk_View.Forms
         {
             InitializeComponent();
         }
+
+
        
         private void btnIniciar_Click(object sender, EventArgs e)
         {
