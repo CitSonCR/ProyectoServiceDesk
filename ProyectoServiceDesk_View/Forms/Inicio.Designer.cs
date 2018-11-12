@@ -28,37 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnIniciar = new System.Windows.Forms.Button();
-            this.btnRegistrarse = new System.Windows.Forms.Button();
             this.btnEquipo = new System.Windows.Forms.Button();
             this.btnDepartamento = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnIniciar
-            // 
-            this.btnIniciar.Location = new System.Drawing.Point(419, 180);
-            this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(146, 52);
-            this.btnIniciar.TabIndex = 0;
-            this.btnIniciar.Text = "Iniciar Sesion";
-            this.btnIniciar.UseVisualStyleBackColor = true;
-            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
-            // 
-            // btnRegistrarse
-            // 
-            this.btnRegistrarse.Location = new System.Drawing.Point(419, 290);
-            this.btnRegistrarse.Name = "btnRegistrarse";
-            this.btnRegistrarse.Size = new System.Drawing.Size(146, 52);
-            this.btnRegistrarse.TabIndex = 1;
-            this.btnRegistrarse.Text = "Registrarse";
-            this.btnRegistrarse.UseVisualStyleBackColor = true;
-            this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
-            // 
             // btnEquipo
             // 
-            this.btnEquipo.Location = new System.Drawing.Point(625, 238);
+            this.btnEquipo.Location = new System.Drawing.Point(352, 223);
+            this.btnEquipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEquipo.Name = "btnEquipo";
-            this.btnEquipo.Size = new System.Drawing.Size(146, 52);
+            this.btnEquipo.Size = new System.Drawing.Size(182, 42);
             this.btnEquipo.TabIndex = 2;
             this.btnEquipo.Text = "Nuevo Equipo";
             this.btnEquipo.UseVisualStyleBackColor = true;
@@ -66,9 +45,10 @@
             // 
             // btnDepartamento
             // 
-            this.btnDepartamento.Location = new System.Drawing.Point(197, 238);
+            this.btnDepartamento.Location = new System.Drawing.Point(352, 79);
+            this.btnDepartamento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDepartamento.Name = "btnDepartamento";
-            this.btnDepartamento.Size = new System.Drawing.Size(146, 52);
+            this.btnDepartamento.Size = new System.Drawing.Size(182, 42);
             this.btnDepartamento.TabIndex = 3;
             this.btnDepartamento.Text = "Nuevo Departamento";
             this.btnDepartamento.UseVisualStyleBackColor = true;
@@ -76,24 +56,20 @@
             // 
             // Inicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 607);
+            this.ClientSize = new System.Drawing.Size(896, 486);
             this.Controls.Add(this.btnDepartamento);
             this.Controls.Add(this.btnEquipo);
-            this.Controls.Add(this.btnRegistrarse);
-            this.Controls.Add(this.btnIniciar);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Inicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
-            //this.Load += new System.EventHandler(this.Inicio_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnIniciar;
-        private System.Windows.Forms.Button btnRegistrarse;
         private System.Windows.Forms.Button btnEquipo;
         private System.Windows.Forms.Button btnDepartamento;
     }

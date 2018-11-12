@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -26,7 +27,7 @@ namespace ProyectoServiceDesk.Modelo
             }
         }
 
-        public DataTable getDatosBD(String strSQL, SqlParameterCollection ListaParametros)
+        public DataTable getDatosBD(String strSQL, List<SqlParameter> ListaParametros)
         {
             DataTable dtDatos = new DataTable();
             try
@@ -59,7 +60,7 @@ namespace ProyectoServiceDesk.Modelo
             return dtDatos;
         }
 
-        public String setDatosBD(String strSQL, SqlParameterCollection ListaParametros)
+        public String setDatosBD(String strSQL, List<SqlParameter> ListaParametros)
         {
             String bandera = String.Empty;
             try

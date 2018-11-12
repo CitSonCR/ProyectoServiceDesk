@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoServiceDesk.Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,23 @@ namespace ProyectoServiceDesk_View.Forms
         private void btnRegistro_Click(object sender, EventArgs e)
         {
             PersonaNueva person = new PersonaNueva();
-            person.Show();
+            person.ShowDialog();
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            Usuario usuario = new Usuario();
+            if (usuario.ValidarUsuario(txtUsuario.Text, txtContraseña.Text))
+            {
+                Inicio inicio = new Inicio();
+                this.Hide();
+                inicio.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Usuario o Contraseña incorrecto!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

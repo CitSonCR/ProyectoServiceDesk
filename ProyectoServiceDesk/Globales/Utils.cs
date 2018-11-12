@@ -9,12 +9,15 @@ namespace ProyectoServiceDesk.Utils
 {
     public class Utils
     {
-        public SqlParameterCollection parameterCollection { get; set; }
+        public List<SqlParameter> ParameterCollection = new List<SqlParameter>();
+        public string YES = "Y";
+        public string NO = "N";
 
         public void LimpiarSqlParameterCollection()
         {
-            parameterCollection.Clear();
-        }
+            if (null != ParameterCollection)
+                ParameterCollection.Clear();
+        } 
 
 
 

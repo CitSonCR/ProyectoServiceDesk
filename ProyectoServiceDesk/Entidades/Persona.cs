@@ -48,24 +48,24 @@ namespace ProyectoServiceDesk_Controller
                 string strInsert = string.Empty;
             try
             {
-                strInsert = "INSERT INTO PSD_PERSONA (NUMERO_IDENTIFICACION, NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, EDAD, DIRECCION, TELEFONO, CORREO, GENERO, FECHA_NACIMIENTO) " +
+                strInsert = "INSERT INTO PSD_PERSONA (NUMERO_IDENTIFICACION, NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, EDAD, DIRECCION, TELEFONO, CORREO_ELECTRONICO, GENERO, FECHA_NACIMIENTO) " +
                             " VALUES (@IDENTIFICACION,@NOMBRE,@APELLIDO1,@APELLIDO2,@EDAD,@DIRECCION,@TELEFONO,@CORREO,@GENERO,@FECHA_NACIMIENTO)";
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@IDENTIFICACION", numeroIdentificacion));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@APELLIDO1", primerApellido));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@APELLIDO2", segundoApellido));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@EDAD", edad));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DIRECCION", direccion));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TELEFONO", telefono));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@CORREO", correoElectronico));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@GENERO", genero));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@FECHA_NACIMIENTO", fechaNacimiento));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@IDENTIFICACION", numeroIdentificacion));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@APELLIDO1", primerApellido));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@APELLIDO2", segundoApellido));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@EDAD", edad));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DIRECCION", direccion));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TELEFONO", telefono));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@CORREO", correoElectronico));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@GENERO", genero));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@FECHA_NACIMIENTO", fechaNacimiento));
                 
 
-                conexion.setDatosBD(strInsert,utils.parameterCollection);
+                conexion.setDatosBD(strInsert,utils.ParameterCollection);
             }
             catch (Exception)
             {
@@ -100,20 +100,20 @@ namespace ProyectoServiceDesk_Controller
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@IDENTIFICACION", numeroIdentificacion));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@APELLIDO1", primerApellido));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@APELLIDO2", segundoApellido));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@EDAD", edad));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DIRECCION", direccion));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TELEFONO", telefono));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@CORREO", correoElectronico));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@GENERO", genero));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@FECHA_NACIMIENTO", fechaNacimiento));
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_PERSONA_ID", psdPersonaId));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@IDENTIFICACION", numeroIdentificacion));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@APELLIDO1", primerApellido));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@APELLIDO2", segundoApellido));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@EDAD", edad));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DIRECCION", direccion));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TELEFONO", telefono));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@CORREO", correoElectronico));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@GENERO", genero));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@FECHA_NACIMIENTO", fechaNacimiento));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_PERSONA_ID", GetPsdPersonaIdPorNumeroIdentificador(numeroIdentificacion)));
                 
 
-                conexion.setDatosBD(strUpdate, utils.parameterCollection);
+                conexion.setDatosBD(strUpdate, utils.ParameterCollection);
             }
             catch (Exception)
             {
@@ -125,7 +125,7 @@ namespace ProyectoServiceDesk_Controller
             return resultado;
         }
 
-        public Boolean EliminarPersona(int psdPersonaId)
+        public Boolean EliminarPersona(int numeroIdentificacion)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -137,9 +137,9 @@ namespace ProyectoServiceDesk_Controller
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_PERSONA_ID", psdPersonaId));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_PERSONA_ID", GetPsdPersonaIdPorNumeroIdentificador(numeroIdentificacion)));
 
-                conexion.setDatosBD(strDelete, utils.parameterCollection);
+                conexion.setDatosBD(strDelete, utils.ParameterCollection);
             }
             catch (Exception)
             {
@@ -161,9 +161,9 @@ namespace ProyectoServiceDesk_Controller
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.parameterCollection.Add(new System.Data.SqlClient.SqlParameter("@IDENTIFICACION", numeroIdentificacion));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@IDENTIFICACION", numeroIdentificacion));
 
-                resultado = int.Parse(conexion.getDatosBD(strSelect, utils.parameterCollection).Rows[0][0].ToString());                
+                resultado = int.Parse(conexion.getDatosBD(strSelect, utils.ParameterCollection).Rows[0][0].ToString());                
 
             }
             catch (Exception)
