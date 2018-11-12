@@ -110,5 +110,6 @@
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.TextBox txtId;
     }
 }
