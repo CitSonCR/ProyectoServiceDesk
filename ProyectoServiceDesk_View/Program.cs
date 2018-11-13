@@ -21,7 +21,7 @@ namespace ProyectoServiceDesk
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NuevoDepartamento());
+            Application.Run(new Login());
         }
     }
 }

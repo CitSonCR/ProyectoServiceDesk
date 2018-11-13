@@ -46,7 +46,7 @@
             this.btnRegistro.Location = new System.Drawing.Point(317, 380);
             this.btnRegistro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegistro.Name = "btnRegistro";
-            this.btnRegistro.Size = new System.Drawing.Size(169, 60);
+            this.btnRegistro.Size = new System.Drawing.Size(169, 75);
             this.btnRegistro.TabIndex = 11;
             this.btnRegistro.Text = "Registrarse";
             this.btnRegistro.UseVisualStyleBackColor = true;
@@ -130,7 +130,7 @@
             this.btnNuevoEquipo.Location = new System.Drawing.Point(86, 385);
             this.btnNuevoEquipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNuevoEquipo.Name = "btnNuevoEquipo";
-            this.btnNuevoEquipo.Size = new System.Drawing.Size(169, 55);
+            this.btnNuevoEquipo.Size = new System.Drawing.Size(169, 70);
             this.btnNuevoEquipo.TabIndex = 14;
             this.btnNuevoEquipo.Text = "Nuevo Equipo";
             this.btnNuevoEquipo.UseVisualStyleBackColor = true;
@@ -142,7 +142,7 @@
             this.btnDepartamento.Location = new System.Drawing.Point(542, 380);
             this.btnDepartamento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDepartamento.Name = "btnDepartamento";
-            this.btnDepartamento.Size = new System.Drawing.Size(169, 60);
+            this.btnDepartamento.Size = new System.Drawing.Size(169, 75);
             this.btnDepartamento.TabIndex = 15;
             this.btnDepartamento.Text = "Nuevo Departamento";
             this.btnDepartamento.UseVisualStyleBackColor = true;

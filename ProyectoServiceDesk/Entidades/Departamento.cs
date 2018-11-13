@@ -59,7 +59,7 @@ namespace ProyectoServiceDesk.Controlador
             return resultado;
         }
 
-        public Boolean EditarDepartamento(string nombre,string tipo,string descripcion,string IdDepartamento)
+        public Boolean EditarDepartamento(string nombre,string tipo,string descripcion)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -70,15 +70,14 @@ namespace ProyectoServiceDesk.Controlador
                 strUpdate = " UPDATE PSD_DEPARTAMENTO " +
                             " SET    NOMBRE = @NOMBRE," +
                             "        TIPO = @TIPO, " +
-                            "        DESCRIPCION = @DESCRIPCION " +
-                            " WHERE  PSD_DEPARTAMENTO_ID = @PSD_DEPARTAMENTO_ID";
+                            " WHERE  DESCRIPCION = @DESCRIPCION ";
 
                 Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TIPO", tipo));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DESCRIPCION", descripcion));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_DEPARTAMENTO_ID",IdDepartamento));
+                
 
 
                 conexion.setDatosBD(strUpdate, utils.ParameterCollection);
