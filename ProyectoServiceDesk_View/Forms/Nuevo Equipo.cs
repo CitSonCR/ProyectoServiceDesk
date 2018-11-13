@@ -55,5 +55,11 @@ namespace ProyectoServiceDesk_View.Forms
             Equipo equipo = new Equipo();
            
         }
+
+        private void btnRegresar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 }
