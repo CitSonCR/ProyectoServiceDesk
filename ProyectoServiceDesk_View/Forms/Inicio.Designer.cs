@@ -28,39 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnEquipo = new System.Windows.Forms.Button();
-            this.btnDepartamento = new System.Windows.Forms.Button();
+            this.btnAdmEquipo = new System.Windows.Forms.Button();
+            this.btnAdmDepartamento = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnEquipo
+            // btnAdmEquipo
             // 
-            this.btnEquipo.Location = new System.Drawing.Point(352, 223);
-            this.btnEquipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEquipo.Name = "btnEquipo";
-            this.btnEquipo.Size = new System.Drawing.Size(182, 42);
-            this.btnEquipo.TabIndex = 2;
-            this.btnEquipo.Text = "Nuevo Equipo";
-            this.btnEquipo.UseVisualStyleBackColor = true;
-            this.btnEquipo.Click += new System.EventHandler(this.btnEquipo_Click);
+            this.btnAdmEquipo.Font = new System.Drawing.Font("Arial", 10.8F);
+            this.btnAdmEquipo.Location = new System.Drawing.Point(576, 173);
+            this.btnAdmEquipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdmEquipo.Name = "btnAdmEquipo";
+            this.btnAdmEquipo.Size = new System.Drawing.Size(205, 85);
+            this.btnAdmEquipo.TabIndex = 2;
+            this.btnAdmEquipo.Text = "Administar Equipo";
+            this.btnAdmEquipo.UseVisualStyleBackColor = true;
+            this.btnAdmEquipo.Click += new System.EventHandler(this.btnEquipo_Click);
             // 
-            // btnDepartamento
+            // btnAdmDepartamento
             // 
-            this.btnDepartamento.Location = new System.Drawing.Point(352, 79);
-            this.btnDepartamento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDepartamento.Name = "btnDepartamento";
-            this.btnDepartamento.Size = new System.Drawing.Size(182, 42);
-            this.btnDepartamento.TabIndex = 3;
-            this.btnDepartamento.Text = "Nuevo Departamento";
-            this.btnDepartamento.UseVisualStyleBackColor = true;
-            this.btnDepartamento.Click += new System.EventHandler(this.btnDepartamento_Click);
+            this.btnAdmDepartamento.Font = new System.Drawing.Font("Arial", 10.8F);
+            this.btnAdmDepartamento.Location = new System.Drawing.Point(197, 173);
+            this.btnAdmDepartamento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdmDepartamento.Name = "btnAdmDepartamento";
+            this.btnAdmDepartamento.Size = new System.Drawing.Size(205, 85);
+            this.btnAdmDepartamento.TabIndex = 3;
+            this.btnAdmDepartamento.Text = "Administrar Departamentos";
+            this.btnAdmDepartamento.UseVisualStyleBackColor = true;
+            this.btnAdmDepartamento.Click += new System.EventHandler(this.btnDepartamento_Click);
             // 
             // Inicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 486);
-            this.Controls.Add(this.btnDepartamento);
-            this.Controls.Add(this.btnEquipo);
+            this.ClientSize = new System.Drawing.Size(1008, 608);
+            this.Controls.Add(this.btnAdmDepartamento);
+            this.Controls.Add(this.btnAdmEquipo);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -70,7 +72,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnEquipo;
-        private System.Windows.Forms.Button btnDepartamento;
+        private System.Windows.Forms.Button btnAdmEquipo;
+        private System.Windows.Forms.Button btnAdmDepartamento;
     }
 }

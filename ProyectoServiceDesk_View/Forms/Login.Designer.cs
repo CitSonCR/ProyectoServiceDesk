@@ -36,8 +36,6 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnInicio = new System.Windows.Forms.Button();
             this.btnCambioPassword = new System.Windows.Forms.Button();
-            this.btnNuevoEquipo = new System.Windows.Forms.Button();
-            this.btnDepartamento = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRegistro
@@ -124,38 +122,12 @@
             this.btnCambioPassword.Text = "Cambiar contraseña";
             this.btnCambioPassword.UseVisualStyleBackColor = true;
             // 
-            // btnNuevoEquipo
-            // 
-            this.btnNuevoEquipo.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoEquipo.Location = new System.Drawing.Point(86, 385);
-            this.btnNuevoEquipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnNuevoEquipo.Name = "btnNuevoEquipo";
-            this.btnNuevoEquipo.Size = new System.Drawing.Size(169, 70);
-            this.btnNuevoEquipo.TabIndex = 14;
-            this.btnNuevoEquipo.Text = "Nuevo Equipo";
-            this.btnNuevoEquipo.UseVisualStyleBackColor = true;
-            this.btnNuevoEquipo.Click += new System.EventHandler(this.btnNuevoEquipo_Click);
-            // 
-            // btnDepartamento
-            // 
-            this.btnDepartamento.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDepartamento.Location = new System.Drawing.Point(542, 380);
-            this.btnDepartamento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDepartamento.Name = "btnDepartamento";
-            this.btnDepartamento.Size = new System.Drawing.Size(169, 75);
-            this.btnDepartamento.TabIndex = 15;
-            this.btnDepartamento.Text = "Nuevo Departamento";
-            this.btnDepartamento.UseVisualStyleBackColor = true;
-            this.btnDepartamento.Click += new System.EventHandler(this.btnDepartamento_Click);
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(812, 526);
-            this.Controls.Add(this.btnDepartamento);
-            this.Controls.Add(this.btnNuevoEquipo);
             this.Controls.Add(this.btnCambioPassword);
             this.Controls.Add(this.btnInicio);
             this.Controls.Add(this.btnRegistro);
@@ -183,7 +155,5 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Button btnCambioPassword;
-        private System.Windows.Forms.Button btnNuevoEquipo;
-        private System.Windows.Forms.Button btnDepartamento;
     }
 }
