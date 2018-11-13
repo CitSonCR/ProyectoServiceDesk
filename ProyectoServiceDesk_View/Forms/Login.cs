@@ -52,5 +52,7 @@ namespace ProyectoServiceDesk_View.Forms
             Nuevo_Equipo equipo = new Nuevo_Equipo();
             equipo.ShowDialog();
         }
+
+        
     }
 }

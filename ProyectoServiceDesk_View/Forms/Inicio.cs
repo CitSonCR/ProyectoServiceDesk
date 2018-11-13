@@ -42,5 +42,10 @@ namespace ProyectoServiceDesk_View.Forms
             AdministrarEquipo equipo = new AdministrarEquipo();
             equipo.Show();
         }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

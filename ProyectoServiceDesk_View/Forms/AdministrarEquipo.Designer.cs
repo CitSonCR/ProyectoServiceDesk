@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdministrarEquipo));
             this.btnModificarEquipo = new System.Windows.Forms.Button();
             this.btnEliminarEquipo = new System.Windows.Forms.Button();
             this.btnAddEquipo = new System.Windows.Forms.Button();
+            this.btnRegresar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnModificarEquipo
@@ -67,14 +69,28 @@
             this.btnAddEquipo.UseVisualStyleBackColor = true;
             this.btnAddEquipo.Click += new System.EventHandler(this.btnAddEquipo_Click);
             // 
+            // btnRegresar
+            // 
+            this.btnRegresar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
+            this.btnRegresar.Location = new System.Drawing.Point(12, 561);
+            this.btnRegresar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(49, 49);
+            this.btnRegresar.TabIndex = 37;
+            this.btnRegresar.UseVisualStyleBackColor = true;
+            // 
             // AdministrarEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1022, 623);
+            this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnModificarEquipo);
             this.Controls.Add(this.btnEliminarEquipo);
             this.Controls.Add(this.btnAddEquipo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdministrarEquipo";
             this.Text = "AdministrarEquipo";
             this.ResumeLayout(false);
@@ -86,5 +102,6 @@
         private System.Windows.Forms.Button btnModificarEquipo;
         private System.Windows.Forms.Button btnEliminarEquipo;
         private System.Windows.Forms.Button btnAddEquipo;
+        private System.Windows.Forms.Button btnRegresar;
     }
 }
