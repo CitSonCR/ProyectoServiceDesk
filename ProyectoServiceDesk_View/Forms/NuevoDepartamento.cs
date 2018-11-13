@@ -22,13 +22,25 @@ namespace ProyectoServiceDesk_View.Forms
 
          private void btnGuardar_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
             try
             {
-                Departamento departamento = new Departamento(txtNombre.Text,txtTipo.Text,lblDescripcion.Text, Convert.ToInt32(txtId.Text));
-                if (departamento.IngresarDepartamento(departamento.Nombre,departamento.Tipo,departamento.Descripcion,departamento.Id))
+                Departamento departamento = new Departamento(txtNombre.Text, txtTipo.Text, txtDescripcion.Text, Convert.ToInt32(txtId.Text));
+                if ( departamento.IngresarDepartamento( departamento.Nombre, departamento.Tipo, departamento.Descripcion, departamento.Id))
                 {
                     MessageBox.Show("informacion guardada con exito!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    UsuarioNuevo usuario = new UsuarioNuevo();
+                    NuevoDepartamento dep = new NuevoDepartamento();
+                    dep.ShowDialog();
+                    
                 }
                 else
                 {
@@ -42,9 +54,15 @@ namespace ProyectoServiceDesk_View.Forms
             }
         }
 
-        private void btnRegresar_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            this.Close();
+
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
     }
 }
