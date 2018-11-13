@@ -63,6 +63,11 @@ namespace ProyectoServiceDesk_View.Forms
         {
 
         }
+
+        private void btnRegresar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
     }
 }
