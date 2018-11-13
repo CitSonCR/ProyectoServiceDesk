@@ -16,7 +16,7 @@ namespace ProyectoServiceDesk.Controlador
         public Equipo()
         {
         }
-        public Equipo(string nombre, string tipo, string descripcion,int Id) : base(nombre, tipo, descripcion)
+        public Equipo(string nombre, string tipo, string descripcion) : base(nombre, tipo, descripcion)
         {
         }
         public Boolean IngresarEquipo(string nombre, string descripcion,Departamento departamento)

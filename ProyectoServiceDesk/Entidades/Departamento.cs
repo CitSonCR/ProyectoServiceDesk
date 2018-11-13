@@ -36,7 +36,7 @@ namespace ProyectoServiceDesk.Controlador
             string strInsert = string.Empty;
             try
             {
-                strInsert = "INSERT INTO DEPARTAMENTO(NOMBRE,TIPO,DESCRIPCION) " +
+                strInsert = "INSERT INTO PSD_DEPARTAMENTO(NOMBRE,TIPO,DESCRIPCION) " +
                             " VALUES (@NOMBRE,@TIPO,@DESCRIPCION)";
                 Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
