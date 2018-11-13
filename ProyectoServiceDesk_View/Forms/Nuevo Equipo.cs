@@ -27,14 +27,28 @@ namespace ProyectoServiceDesk_View.Forms
             this.Close();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+       
+
+        private void cboxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Equipo equipo = new Equipo();
+           
+        }
+
+        private void btnRegresar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
         {
             try
             {
                 Equipo equipo = new Equipo(txtNombre.Text, txtDescripcion.Text, departamento.Nombre);
-                
-                
-                if (equipo.IngresarEquipo(equipo.Nombre,equipo.Descripcion,departamento))
+
+
+                if (equipo.IngresarEquipo(equipo.Nombre, equipo.Descripcion, departamento))
                 {
                     MessageBox.Show("informacion guardada con exito!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -48,18 +62,6 @@ namespace ProyectoServiceDesk_View.Forms
 
                 throw;
             }
-        }
-
-        private void cboxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Equipo equipo = new Equipo();
-           
-        }
-
-        private void btnRegresar_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-
         }
     }
 }
