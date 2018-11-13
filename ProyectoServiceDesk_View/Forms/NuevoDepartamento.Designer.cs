@@ -35,14 +35,12 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.txtnum = new System.Windows.Forms.TextBox();
-            this.lblid = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(67, 149);
+            this.txtNombre.Location = new System.Drawing.Point(65, 158);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(131, 26);
             this.txtNombre.TabIndex = 7;
@@ -100,24 +98,6 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
-            // txtnum
-            // 
-            this.txtnum.Location = new System.Drawing.Point(67, 251);
-            this.txtnum.Name = "txtnum";
-            this.txtnum.Size = new System.Drawing.Size(71, 26);
-            this.txtnum.TabIndex = 28;
-            this.txtnum.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // lblid
-            // 
-            this.lblid.AutoSize = true;
-            this.lblid.Location = new System.Drawing.Point(63, 213);
-            this.lblid.Name = "lblid";
-            this.lblid.Size = new System.Drawing.Size(133, 20);
-            this.lblid.TabIndex = 27;
-            this.lblid.Text = "ID Departamento";
-            this.lblid.Click += new System.EventHandler(this.label1_Click);
-            // 
             // btnRegresar
             // 
             this.btnRegresar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -136,8 +116,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1009, 616);
             this.Controls.Add(this.btnRegresar);
-            this.Controls.Add(this.txtnum);
-            this.Controls.Add(this.lblid);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.lblDescripcion);
@@ -162,8 +140,6 @@
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox txtnum;
-        private System.Windows.Forms.Label lblid;
         private System.Windows.Forms.Button btnRegresar;
     }
 }
