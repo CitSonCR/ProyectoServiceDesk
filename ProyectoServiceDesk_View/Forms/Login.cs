@@ -39,5 +39,20 @@ namespace ProyectoServiceDesk_View.Forms
                 MessageBox.Show("Usuario o Contraseña incorrecto!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnDepartamento_Click(object sender, EventArgs e)
+        {
+            NuevoDepartamento dep = new NuevoDepartamento();
+            dep.ShowDialog();
+        
+        }
+
+        private void btnNuevoEquipo_Click(object sender, EventArgs e)
+        {
+            Nuevo_Equipo equipo = new Nuevo_Equipo();
+            equipo.ShowDialog();
+        }
+
+        
     }
 }

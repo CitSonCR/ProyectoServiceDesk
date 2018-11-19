@@ -27,7 +27,7 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnDepartamento_Click(object sender, EventArgs e)
         {
-            NuevoDepartamento dep = new NuevoDepartamento();
+            AdministrarDepartamento dep = new AdministrarDepartamento();
             dep.Show();
         }
 
@@ -39,8 +39,13 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnEquipo_Click(object sender, EventArgs e)
         {
-            Nuevo_Equipo equipo = new Nuevo_Equipo();
+            AdministrarEquipo equipo = new AdministrarEquipo();
             equipo.Show();
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

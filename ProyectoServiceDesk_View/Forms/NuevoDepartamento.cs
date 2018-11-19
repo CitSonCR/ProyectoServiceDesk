@@ -34,8 +34,8 @@ namespace ProyectoServiceDesk_View.Forms
         {
             try
             {
-                Departamento departamento = new Departamento(txtNombre.Text, txtTipo.Text, txtDescripcion.Text, Convert.ToInt32(txtId.Text));
-                if ( departamento.IngresarDepartamento( departamento.Nombre, departamento.Tipo, departamento.Descripcion, departamento.Id))
+                Departamento departamento = new Departamento(txtNombre.Text, txtTipo.Text, txtDescripcion.Text);
+                if ( departamento.IngresarDepartamento( departamento.Nombre, departamento.Tipo, departamento.Descripcion))
                 {
                     MessageBox.Show("informacion guardada con exito!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NuevoDepartamento dep = new NuevoDepartamento();
@@ -63,6 +63,11 @@ namespace ProyectoServiceDesk_View.Forms
         {
 
         }
-    
+
+        private void btnRegresar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
-}
+    }
+

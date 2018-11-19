@@ -13,22 +13,22 @@ namespace ProyectoServiceDesk.Controlador
         public string Nombre { get; set; }
         public string Tipo { get; set; }
         public string Descripcion { get; set; }
-        public int Id { get; set; }
+       
 
         public Departamento()
         {
         }
 
-        public Departamento(string nombre, string tipo, string descripcion,int Id)
+        public Departamento(string nombre, string tipo, string descripcion)
         {
             Nombre = nombre;
             Tipo = tipo;
             Descripcion = descripcion;  
-            Id = Id;
+            
             
         }
 
-        public Boolean IngresarDepartamento(string nombre, string tipo,string descripcion,int IdDepartamento)
+        public Boolean IngresarDepartamento(string nombre, string tipo,string descripcion)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -36,14 +36,14 @@ namespace ProyectoServiceDesk.Controlador
             string strInsert = string.Empty;
             try
             {
-                strInsert = "INSERT INTO DEPARTAMENTO(NOMBRE,TIPO,DESCRIPCION,PSD_DEPARTAMENTO_ID) " +
-                            " VALUES (@NOMBRE,@TIPO,@DESCRIPCION,@PSD_DEPARTAMENTO_ID)";
+                strInsert = "INSERT INTO PSD_DEPARTAMENTO(NOMBRE,TIPO,DESCRIPCION) " +
+                            " VALUES (@NOMBRE,@TIPO,@DESCRIPCION)";
                 Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TIPO", tipo));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DESCRIPCION", descripcion));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_DEPARTAMENTO_ID", IdDepartamento));
+               
                 
 
 
@@ -59,7 +59,7 @@ namespace ProyectoServiceDesk.Controlador
             return resultado;
         }
 
-        public Boolean EditarDepartamento(string nombre,string tipo,string descripcion,string IdDepartamento)
+        public Boolean EditarDepartamento(string nombre,string tipo,string descripcion)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -70,15 +70,14 @@ namespace ProyectoServiceDesk.Controlador
                 strUpdate = " UPDATE PSD_DEPARTAMENTO " +
                             " SET    NOMBRE = @NOMBRE," +
                             "        TIPO = @TIPO, " +
-                            "        DESCRIPCION = @DESCRIPCION " +
-                            " WHERE  PSD_DEPARTAMENTO_ID = @PSD_DEPARTAMENTO_ID";
+                            " WHERE  DESCRIPCION = @DESCRIPCION ";
 
                 Utils.Utils utils = new Utils.Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TIPO", tipo));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DESCRIPCION", descripcion));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_DEPARTAMENTO_ID",IdDepartamento));
+                
 
 
                 conexion.setDatosBD(strUpdate, utils.ParameterCollection);

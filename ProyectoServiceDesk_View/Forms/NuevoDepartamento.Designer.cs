@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NuevoDepartamento));
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.TextBox();
@@ -35,13 +36,12 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.txtnum = new System.Windows.Forms.TextBox();
-            this.lblid = new System.Windows.Forms.Label();
+            this.btnRegresar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(67, 149);
+            this.txtNombre.Location = new System.Drawing.Point(65, 158);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(131, 26);
             this.txtNombre.TabIndex = 7;
@@ -49,9 +49,10 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Arial", 10.8F);
             this.lblNombre.Location = new System.Drawing.Point(63, 117);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(65, 20);
+            this.lblNombre.Size = new System.Drawing.Size(90, 25);
             this.lblNombre.TabIndex = 6;
             this.lblNombre.Text = "Nombre";
             // 
@@ -65,9 +66,10 @@
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
+            this.lblTipo.Font = new System.Drawing.Font("Arial", 10.8F);
             this.lblTipo.Location = new System.Drawing.Point(254, 117);
             this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(39, 20);
+            this.lblTipo.Size = new System.Drawing.Size(55, 25);
             this.lblTipo.TabIndex = 8;
             this.lblTipo.Text = "Tipo";
             // 
@@ -81,49 +83,46 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Arial", 10.8F);
             this.lblDescripcion.Location = new System.Drawing.Point(458, 117);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(92, 20);
+            this.lblDescripcion.Size = new System.Drawing.Size(126, 25);
             this.lblDescripcion.TabIndex = 10;
             this.lblDescripcion.Text = "Descripcion";
             // 
             // btnGuardar
             // 
+            this.btnGuardar.AccessibleName = "Guardar";
+            this.btnGuardar.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(384, 376);
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.Location = new System.Drawing.Point(65, 266);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(132, 49);
+            this.btnGuardar.Size = new System.Drawing.Size(103, 49);
             this.btnGuardar.TabIndex = 26;
-            this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
-            // txtnum
+            // btnRegresar
             // 
-            this.txtnum.Location = new System.Drawing.Point(67, 251);
-            this.txtnum.Name = "txtnum";
-            this.txtnum.Size = new System.Drawing.Size(71, 26);
-            this.txtnum.TabIndex = 28;
-            this.txtnum.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // lblid
-            // 
-            this.lblid.AutoSize = true;
-            this.lblid.Location = new System.Drawing.Point(63, 213);
-            this.lblid.Name = "lblid";
-            this.lblid.Size = new System.Drawing.Size(133, 20);
-            this.lblid.TabIndex = 27;
-            this.lblid.Text = "ID Departamento";
-            this.lblid.Click += new System.EventHandler(this.label1_Click);
+            this.btnRegresar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
+            this.btnRegresar.Location = new System.Drawing.Point(22, 543);
+            this.btnRegresar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(49, 49);
+            this.btnRegresar.TabIndex = 29;
+            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click_1);
             // 
             // NuevoDepartamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1009, 616);
-            this.Controls.Add(this.txtnum);
-            this.Controls.Add(this.lblid);
+            this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.lblDescripcion);
@@ -131,6 +130,7 @@
             this.Controls.Add(this.lblTipo);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NuevoDepartamento";
             this.Text = "NuevoDepartamento";
             this.ResumeLayout(false);
@@ -148,7 +148,6 @@
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox txtnum;
-        private System.Windows.Forms.Label lblid;
+        private System.Windows.Forms.Button btnRegresar;
     }
 }
