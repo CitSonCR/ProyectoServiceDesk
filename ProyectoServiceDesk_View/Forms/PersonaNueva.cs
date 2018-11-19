@@ -47,8 +47,9 @@ namespace ProyectoServiceDesk_View.Forms
                 {
                     MessageBox.Show("informacion guardada con exito!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     UsuarioNuevo usuario = new UsuarioNuevo();
-                    usuario.ShowDialog();
                     usuario.persona = persona;
+                    usuario.ShowDialog();
+                    
                 }
                 else
                 {

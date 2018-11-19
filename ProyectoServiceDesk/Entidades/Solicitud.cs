@@ -18,6 +18,7 @@ namespace ProyectoServiceDesk.Controlador
         public string Solucion { get; set; }
         public Usuario UsuarioIngreso { get; set; }
         public DateTime FechaIngreso { get; set; }
+        public List<Tarea> Tareas { get; set; }
 
         public Solicitud(int numeroIdentificador, string titulo, string tipo, string detalle, string estado, int prioridad, string solucion, Usuario usuarioIngreso, DateTime fechaIngreso)
         {

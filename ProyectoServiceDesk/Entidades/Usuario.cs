@@ -34,7 +34,7 @@ namespace ProyectoServiceDesk.Controlador
             string strInsert = string.Empty;
             try
             {
-                strInsert = "INSERT INTO PSD_USUARIO (USERNAME, PASSWORD, FECHA_INGRESO, TIPO_USUARIO_CODIGO_ID, PSD_EQUIPO_ID, PSD_PERSONA_ID) " +
+                strInsert = "INSERT INTO PSD_USUARIO (USERNAME, PASSWORD, FECHA_INGRESO, TIPO_USUARIO, PSD_EQUIPO_ID, PSD_PERSONA_ID) " +
                             " VALUES (@P_USERNAME,@P_PASSWORD,GETDATE(),@P_TIPO_USUARIO,@P_PSD_EQUIPO_ID,@P_PSD_PERSONA_ID)";
 
                 Utils.Utils utils = new Utils.Utils();
@@ -42,7 +42,8 @@ namespace ProyectoServiceDesk.Controlador
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_USERNAME", userName));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PASSWORD", password));                
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_TIPO_USUARIO", tipoUsuario));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_EQUIPO_ID", equipo.GetPsdEquipoIdPorNombre(equipo.Nombre)));
+                //utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_EQUIPO_ID", equipo.GetPsdEquipoIdPorNombre(equipo.Nombre)));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_EQUIPO_ID", 1));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_PERSONA_ID", persona.GetPsdPersonaIdPorNumeroIdentificador(persona.NumeroIdentificacion)));
 
 

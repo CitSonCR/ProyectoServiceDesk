@@ -40,6 +40,8 @@ namespace ProyectoServiceDesk_View
                 if (usuario.IngresarUsuario(txtNombreUsuario.Text, txtPassword.Text, cmbTipoUsuario.Text, equipo, persona))
                 {
                     MessageBox.Show("informacion guardada con exito!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    
                 }
                 else
                 {
