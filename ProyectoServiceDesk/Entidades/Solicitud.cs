@@ -9,6 +9,7 @@ namespace ProyectoServiceDesk.Controlador
 {
     public class Solicitud
     {
+        public int Id { get; set; }
         public int NumeroIdentificador { get; set; }
         public string Titulo { get; set; }
         public string Tipo { get; set; }

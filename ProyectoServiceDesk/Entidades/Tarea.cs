@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProyectoServiceDesk.Controlador
 {
-    public class Tarea : Solicitud
+    public class Tarea
     {
-
+        public int Id { get; set; }
         public int NumeroPrioridad { get; set; }
         public string Nombre { get; set; }
         public int TiempoHoras { get; set; }
@@ -18,14 +18,17 @@ namespace ProyectoServiceDesk.Controlador
         public DateTime FechaAtencion { get; set; }
         public Solicitud Solicitud { get; set; }
 
-        public Tarea(int numeroIdentificador, string titulo, string tipo, string detalle, string estado, int prioridad, string solucion, Usuario usuarioIngreso, DateTime fechaIngreso) : base(numeroIdentificador, titulo, tipo, detalle, estado, prioridad, solucion, usuarioIngreso, fechaIngreso)
+        public Tarea(int id, int numeroPrioridad, string nombre, int tiempoHoras, int dificultad, string estadoProceso, Usuario usuarioAtiende, DateTime fechaAtencion, Solicitud solicitud)
         {
+            Id = id;
+            NumeroPrioridad = numeroPrioridad;
+            Nombre = nombre;
+            TiempoHoras = tiempoHoras;
+            Dificultad = dificultad;
+            EstadoProceso = estadoProceso;
+            UsuarioAtiende = usuarioAtiende;
+            FechaAtencion = fechaAtencion;
+            Solicitud = solicitud;
         }
-
-
-
-
-
-
     }
 }
