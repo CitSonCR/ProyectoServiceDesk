@@ -19,6 +19,7 @@ namespace ProyectoServiceDesk.Controlador
         public string TipoUsuario { get; set; }
         public Equipo Equipo { get; set; }
         public Persona Persona { get; set; }
+        public string miakhalifa { get; set; }
 
         public Usuario(int id, string userName, string password, DateTime fechaIngreso, string tipoUsuario, Equipo equipo, Persona persona)
         {
