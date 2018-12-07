@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ProyectoServiceDesk.Controlador;
+using ProyectoServiceDesk_Controller;
 using ProyectoServiceDesk.Modelo;
 using ProyectoServiceDesk.Utils;
 
