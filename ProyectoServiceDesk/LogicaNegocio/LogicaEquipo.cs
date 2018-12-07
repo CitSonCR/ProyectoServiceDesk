@@ -11,7 +11,7 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
 {
     public class LogicaEquipo
     {
-        public Boolean IngresarEquipo(string nombre, string descripcion, Departamento departamento)
+        public Boolean IngresarEquipo(string nombre, string descripcion,int id, Departamento departamento)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -19,14 +19,14 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
             string strInsert = string.Empty;
             try
             {
-                strInsert = "INSERT INTO PSD_EQUIPO (NOMBRE, DESCRIPCION,PSD_DEPARTAMENTO_ID) " +
-                           " VALUES (@P_NOMBRE,@P_DESCRIPCION,@P_PSD_DEPARTAMENTO_ID)";
+                strInsert = "INSERT INTO PSD_EQUIPO (NOMBRE, DESCRIPCION,PSD_EQUIPO_ID,PSD_DEPARTAMENTO_NOMBRE) " +
+                           " VALUES (@P_NOMBRE,@P_DESCRIPCION,@ID,@P_PSD_DEPARTAMENTO_NOMBRE)";
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_NOMBRE", nombre));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_DESCRIPCION", descripcion));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_DEPARTAMENTO_ID", departamento.GetPsdDepartamentoIdPorNombre(departamento.Nombre)));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_DEPARTAMENTO_NOMBRE", departamento.Nombre));
 
 
 
@@ -43,7 +43,7 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
             return resultado;
         }
 
-        public Boolean EditarEquipo(string nombre, string descripcion, Departamento departamento)
+        public Boolean EditarEquipo(string nombre, string descripcion,int id, Departamento departamento)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -54,15 +54,15 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
                 strUpdate = " UPDATE PSD_EQUIPO " +
                             " SET    NOMBRE = @P_NOMBRE," +
                             "        DESCRIPCION = @P_DESCRIPCION, " +
-                            "        PSD_DEPARTAMENTO_ID = @P_PSD_DEPARTAMENTO_ID, " +
+                            "        PSD_DEPARTAMENTO_ID = @P_PSD_DEPARTAMENTO_NOMBRE, " +
                             " WHERE  PSD_EQUIPO_ID = @P_PSD_EQUIPO_ID ";
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_NOMBRE", nombre));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_DESCRIPCION", descripcion));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_DEPARTAMENTO_ID", departamento.GetPsdDepartamentoIdPorNombre(departamento.Nombre)));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_EQUIPO_ID", GetPsdEquipoIdPorNombre(nombre)));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_DEPARTAMENTO_NOMBRE", departamento.Nombre));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_EQUIPO_ID", id));
 
 
 
@@ -78,7 +78,7 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
             return resultado;
         }
 
-        public Boolean EliminarEquipo(string nombre)
+        public Boolean EliminarEquipo(int id)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -90,7 +90,7 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_EQUIPO_ID", GetPsdEquipoIdPorNombre(nombre)));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_EQUIPO_ID", GetPsdEquipoIdPorID(id)));
 
                 conexion.setDatosBD(strDelete, utils.ParameterCollection);
             }
@@ -103,17 +103,17 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
             return resultado;
         }
 
-        public int GetPsdEquipoIdPorNombre(string nombre)
+        public int GetPsdEquipoIdPorID(int id)
         {
             ConexionDB conexion = new ConexionDB();
             int resultado = 0;
             try
             {
-                string strSelect = " SELECT PSD_EQUIPO_ID FROM PSD_EQUIPO WHERE NOMBRE = @P_NOMBRE";
+                string strSelect = " SELECT PSD_EQUIPO_NOMBRE FROM PSD_EQUIPO WHERE PSD_EQUIPO_ID = @P_ID";
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_NOMBRE", nombre));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_ID", id));
 
                 resultado = int.Parse(conexion.getDatosBD(strSelect, utils.ParameterCollection).Rows[0][0].ToString());
 
