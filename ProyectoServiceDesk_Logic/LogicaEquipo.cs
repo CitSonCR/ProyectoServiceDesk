@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ProyectoServiceDesk.Controlador;
-using ProyectoServiceDesk.Modelo;
-using ProyectoServiceDesk.Utils;
+using ProyectoServiceDesk_Controller;
+using ProyectoServiceDesk_View;
 
-namespace ProyectoServiceDesk_Controller.LogicaNegocio
+
+namespace ProyectoServiceDesk_Logic
 {
     public class LogicaEquipo
     {

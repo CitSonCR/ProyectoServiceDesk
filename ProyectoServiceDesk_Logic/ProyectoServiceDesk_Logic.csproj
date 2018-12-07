@@ -46,5 +46,19 @@
     <Compile Include="LogicaUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProyectoServiceDesk\ProyectoServiceDesk_Controller.csproj">
+      <Project>{2eb36aee-adb0-40d1-8153-22530c7db697}</Project>
+      <Name>ProyectoServiceDesk_Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProyectoServiceDesk_Mod\ProyectoServiceDesk_Model.csproj">
+      <Project>{af2791d2-fa87-4e23-a2db-c27c8ff818db}</Project>
+      <Name>ProyectoServiceDesk_Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProyectoServiceDesk_View\ProyectoServiceDesk_View.csproj">
+      <Project>{04df359f-ead3-48cc-8ec2-d2e1531a3778}</Project>
+      <Name>ProyectoServiceDesk_View</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
