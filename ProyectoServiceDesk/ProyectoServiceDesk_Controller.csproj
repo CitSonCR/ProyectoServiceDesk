@@ -58,8 +58,6 @@
     <Compile Include="Globales\Adminstrador_Codigo_Maestro.cs" />
     <Compile Include="LogicaNegocio\LogicaDepartamento.cs" />
     <Compile Include="LogicaNegocio\LogicaEquipo.cs" />
-    <Compile Include="LogicaNegocio\LogicaPersona.cs" />
-    <Compile Include="LogicaNegocio\LogicaUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Globales\Utils.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
