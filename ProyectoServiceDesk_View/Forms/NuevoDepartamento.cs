@@ -1,5 +1,6 @@
 ﻿using ProyectoServiceDesk.Controlador;
 using ProyectoServiceDesk_Controller;
+using ProyectoServiceDesk_Logic;
 using ProyectoServiceDesk_View.Forms;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace ProyectoServiceDesk_View.Forms
 {
     public partial class NuevoDepartamento : Form
     {
+        LogicaDepartamento logicaDepartamento = new LogicaDepartamento();
         public NuevoDepartamento()
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace ProyectoServiceDesk_View.Forms
             try
             {
                 Departamento departamento = new Departamento(txtNombre.Text, txtTipo.Text, txtDescripcion.Text);
-                if ( departamento.IngresarDepartamento( departamento.Nombre, departamento.Tipo, departamento.Descripcion))
+                if (logicaDepartamento.IngresarDepartamento( departamento.Nombre, departamento.Tipo, departamento.Descripcion))
                 {
                     MessageBox.Show("informacion guardada con exito!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NuevoDepartamento dep = new NuevoDepartamento();

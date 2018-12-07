@@ -136,6 +136,10 @@
       <Project>{2eb36aee-adb0-40d1-8153-22530c7db697}</Project>
       <Name>ProyectoServiceDesk_Controller</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProyectoServiceDesk_Logic\ProyectoServiceDesk_Logic.csproj">
+      <Project>{ccfc8373-2990-4c87-aa7a-9cc8b7b389af}</Project>
+      <Name>ProyectoServiceDesk_Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

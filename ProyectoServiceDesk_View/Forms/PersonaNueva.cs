@@ -1,4 +1,5 @@
 ﻿using ProyectoServiceDesk_Controller;
+using ProyectoServiceDesk_Controller.LogicaNegocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,8 @@ namespace ProyectoServiceDesk_View.Forms
 {
     public partial class PersonaNueva : Form
     {
+        LogicaPersona logicaPersona = new LogicaPersona();
+
         public PersonaNueva()
         {
             InitializeComponent();
@@ -43,7 +46,8 @@ namespace ProyectoServiceDesk_View.Forms
             try
             {
                 Persona persona = new Persona(Convert.ToInt32(txtCedula.Text), txtNombre.Text, txtApellido1.Text, txtApellido2.Text, Convert.ToInt32(cmbEdad.Value.ToString()), txtDireccion.Text, Convert.ToInt32(txtTelefono.Text), txtCorreo.Text, "H", Convert.ToDateTime(dateNacimiento.Text));
-                if (persona.IngresarPersona(persona.NumeroIdentificacion, persona.Nombre, persona.PrimerApellido, persona.SegundoApellido, persona.Edad, persona.Direccion, persona.Telefono, persona.CorreoElectronico, persona.Genero, persona.FechaNacimiento))
+                
+                if (logicaPersona.IngresarPersona(persona.NumeroIdentificacion, persona.Nombre, persona.PrimerApellido, persona.SegundoApellido, persona.Edad, persona.Direccion, persona.Telefono, persona.CorreoElectronico, persona.Genero, persona.FechaNacimiento))
                 {
                     MessageBox.Show("informacion guardada con exito!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     UsuarioNuevo usuario = new UsuarioNuevo();

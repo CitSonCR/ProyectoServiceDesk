@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ProyectoServiceDesk_Controller;
-using ProyectoServiceDesk_View;
+using ProyectoServiceDesk.Controlador;
+using ProyectoServiceDesk.Modelo;
+using ProyectoServiceDesk.Utils;
+
+
 
 
 namespace ProyectoServiceDesk_Logic
 {
     public class LogicaEquipo
     {
-        public Boolean IngresarEquipo(string nombre, string descripcion,int id, Departamento departamento)
+        public Boolean IngresarEquipo(string nombre, string descripcion, Departamento departamento)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -19,14 +22,14 @@ namespace ProyectoServiceDesk_Logic
             string strInsert = string.Empty;
             try
             {
-                strInsert = "INSERT INTO PSD_EQUIPO (NOMBRE, DESCRIPCION,PSD_EQUIPO_ID,PSD_DEPARTAMENTO_NOMBRE) " +
+                strInsert = "INSERT INTO PSD_EQUIPO (NOMBRE, DESCRIPCION,PSD_EQUIPO_ID,PSD_DEPARTAMENTO_ID) " +
                            " VALUES (@P_NOMBRE,@P_DESCRIPCION,@ID,@P_PSD_DEPARTAMENTO_NOMBRE)";
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_NOMBRE", nombre));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_DESCRIPCION", descripcion));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_DEPARTAMENTO_NOMBRE", departamento.Nombre));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_DEPARTAMENTO_NOMBRE", departamento.Id));
 
 
 

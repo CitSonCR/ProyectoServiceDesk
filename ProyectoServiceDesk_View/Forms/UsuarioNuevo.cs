@@ -1,5 +1,6 @@
 ﻿using ProyectoServiceDesk.Controlador;
 using ProyectoServiceDesk_Controller;
+using ProyectoServiceDesk_Controller.LogicaNegocio;
 using ProyectoServiceDesk_View.Forms;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,8 @@ namespace ProyectoServiceDesk_View
 {
     public partial class UsuarioNuevo : Form
     {
-        public Persona persona = new Persona();
-        Equipo equipo = new Equipo();
+        public Persona persona;        
+        public LogicaUsuario logicaUsuario = new LogicaUsuario();
 
         public UsuarioNuevo()
         {
@@ -34,10 +35,10 @@ namespace ProyectoServiceDesk_View
         {
             try
             {
-                Usuario usuario = new Usuario();
+
+                Equipo equipo = null;
                 
-                
-                if (usuario.IngresarUsuario(txtNombreUsuario.Text, txtPassword.Text, cmbTipoUsuario.Text, equipo, persona))
+                if (logicaUsuario.IngresarUsuario(txtNombreUsuario.Text, txtPassword.Text, cmbTipoUsuario.Text, equipo, persona))
                 {
                     MessageBox.Show("informacion guardada con exito!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

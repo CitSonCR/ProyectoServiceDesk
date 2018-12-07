@@ -12,14 +12,13 @@ namespace ProyectoServiceDesk.Controlador
     {
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public int ID { get; set; }
+        public int Id { get; set; }
         public Departamento Departamento { get; set; }
 
-        public Equipo(string nombre, string descripcion,int id,Departamento departamento)
+        public Equipo(string nombre, string descripcion,Departamento departamento)
         {
             Nombre = nombre;
-            Descripcion = descripcion;
-            ID = id;
+            Descripcion = descripcion;            
             Departamento = departamento;
         }
     }

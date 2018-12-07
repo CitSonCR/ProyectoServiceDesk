@@ -1,4 +1,5 @@
 ﻿using ProyectoServiceDesk.Controlador;
+using ProyectoServiceDesk_Controller.LogicaNegocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,8 +27,8 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            Usuario usuario = new Usuario();
-            if (usuario.ValidarUsuario(txtUsuario.Text, txtContraseña.Text))
+            LogicaUsuario logicaUsuario = new LogicaUsuario();
+            if (logicaUsuario.ValidarUsuario(txtUsuario.Text, txtContraseña.Text))
             {
                 Inicio inicio = new Inicio();
                 this.Hide();

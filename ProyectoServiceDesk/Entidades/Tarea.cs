@@ -18,9 +18,8 @@ namespace ProyectoServiceDesk.Controlador
         public DateTime FechaAtencion { get; set; }
         public Solicitud Solicitud { get; set; }
 
-        public Tarea(int id, int numeroPrioridad, string nombre, int tiempoHoras, int dificultad, string estadoProceso, Usuario usuarioAtiende, DateTime fechaAtencion, Solicitud solicitud)
+        public Tarea(int numeroPrioridad, string nombre, int tiempoHoras, int dificultad, string estadoProceso, Usuario usuarioAtiende, DateTime fechaAtencion, Solicitud solicitud)
         {
-            Id = id;
             NumeroPrioridad = numeroPrioridad;
             Nombre = nombre;
             TiempoHoras = tiempoHoras;

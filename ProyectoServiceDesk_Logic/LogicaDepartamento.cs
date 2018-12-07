@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using ProyectoServiceDesk_Controller;
 using ProyectoServiceDesk.Utils;
+using ProyectoServiceDesk.Modelo;
 
 namespace ProyectoServiceDesk_Logic
 {
     public class LogicaDepartamento
     {
-        public Boolean IngresarDepartamento(string nombre, string tipo, string descripcion,int id)
+        public Boolean IngresarDepartamento(string nombre, string tipo, string descripcion)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -18,14 +19,14 @@ namespace ProyectoServiceDesk_Logic
             string strInsert = string.Empty;
             try
             {
-                strInsert = "INSERT INTO PSD_DEPARTAMENTO(NOMBRE,TIPO,DESCRIPCION,PSD_DEPARTAMENTO_ID) " +
-                            " VALUES (@NOMBRE,@TIPO,@DESCRIPCION,@ID)";
+                strInsert = "INSERT INTO PSD_DEPARTAMENTO(NOMBRE,TIPO,DESCRIPCION) " +
+                            " VALUES (@NOMBRE,@TIPO,@DESCRIPCION)";
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TIPO", tipo));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DESCRIPCION", descripcion));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@ID", id));
+                //utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@ID", id));
 
 
 

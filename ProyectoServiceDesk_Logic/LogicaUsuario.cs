@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ProyectoServiceDesk_Controller;
 using ProyectoServiceDesk.Modelo;
 using ProyectoServiceDesk.Utils;
+using ProyectoServiceDesk.Controlador;
 
 namespace ProyectoServiceDesk_Controller.LogicaNegocio
 {
@@ -27,7 +28,7 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_USERNAME", userName));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PASSWORD", password));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_TIPO_USUARIO", tipoUsuario));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_EQUIPO_ID", equipo.ID));               
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_EQUIPO_ID", equipo.Id));               
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_PERSONA_ID", persona.Id));
 
 
@@ -67,7 +68,7 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PASSWORD", password));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_FECHA_INGRESO", fechaIngreso));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_TIPO_USUARIO_CODIGO_ID", tipoUsuario));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_EQUIPO_ID", equipo.ID));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_EQUIPO_ID", equipo.Id));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_PERSONA_ID", persona.Id));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_USUARIO_ID", psdUsuarioId));
 

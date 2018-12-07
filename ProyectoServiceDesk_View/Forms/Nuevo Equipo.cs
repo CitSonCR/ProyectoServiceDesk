@@ -1,5 +1,6 @@
 ﻿using ProyectoServiceDesk.Controlador;
 using ProyectoServiceDesk_Controller;
+using ProyectoServiceDesk_Logic;
 using ProyectoServiceDesk_View.Forms;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,8 @@ namespace ProyectoServiceDesk_View.Forms
 {
     public partial class Nuevo_Equipo : Form
     {
-        Departamento departamento = new Departamento();
-
+        
+        LogicaEquipo logicaEquipo = new LogicaEquipo();
         public Nuevo_Equipo()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void cboxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Equipo equipo = new Equipo();
+            //Equipo equipo = new Equipo();
            
         }
 
@@ -45,10 +46,12 @@ namespace ProyectoServiceDesk_View.Forms
         {
             try
             {
-                Equipo equipo = new Equipo(txtNombre.Text, txtDescripcion.Text, departamento.Nombre);
+                Departamento departamento = null;
+
+                Equipo equipo = new Equipo(txtNombre.Text, txtDescripcion.Text, departamento);
 
 
-                if (equipo.IngresarEquipo(equipo.Nombre, equipo.Descripcion, departamento))
+                if (logicaEquipo.IngresarEquipo(equipo.Nombre, equipo.Descripcion, departamento))
                 {
                     MessageBox.Show("informacion guardada con exito!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
