@@ -24,6 +24,7 @@ namespace ProyectoServiceDesk_Controller
         public string CorreoElectronico { get; set; }
         public string Genero { get; set; }
         public DateTime FechaNacimiento { get; set; }
+        public string selacomecompleta { get; set; }
 
         public Persona(int numeroIdentificacion, string nombre, string primerApellido, string segundoApellido, int edad, string direccion, int telefono, string correoElectronico, string genero, DateTime fechaNacimiento)
         {
