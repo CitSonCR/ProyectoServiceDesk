@@ -30,5 +30,7 @@ namespace ProyectoServiceDesk.Controlador
             Equipo = equipo;
             Persona = persona;
         }
+
+
     }
 }

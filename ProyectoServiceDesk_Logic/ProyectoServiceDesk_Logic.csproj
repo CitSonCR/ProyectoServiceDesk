@@ -43,6 +43,8 @@
     <Compile Include="LogicaDepartamento.cs" />
     <Compile Include="LogicaEquipo.cs" />
     <Compile Include="LogicaPersona.cs" />
+    <Compile Include="LogicaSolicitud.cs" />
+    <Compile Include="LogicaTarea.cs" />
     <Compile Include="LogicaUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
