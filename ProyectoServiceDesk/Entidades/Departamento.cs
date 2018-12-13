@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace ProyectoServiceDesk.Controlador
 {
+
+    //Esta clase solo manejará los atributos de la entidad Departamento
     public class Departamento
     {
         public string Nombre { get; set; }
@@ -15,6 +17,7 @@ namespace ProyectoServiceDesk.Controlador
         public string Descripcion { get; set; }
         public int Id { get; set; }
 
+        //Constructor de los atributos 
         public Departamento(string nombre, string tipo, string descripcion)
         {
             Nombre = nombre;
