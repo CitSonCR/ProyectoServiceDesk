@@ -71,5 +71,11 @@ namespace ProyectoServiceDesk_View.Forms
         {
             this.Close();
         }
+
+        private void txtNombre_TextChanged(object sender,KeyPressEventArgs e)
+        {
+            //llamamos al metodo "ValidarNombre" que valida que no hayan valores diferentes de letras en el textbox
+            logicaEquipo.ValidarNombre(e);
+        }
     }
 }

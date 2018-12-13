@@ -1,5 +1,6 @@
 ﻿using ProyectoServiceDesk.Modelo;
 using ProyectoServiceDesk.Utils;
+using ProyectoServiceDesk.Controlador;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace ProyectoServiceDesk_Logic
 {
     class LogicaSolicitud
     {
-        public Boolean IngresarPersona(int numeroIdentificacion, string nombre, string primerApellido, string segundoApellido, int edad, string direccion, int telefono, string correoElectronico, string genero, DateTime fechaNacimiento)
+        public Boolean IngresarPersona(int id, int NumeroIdentificador, string Titulo, string Tipo, int Detalle, string Estado, int Prioridad, string Solucion,Usuario UsuarioIngreso, DateTime FechaIngreso,List<Tarea> tareas)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -18,22 +19,21 @@ namespace ProyectoServiceDesk_Logic
             string strInsert = string.Empty;
             try
             {
-                strInsert = "INSERT INTO PSD_PERSONA (NUMERO_IDENTIFICACION, NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, EDAD, DIRECCION, TELEFONO, CORREO_ELECTRONICO, GENERO, FECHA_NACIMIENTO) " +
-                            " VALUES (@IDENTIFICACION,@NOMBRE,@APELLIDO1,@APELLIDO2,@EDAD,@DIRECCION,@TELEFONO,@CORREO,@GENERO,@FECHA_NACIMIENTO)";
+                strInsert = "INSERT INTO PSD_SOLICITUD (ID, NUMERO_IDENTIFICADOR, TITULO,TIPO, DETALLE, ESTADO, PRIORIDAD, SOLUCION, PSD_USUARIO_INGRESO, FECHA_INGRESO,PSD) " +
+                            " VALUES (@ID,@NUMERO_IDENTIFICADOR,@TITULO,@TIPO,@DETALLE,@ESTADO,@PRIORIDAD,@SOLUCION,@PSD_USUARIO_INGRESO,@FECHA_INGRESO)";
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@IDENTIFICACION", numeroIdentificacion));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@APELLIDO1", primerApellido));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@APELLIDO2", segundoApellido));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@EDAD", edad));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DIRECCION", direccion));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TELEFONO", telefono));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@CORREO", correoElectronico));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@GENERO", genero));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@FECHA_NACIMIENTO", fechaNacimiento));
-
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@ID", id));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NUMERO_IDENTIFICADOR", NumeroIdentificador));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TITULO", Titulo));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TIPO", Tipo));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DETALLE", Detalle));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@ESTADO", Estado));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PRIORIDAD", Prioridad));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@SOLUCION", Solucion));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_USUARIO_INGRESO", UsuarioIngreso.FechaIngreso));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@FECHA_INGRESO", FechaIngreso));
 
                 conexion.setDatosBD(strInsert, utils.ParameterCollection);
             }
@@ -47,7 +47,7 @@ namespace ProyectoServiceDesk_Logic
             return resultado;
         }
 
-        public Boolean EditarPersona(int numeroIdentificacion, string nombre, string primerApellido, string segundoApellido, int edad, string direccion, int telefono, string correoElectronico, string genero, DateTime fechaNacimiento, int psdPersonaId)
+        public Boolean EditarPersona(string Estado, int Prioridad, string Solucion, Usuario UsuarioIngreso)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -55,32 +55,19 @@ namespace ProyectoServiceDesk_Logic
             string strUpdate = string.Empty;
             try
             {
-                strUpdate = " UPDATE PSD_PERSONA " +
-                            " SET   NUMERO_IDENTIFICACION = @IDENTIFICACION, " +
-                            "       NOMBRE = @NOMBRE, " +
-                            "       PRIMER_APELLIDO = @APELLIDO1, " +
-                            "       SEGUNDO_APELLIDO = @APELLIDO2, " +
-                            "       EDAD = @EDAD, " +
-                            "       DIRECCION = @DIRECCION, " +
-                            "       TELEFONO = @TELEFONO, " +
-                            "       CORREO = @CORREO, " +
-                            "       GENERO = @GENERO, " +
-                            "       FECHA_NACIMIENTO = @FECHA_NACIMIENTO, " +
-                            " WHERE  PSD_PERSONA_ID = @PSD_PERSONA_ID ";
+                strUpdate = " UPDATE PSD_SOLICITUD " +
+                            " SET   ESTADO = @ESTADO, " +
+                            "       PRIORIDAD = @PRIORIDAD, " +
+                            "       SOLUCION = @SOLUCION, " +
+                            "       USUARIO_INGRESO = @USUARIOINGRESO, " +
+                            " WHERE  PSD_SOLICITUD_ID = @PSD_SOLICITUD_ID ";
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@IDENTIFICACION", numeroIdentificacion));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@APELLIDO1", primerApellido));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@APELLIDO2", segundoApellido));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@EDAD", edad));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DIRECCION", direccion));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TELEFONO", telefono));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@CORREO", correoElectronico));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@GENERO", genero));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@FECHA_NACIMIENTO", fechaNacimiento));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_PERSONA_ID", psdPersonaId));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@ESTADO", Estado));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PRIORIDAD", Prioridad));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@SOLUCION", Solucion));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@USUARIOINGRESO", UsuarioIngreso.FechaIngreso));
 
 
                 conexion.setDatosBD(strUpdate, utils.ParameterCollection);
@@ -95,7 +82,7 @@ namespace ProyectoServiceDesk_Logic
             return resultado;
         }
 
-        public Boolean EliminarPersona(int psdPersonaId)
+        public Boolean EliminarPersona(int psdUsuarioId)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -103,11 +90,11 @@ namespace ProyectoServiceDesk_Logic
             string strDelete = string.Empty;
             try
             {
-                strDelete = " DELETE FROM PSD_PERSONA WHERE  PSD_PERSONA_ID = @PSD_PERSONA_ID ";
+                strDelete = " DELETE FROM PSD_PERSONA WHERE  PSD_USUARIO_ID = @PSD_USUARIO_ID ";
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_PERSONA_ID", psdPersonaId));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_PERSONA_ID", psdUsuarioId));
 
                 conexion.setDatosBD(strDelete, utils.ParameterCollection);
             }

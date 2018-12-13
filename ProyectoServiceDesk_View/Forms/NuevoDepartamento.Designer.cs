@@ -41,52 +41,59 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(65, 158);
+            this.txtNombre.Location = new System.Drawing.Point(43, 103);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(131, 26);
+            this.txtNombre.Size = new System.Drawing.Size(89, 20);
             this.txtNombre.TabIndex = 7;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Arial", 10.8F);
-            this.lblNombre.Location = new System.Drawing.Point(63, 117);
+            this.lblNombre.Location = new System.Drawing.Point(42, 76);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(90, 25);
+            this.lblNombre.Size = new System.Drawing.Size(60, 17);
             this.lblNombre.TabIndex = 6;
             this.lblNombre.Text = "Nombre";
             // 
             // txtTipo
             // 
-            this.txtTipo.Location = new System.Drawing.Point(258, 149);
+            this.txtTipo.Location = new System.Drawing.Point(172, 97);
+            this.txtTipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(131, 26);
+            this.txtTipo.Size = new System.Drawing.Size(89, 20);
             this.txtTipo.TabIndex = 9;
             // 
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
             this.lblTipo.Font = new System.Drawing.Font("Arial", 10.8F);
-            this.lblTipo.Location = new System.Drawing.Point(254, 117);
+            this.lblTipo.Location = new System.Drawing.Point(169, 76);
+            this.lblTipo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(55, 25);
+            this.lblTipo.Size = new System.Drawing.Size(35, 17);
             this.lblTipo.TabIndex = 8;
             this.lblTipo.Text = "Tipo";
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(462, 149);
+            this.txtDescripcion.Location = new System.Drawing.Point(308, 97);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(325, 26);
+            this.txtDescripcion.Size = new System.Drawing.Size(218, 20);
             this.txtDescripcion.TabIndex = 11;
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Arial", 10.8F);
-            this.lblDescripcion.Location = new System.Drawing.Point(458, 117);
+            this.lblDescripcion.Location = new System.Drawing.Point(305, 76);
+            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(126, 25);
+            this.lblDescripcion.Size = new System.Drawing.Size(86, 17);
             this.lblDescripcion.TabIndex = 10;
             this.lblDescripcion.Text = "Descripcion";
             // 
@@ -96,10 +103,10 @@
             this.btnGuardar.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.Location = new System.Drawing.Point(65, 266);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnGuardar.Location = new System.Drawing.Point(43, 173);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(103, 49);
+            this.btnGuardar.Size = new System.Drawing.Size(69, 32);
             this.btnGuardar.TabIndex = 26;
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
@@ -108,20 +115,20 @@
             // 
             this.btnRegresar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
-            this.btnRegresar.Location = new System.Drawing.Point(22, 543);
-            this.btnRegresar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRegresar.Location = new System.Drawing.Point(15, 353);
+            this.btnRegresar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(49, 49);
+            this.btnRegresar.Size = new System.Drawing.Size(33, 32);
             this.btnRegresar.TabIndex = 29;
             this.btnRegresar.UseVisualStyleBackColor = true;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click_1);
             // 
             // NuevoDepartamento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1009, 616);
+            this.ClientSize = new System.Drawing.Size(673, 400);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtDescripcion);
@@ -131,6 +138,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "NuevoDepartamento";
             this.Text = "NuevoDepartamento";
             this.ResumeLayout(false);

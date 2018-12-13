@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 //Estos ultimos 3 using los necesitamos para obtener datos de clases como Departamento, Equipo, ConexionDB y Utils.
 using ProyectoServiceDesk.Controlador;
 using ProyectoServiceDesk.Modelo;
@@ -139,5 +140,33 @@ namespace ProyectoServiceDesk_Logic
 
             return resultado;
         }
+
+        //Esta funcion valida que en el textbox en las vistas, sea llenado solo con letras y no con numeros para el campo nombre 
+        public void ValidarNombre(KeyPressEventArgs v)
+        {
+
+            if (Char.IsLetter(v.KeyChar))
+            {
+                v.Handled = false;
+            }
+            else if (Char.IsSeparator(v.KeyChar)) {
+
+                v.Handled = false;
+            }
+            else if(Char.IsControl(v.KeyChar))
+            {
+                v.Handled = false;
+            }
+            else
+            {
+                //Tiramos un mensaje que diga que solo se aceptan letras cuando la variables "v" sea verdadera, que en este caso significa que hay valores diferentes a letras en el textbox
+                v.Handled = true;
+                MessageBox.Show("Solo letras por favor. Gracias!");
+            }
+
+            }
+
     }
-}
+
+    }
+

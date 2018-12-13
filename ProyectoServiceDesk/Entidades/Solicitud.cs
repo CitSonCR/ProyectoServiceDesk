@@ -21,8 +21,9 @@ namespace ProyectoServiceDesk.Controlador
         public DateTime FechaIngreso { get; set; }
         public List<Tarea> Tareas { get; set; }
 
-        public Solicitud(int numeroIdentificador, string titulo, string tipo, string detalle, string estado, int prioridad, string solucion, Usuario usuarioIngreso, DateTime fechaIngreso)
+        public Solicitud(int id, int numeroIdentificador, string titulo, string tipo, string detalle, string estado, int prioridad, string solucion, Usuario usuarioIngreso, DateTime fechaIngreso, List<Tarea> tareas)
         {
+            Id = id;
             NumeroIdentificador = numeroIdentificador;
             Titulo = titulo;
             Tipo = tipo;
@@ -32,6 +33,7 @@ namespace ProyectoServiceDesk.Controlador
             Solucion = solucion;
             UsuarioIngreso = usuarioIngreso;
             FechaIngreso = fechaIngreso;
+            Tareas = tareas;
         }
     }
 }
