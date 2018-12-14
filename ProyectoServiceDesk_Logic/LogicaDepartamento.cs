@@ -31,7 +31,6 @@ namespace ProyectoServiceDesk_Logic
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NOMBRE", nombre));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TIPO", tipo));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@DESCRIPCION", descripcion));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@ID", id));
 
 
 
