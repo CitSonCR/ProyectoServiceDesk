@@ -45,6 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AdministrarDepartamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +73,12 @@
     </Compile>
     <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManejoTarea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManejoTarea.Designer.cs">
+      <DependentUpon>ManejoTarea.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Nuevo Equipo.cs">
       <SubType>Form</SubType>
@@ -93,6 +104,12 @@
     <Compile Include="Forms\Solicitud.Designer.cs">
       <DependentUpon>Solicitud.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Tarea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tarea.Designer.cs">
+      <DependentUpon>Tarea.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\UsuarioNuevo.cs">
@@ -105,6 +122,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +142,9 @@
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManejoTarea.resx">
+      <DependentUpon>ManejoTarea.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Nuevo Equipo.resx">
       <DependentUpon>Nuevo Equipo.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Solicitud.resx">
       <DependentUpon>Solicitud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tarea.resx">
+      <DependentUpon>Tarea.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UsuarioNuevo.resx">
       <DependentUpon>UsuarioNuevo.cs</DependentUpon>
@@ -149,6 +177,23 @@
       <Project>{ccfc8373-2990-4c87-aa7a-9cc8b7b389af}</Project>
       <Name>ProyectoServiceDesk_Logic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
