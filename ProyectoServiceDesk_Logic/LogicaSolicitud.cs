@@ -107,5 +107,32 @@ namespace ProyectoServiceDesk_Logic
 
             return resultado;
         }
+
+        public void ValidarNombre(KeyPressEventArgs v)
+        {
+
+            if (Char.IsLetter(v.KeyChar))
+            {
+                v.Handled = false;
+            }
+            else if (Char.IsSeparator(v.KeyChar))
+            {
+
+                v.Handled = false;
+            }
+            else if (Char.IsControl(v.KeyChar))
+            {
+                v.Handled = false;
+            }
+            else
+            {
+                //Tiramos un mensaje que diga que solo se aceptan letras cuando la variables "v" sea verdadera, que en este caso significa que hay valores diferentes a letras en el textbox
+                v.Handled = true;
+                MessageBox.Show("Solo letras por favor. Gracias!");
+            }
+
+        }
+
+
     }
 }
