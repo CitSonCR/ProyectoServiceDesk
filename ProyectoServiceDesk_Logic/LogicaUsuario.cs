@@ -7,6 +7,7 @@ using ProyectoServiceDesk_Controller;
 using ProyectoServiceDesk.Modelo;
 using ProyectoServiceDesk.Utils;
 using ProyectoServiceDesk.Controlador;
+using System.Windows.Forms;
 
 namespace ProyectoServiceDesk_Controller.LogicaNegocio
 {
@@ -144,5 +145,71 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
                 return false;
             }
         }
+
+        public Boolean ValidarNombreUsuario(string userName)
+        {
+            ConexionDB conexion = new ConexionDB();
+            Utils utils = new Utils();
+            string resultado = string.Empty;
+            string strSelect = string.Empty;
+            try
+            {
+                strSelect = " SELECT CASE WHEN COUNT(0) > 0 THEN 'Y' ELSE 'N' END FROM PSD_USUARIO WHERE USERNAME = @P_USERNAME";
+
+
+                utils.LimpiarSqlParameterCollection();
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_USERNAME", userName));                
+
+                resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection).Rows[0][0].ToString());
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+
+
+            if (utils.YES.Equals(resultado))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Boolean ValidarCamposRequeridos(Usuario usuario)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(usuario.UserName))
+                    return false;
+                if (string.IsNullOrEmpty(usuario.Password))
+                    return false;
+                if (string.IsNullOrEmpty(usuario.TipoUsuario))
+                    return false;
+                if (string.IsNullOrEmpty(Convert.ToString(usuario.FechaIngreso)))
+                    return false;
+                if (null == (usuario.Equipo))
+                    return false;
+                if (null == (usuario.Persona))
+                    return false;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error al momento de validar la informacion del formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }             
+            return true;
+            
+        }
+
+        public Boolean ValidarConfirmacionPassword(string password,string confirmacionPassword)
+        {
+            if (password.ToUpper().Equals(confirmacionPassword.ToUpper()))
+                return true;
+            return false;
+        }
+
     }
 }

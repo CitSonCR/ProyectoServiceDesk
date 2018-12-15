@@ -71,5 +71,66 @@ namespace ProyectoServiceDesk_View.Forms
         {
             this.Close();
         }
+        //Solo numeros y backspace
+        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || 8.Equals(e.KeyChar))
+            {
+                e.Handled = false;
+            }            
+            else
+            {
+                e.Handled = true;
+            }
+
+        }
+        //Solo letras y backspace
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || 8.Equals(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+        //Solo letras y backspace
+        private void txtApellido1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || 8.Equals(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+        //Solo letras y backspace
+        private void txtApellido2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || 8.Equals(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+        //Solo numeros y backspace
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || 8.Equals(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
