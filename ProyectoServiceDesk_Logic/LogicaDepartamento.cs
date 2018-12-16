@@ -84,58 +84,10 @@ namespace ProyectoServiceDesk_Logic
         }
 
         //Aqui el concepto es el mismo que en la insercion de la informacion en la base de datos, solo que esta eliminará el dato que queramos dependiendo del ID del departamento
-        public Boolean EliminarDepartamento(int id)
-        {
-            
-            ConexionDB conexion = new ConexionDB();
-            bool resultado = true;
-            string strDelete = string.Empty;
-            try
-            {
-                strDelete = " DELETE FROM PSD_DEPARTAMENTO WHERE PSD_DEPARTAMENTO_ID= @PSD_DEPARTAMENTO_ID";
-
-                Utils utils = new Utils();
-                utils.LimpiarSqlParameterCollection();
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_DEPARTAMENTO_ID", id));
-
-                conexion.setDatosBD(strDelete, utils.ParameterCollection);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-
-            return resultado;
-        }
+      
 
         //Aqui el concepto es el mismo que en la insercion de la informacion en la base de datos, solo que esta obtendrá el dato que queramos dependiendo del ID del departamento //Aqui el concepto es el mismo que en la insercion de la informacion en la base de datos, solo que esta obtendrá el dato que queramos dependiendo del ID del departamento
-        public int GetPsdDepartamentoIdPorID(int id)
-        {
-            
-            ConexionDB conexion = new ConexionDB();
-            int resultado = 0;
-            try
-            {
-                string strSelect = " SELECT PSD_DEPARTAMENTO_NOMBBRE FROM PSD_DEPARTAMENTO WHERE PSD_DEPARTAMENTO_ID = @ID";
-
-                Utils utils = new Utils();
-                utils.LimpiarSqlParameterCollection();
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@ID", id));
-
-                resultado = int.Parse(conexion.getDatosBD(strSelect, utils.ParameterCollection).Rows[0][0].ToString());
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-
-            return resultado;
-        }
+      
 
         //Esta funcion valida que en el textbox en las vistas, sea llenado solo con letras y no con numeros para el campo nombre 
 
