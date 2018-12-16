@@ -83,16 +83,11 @@ namespace ProyectoServiceDesk_Logic
             return resultado;
         }
 
-        //Aqui el concepto es el mismo que en la insercion de la informacion en la base de datos, solo que esta eliminará el dato que queramos dependiendo del ID del departamento
-      
-
-        //Aqui el concepto es el mismo que en la insercion de la informacion en la base de datos, solo que esta obtendrá el dato que queramos dependiendo del ID del departamento //Aqui el concepto es el mismo que en la insercion de la informacion en la base de datos, solo que esta obtendrá el dato que queramos dependiendo del ID del departamento
-      
-
-        //Esta funcion valida que en el textbox en las vistas, sea llenado solo con letras y no con numeros para el campo nombre 
-
+        
+        //Este metodo obtiene los datos de Departamentos y los aloja en un datatable propiedad de la libreria data
         public DataTable ObtenerInfoDepartamentos()
         {
+            //se hace la conexion con la BD
             ConexionDB conexion = new ConexionDB();
             DataTable resultado = null;
             try
@@ -114,7 +109,7 @@ namespace ProyectoServiceDesk_Logic
             return resultado;
         }
 
-        //Esta funcion valida que en el textbox en las vistas, sea llenado solo con letras y no con numeros para el campo nombre 
+        /
 
     }
 

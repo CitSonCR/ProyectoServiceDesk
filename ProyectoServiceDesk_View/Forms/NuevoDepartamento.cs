@@ -72,6 +72,7 @@ namespace ProyectoServiceDesk_View.Forms
             this.Close();
         }
 
+        //Esta funcion en el txt del nombre del departamento valida que el usuario solo digite letras en este campo, con la propiedad IsLetter alojada en un char 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsLetter(e.KeyChar) || 8.Equals(e.KeyChar))
@@ -84,6 +85,7 @@ namespace ProyectoServiceDesk_View.Forms
             }
         }
 
+         //Esta funcion en el txt del descripcion del departamento valida que el usuario solo digite letras en este campo, con la propiedad IsLetter alojada en un char 
         private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsLetter(e.KeyChar) || 8.Equals(e.KeyChar))
@@ -96,10 +98,7 @@ namespace ProyectoServiceDesk_View.Forms
             }
         }
 
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+      
     }
     }
     

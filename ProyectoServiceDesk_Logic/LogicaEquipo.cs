@@ -90,9 +90,8 @@ namespace ProyectoServiceDesk_Logic
         }
 
 
-        //Aqui el concepto es el mismo que en la insercion de la informacion en la base de datos, solo que esta obtendrá el dato que queramos dependiendo del ID del departamento //Aqui el concepto es el mismo que en la insercion de la informacion en la base de datos, solo que esta obtendrá el dato que queramos dependiendo del ID del departamento.
- 
-
+       
+        //Esta funcion obtiene la informacion de los equipos, lo almacena en un datatable.
          public DataTable ObtenerInfoEquipos()
         {
             ConexionDB conexion = new ConexionDB();
@@ -116,8 +115,7 @@ namespace ProyectoServiceDesk_Logic
             return resultado;
         }
 
-        //Esta funcion valida que en el textbox en las vistas, sea llenado solo con letras y no con numeros para el campo nombre 
-
+       
     }
 
     }
