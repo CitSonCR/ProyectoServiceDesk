@@ -77,6 +77,7 @@
             this.btnGuardar.Size = new System.Drawing.Size(73, 59);
             this.btnGuardar.TabIndex = 48;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtSolucion
             // 
