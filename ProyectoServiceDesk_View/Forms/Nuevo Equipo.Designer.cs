@@ -43,7 +43,7 @@
             // 
             this.cboxDepartamento.FormattingEnabled = true;
             this.cboxDepartamento.Location = new System.Drawing.Point(439, 82);
-            this.cboxDepartamento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboxDepartamento.Margin = new System.Windows.Forms.Padding(2);
             this.cboxDepartamento.Name = "cboxDepartamento";
             this.cboxDepartamento.Size = new System.Drawing.Size(125, 21);
             this.cboxDepartamento.TabIndex = 27;
@@ -63,10 +63,12 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(189, 84);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDescripcion.MaxLength = 20;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(218, 20);
             this.txtDescripcion.TabIndex = 33;
+            this.txtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripcion_KeyPress);
             // 
             // lblDescripcion
             // 
@@ -82,11 +84,13 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(67, 84);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNombre.MaxLength = 15;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(89, 20);
             this.txtNombre.TabIndex = 29;
-          
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblNombre
             // 
@@ -138,7 +142,7 @@
             this.Controls.Add(this.cboxDepartamento);
             this.Controls.Add(this.lblDepartamento);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Nuevo_Equipo";
             this.Text = "Nuevo_Equipo";
             this.ResumeLayout(false);

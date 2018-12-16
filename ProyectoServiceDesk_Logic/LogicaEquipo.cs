@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -88,47 +89,21 @@ namespace ProyectoServiceDesk_Logic
             return resultado;
         }
 
-        //Aqui el concepto es el mismo que en la insercion de la informacion en la base de datos, solo que esta eliminará el dato que queramos dependiendo del ID del departamento
-        public Boolean EliminarEquipo(int id)
-        {
-
-            ConexionDB conexion = new ConexionDB();
-            bool resultado = true;
-            string strDelete = string.Empty;
-            try
-            {
-                strDelete = " DELETE FROM PSD_EQUIPO WHERE PSD_EQUIPO_ID = @P_PSD_EQUIPO_ID ";
-
-                Utils utils = new Utils();
-                utils.LimpiarSqlParameterCollection();
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_EQUIPO_ID", GetPsdEquipoIdPorID(id)));
-
-                conexion.setDatosBD(strDelete, utils.ParameterCollection);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-            return resultado;
-        }
-
 
         //Aqui el concepto es el mismo que en la insercion de la informacion en la base de datos, solo que esta obtendrá el dato que queramos dependiendo del ID del departamento //Aqui el concepto es el mismo que en la insercion de la informacion en la base de datos, solo que esta obtendrá el dato que queramos dependiendo del ID del departamento.
-        public int GetPsdEquipoIdPorID(int id)
+ 
+
+         public DataTable ObtenerInfoEquipos()
         {
             ConexionDB conexion = new ConexionDB();
-            int resultado = 0;
+            DataTable resultado = null;
             try
             {
-                string strSelect = " SELECT PSD_EQUIPO_NOMBRE FROM PSD_EQUIPO WHERE PSD_EQUIPO_ID = @P_ID";
+                string strSelect = " SELECT NOMBRE,PSD_EQUIPO_ID FROM PSD_EQUIPO ";
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_ID", id));
-
-                resultado = int.Parse(conexion.getDatosBD(strSelect, utils.ParameterCollection).Rows[0][0].ToString());
+                resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection));
 
             }
             catch (Exception)
@@ -142,29 +117,6 @@ namespace ProyectoServiceDesk_Logic
         }
 
         //Esta funcion valida que en el textbox en las vistas, sea llenado solo con letras y no con numeros para el campo nombre 
-        public void ValidarNombre(KeyPressEventArgs v)
-        {
-
-            if (Char.IsLetter(v.KeyChar))
-            {
-                v.Handled = false;
-            }
-            else if (Char.IsSeparator(v.KeyChar)) {
-
-                v.Handled = false;
-            }
-            else if(Char.IsControl(v.KeyChar))
-            {
-                v.Handled = false;
-            }
-            else
-            {
-                //Tiramos un mensaje que diga que solo se aceptan letras cuando la variables "v" sea verdadera, que en este caso significa que hay valores diferentes a letras en el textbox
-                v.Handled = true;
-                MessageBox.Show("Solo letras por favor. Gracias!");
-            }
-
-            }
 
     }
 

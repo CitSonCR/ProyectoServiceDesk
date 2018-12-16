@@ -18,9 +18,14 @@ namespace ProyectoServiceDesk_View.Forms
     {
         
         LogicaEquipo logicaEquipo = new LogicaEquipo();
+        LogicaDepartamento logicaDepartamento = new LogicaDepartamento();
         public Nuevo_Equipo()
         {
+            
             InitializeComponent();
+            cboxDepartamento.ValueMember = "PSD_DEPARTAMENTO_ID";
+            cboxDepartamento.DisplayMember = "NOMBRE";
+            cboxDepartamento.DataSource = logicaDepartamento.ObtenerInfoDepartamentos();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -72,10 +77,33 @@ namespace ProyectoServiceDesk_View.Forms
             this.Close();
         }
 
-        private void txtNombre_TextChanged(object sender,KeyPressEventArgs e)
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //llamamos al metodo "ValidarNombre" que valida que no hayan valores diferentes de letras en el textbox
-            logicaEquipo.ValidarNombre(e);
+            if (Char.IsLetter(e.KeyChar) || 8.Equals(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || 8.Equals(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

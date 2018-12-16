@@ -8,6 +8,7 @@ using ProyectoServiceDesk.Controlador;
 using ProyectoServiceDesk.Utils;
 using ProyectoServiceDesk.Modelo;
 using System.Windows.Forms;
+using System.Data;
 
 namespace ProyectoServiceDesk_Logic
 {
@@ -137,32 +138,34 @@ namespace ProyectoServiceDesk_Logic
         }
 
         //Esta funcion valida que en el textbox en las vistas, sea llenado solo con letras y no con numeros para el campo nombre 
-        public void ValidarNombre(KeyPressEventArgs v)
+
+        public DataTable ObtenerInfoDepartamentos()
         {
+            ConexionDB conexion = new ConexionDB();
+            DataTable resultado = null;
+            try
+            {
+                string strSelect = " SELECT NOMBRE,PSD_DEPARTAMENTO_ID FROM PSD_DEPARTAMENTO ";
 
-            if (Char.IsLetter(v.KeyChar))
-            {
-                v.Handled = false;
+                Utils utils = new Utils();
+                utils.LimpiarSqlParameterCollection();
+                resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection));
+
             }
-            else if (Char.IsSeparator(v.KeyChar))
+            catch (Exception)
             {
 
-                v.Handled = false;
-            }
-            else if (Char.IsControl(v.KeyChar))
-            {
-                v.Handled = false;
-            }
-            else
-            {
-                //Tiramos un mensaje que diga que solo se aceptan letras cuando la variables "v" sea verdadera, que en este caso significa que hay valores diferentes a letras en el textbox
-                v.Handled = true;
-                MessageBox.Show("Solo letras por favor. Gracias!");
+                throw;
             }
 
+
+            return resultado;
         }
 
-
+        //Esta funcion valida que en el textbox en las vistas, sea llenado solo con letras y no con numeros para el campo nombre 
 
     }
+
+
 }
+
