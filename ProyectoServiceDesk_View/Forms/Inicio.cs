@@ -111,5 +111,11 @@ namespace ProyectoServiceDesk_View.Forms
                 btnTarea.Visible = false;
             }
         }
+
+        private void btnRegistrarse_Click_1(object sender, EventArgs e)
+        {
+            PersonaNueva person = new PersonaNueva();
+            person.ShowDialog();
+        }
     }
 }

@@ -57,6 +57,7 @@
             this.btnEliminarDep.TabIndex = 5;
             this.btnEliminarDep.Text = "Eliminar Departamentos";
             this.btnEliminarDep.UseVisualStyleBackColor = true;
+            this.btnEliminarDep.Visible = false;
             // 
             // btnModificarDep
             // 
@@ -68,6 +69,7 @@
             this.btnModificarDep.TabIndex = 6;
             this.btnModificarDep.Text = "Modificar Departamentos";
             this.btnModificarDep.UseVisualStyleBackColor = true;
+            this.btnModificarDep.Visible = false;
             // 
             // btnRegresar
             // 
