@@ -54,6 +54,9 @@ namespace ProyectoServiceDesk_View.Forms
             equipo.ShowDialog();
         }
 
-        
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
