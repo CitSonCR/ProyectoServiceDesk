@@ -1,6 +1,6 @@
 ﻿namespace ProyectoServiceDesk_View.Forms
 {
-    partial class Tarea
+    partial class TareaNueva
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tarea));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TareaNueva));
             this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
@@ -85,6 +85,7 @@
             this.btnGuardar.Size = new System.Drawing.Size(65, 47);
             this.btnGuardar.TabIndex = 5;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // lblSolicitud
             // 
@@ -101,9 +102,11 @@
             this.txtDificultad.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDificultad.Location = new System.Drawing.Point(438, 187);
             this.txtDificultad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDificultad.MaxLength = 2;
             this.txtDificultad.Name = "txtDificultad";
             this.txtDificultad.Size = new System.Drawing.Size(91, 28);
             this.txtDificultad.TabIndex = 3;
+            this.txtDificultad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDificultad_KeyPress);
             // 
             // lblApellido1
             // 
@@ -130,9 +133,11 @@
             this.txtHoras.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHoras.Location = new System.Drawing.Point(43, 256);
             this.txtHoras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtHoras.MaxLength = 2;
             this.txtHoras.Name = "txtHoras";
             this.txtHoras.Size = new System.Drawing.Size(331, 28);
             this.txtHoras.TabIndex = 2;
+            this.txtHoras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHoras_KeyPress);
             // 
             // lbltipo
             // 
@@ -152,6 +157,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(327, 28);
             this.txtNombre.TabIndex = 1;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblNombre
             // 

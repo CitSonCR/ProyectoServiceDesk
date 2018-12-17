@@ -8,6 +8,7 @@ using ProyectoServiceDesk.Modelo;
 using ProyectoServiceDesk.Utils;
 using ProyectoServiceDesk.Controlador;
 using System.Windows.Forms;
+using System.Data;
 
 namespace ProyectoServiceDesk_Controller.LogicaNegocio
 {
@@ -234,6 +235,58 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
             }
 
             return resultado;
+
+        }
+        public Usuario ObtenerInfoUsuario(string userName)
+        {
+            ConexionDB conexion = new ConexionDB();
+            Utils utils = new Utils();
+            DataTable resultado = null;
+            string strSelect = string.Empty;
+            int Id = 0;
+            string UserName = string.Empty;
+            string Password = string.Empty;
+            DateTime FechaIngreso = DateTime.Now;
+            string TipoUsuario = string.Empty;
+            Equipo Equipo = null;
+            Persona Persona = null;
+            Usuario usuario = null;
+
+
+            try
+            {
+                strSelect = " SELECT PSD_USUARIO_ID,PSD_EQUIPO_ID,PSD_PERSONA_ID,PASSWORD,FECHA_INGRESO,TIPO_USUARIO FROM PSD_USUARIO WHERE USERNAME = @P_USERNAME";
+
+
+                utils.LimpiarSqlParameterCollection();
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_USERNAME", userName));
+
+                resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection));
+
+                Id = Convert.ToInt16(resultado.Rows[0][0].ToString());
+                Equipo.Id = Convert.ToInt16(resultado.Rows[0][1].ToString());
+                Persona.Id = Convert.ToInt16(resultado.Rows[0][2].ToString());
+                Password = resultado.Rows[0][3].ToString();
+                FechaIngreso = Convert.ToDateTime(resultado.Rows[0][4].ToString());
+                TipoUsuario = resultado.Rows[0][5].ToString();
+
+                try
+                {
+                    usuario = new Usuario(userName, Password, FechaIngreso, TipoUsuario, Equipo, Persona);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Ha ocurrido un error al momento de asignar la informacion del usuario " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+
+            return usuario;
 
         }
     }

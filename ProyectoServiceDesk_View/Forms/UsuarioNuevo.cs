@@ -27,7 +27,7 @@ namespace ProyectoServiceDesk_View
             InitializeComponent();
             cmbEquipo.ValueMember = "PSD_EQUIPO_ID";
             cmbEquipo.DisplayMember = "NOMBRE";
-            cmbEquipo.DataSource = logicaEquipo.ObtenerInfoEquipos();
+            cmbEquipo.DataSource = logicaEquipo.ObtenerNombreEquipos();
             CargarComboUsuario();
 
         }

@@ -99,11 +99,11 @@
     <Compile Include="Forms\Solicitud.Designer.cs">
       <DependentUpon>Solicitud.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Tarea.cs">
+    <Compile Include="Forms\TareaNueva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Tarea.Designer.cs">
-      <DependentUpon>Tarea.cs</DependentUpon>
+    <Compile Include="Forms\TareaNueva.Designer.cs">
+      <DependentUpon>TareaNueva.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -152,8 +152,8 @@
     <EmbeddedResource Include="Forms\Solicitud.resx">
       <DependentUpon>Solicitud.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tarea.resx">
-      <DependentUpon>Tarea.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\TareaNueva.resx">
+      <DependentUpon>TareaNueva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UsuarioNuevo.resx">
       <DependentUpon>UsuarioNuevo.cs</DependentUpon>

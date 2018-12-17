@@ -67,7 +67,7 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnTarea_Click(object sender, EventArgs e)
         {         
-            Tarea tarea = new Tarea();
+            TareaNueva tarea = new TareaNueva();
             this.Hide();
             tarea.UserName = lblUserName.Text;
             tarea.ShowDialog();

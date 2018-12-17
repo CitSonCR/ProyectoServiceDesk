@@ -8,15 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoServiceDesk_Logic;
+using ProyectoServiceDesk_Controller;
+using ProyectoServiceDesk.Controlador;
 
 namespace ProyectoServiceDesk_View.Forms
 {
-    public partial class Tarea : Form
+    public partial class TareaNueva : Form
     {
 
         LogicaSolicitud logicaSolicitud = new LogicaSolicitud();
         public string UserName { get; set; }
-        public Tarea()
+        public TareaNueva()
         {
             InitializeComponent();
             cmbSolicitud.ValueMember = "PSD_SOLICITUD_ID";
@@ -58,6 +60,54 @@ namespace ProyectoServiceDesk_View.Forms
             ManejoDeCampos(true);
             cmbSolicitud.Enabled = false;
             txtNombre.Focus();
+        }
+        //Solo letras y backspace
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || 8.Equals(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtHoras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || 8.Equals(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDificultad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || 8.Equals(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Tarea tarea = new Tarea(1, txtNombre.Text, Convert.ToInt32(txtHoras.Text), Convert.ToInt32(txtDificultad.Text), cmbEstadoTarea.Text.Substring(0, 1), txtUsuarioA.Text, dateFechaAtencion.Text, solicitud);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrio un error inesperado!! " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
