@@ -1,6 +1,6 @@
 ﻿namespace ProyectoServiceDesk_View.Forms
 {
-    partial class Solicitud
+    partial class SolicitudNueva
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Solicitud));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SolicitudNueva));
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtSolucion = new System.Windows.Forms.RichTextBox();

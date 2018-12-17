@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace ProyectoServiceDesk_View.Forms
 {
-    public partial class Solicitud : Form
+    public partial class SolicitudNueva : Form
     {
         public string UserName { get; set; }
         
-        public Solicitud()
+        public SolicitudNueva()
         {
             InitializeComponent();
             CargarCombos();

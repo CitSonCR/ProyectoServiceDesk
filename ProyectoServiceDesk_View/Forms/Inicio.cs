@@ -76,7 +76,7 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnSolicitud_Click(object sender, EventArgs e)
         {
-            Solicitud soli = new Solicitud();
+            SolicitudNueva soli = new SolicitudNueva();
             this.Hide();
             soli.UserName = lblUserName.Text;
             soli.ShowDialog();

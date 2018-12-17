@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
+using ProyectoServiceDesk_Controller.LogicaNegocio;
 
 namespace ProyectoServiceDesk_Logic
 {
     public class LogicaSolicitud
     {
+        LogicaUsuario logicaUsuario = new LogicaUsuario();
+
         public Boolean IngresarSolicitud(int id, int NumeroIdentificador, string Titulo, string Tipo, int Detalle, string Estado, int Prioridad, string Solucion,Usuario UsuarioIngreso, DateTime FechaIngreso,List<Tarea> tareas)
         {
 
@@ -83,7 +86,7 @@ namespace ProyectoServiceDesk_Logic
             return resultado;
         }
 
-        public Boolean EliminarSolicitud(int psdUsuarioId)
+        public Boolean EliminarSolicitud(int psdSolicitudId)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -95,7 +98,7 @@ namespace ProyectoServiceDesk_Logic
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_SOLICITUD_ID", psdUsuarioId));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_SOLICITUD_ID", psdSolicitudId));
 
                 conexion.setDatosBD(strDelete, utils.ParameterCollection);
             }
@@ -131,6 +134,60 @@ namespace ProyectoServiceDesk_Logic
 
 
             return resultado;
+        }
+        public Solicitud ObtenerInfoCompletaSolicitud(int psdSolicitudId)
+        {
+            ConexionDB conexion = new ConexionDB();
+            DataTable resultado = null;
+            Solicitud solicitud = null;
+
+            int NumeroIdentificador = 0;
+            string Titulo = string.Empty;
+            string Tipo = string.Empty;
+            string Detalle = string.Empty;
+            string Estado = string.Empty;
+            int Prioridad = 0;
+            string Solucion = string.Empty;
+            Usuario UsuarioIngreso = null;
+            DateTime FechaIngreso = DateTime.Now;
+            try
+            {
+                string strSelect = " SELECT PSD_USUARIO.USERNAME,NUMERO_IDENTIFICADOR,TITULO,TIPO,DETALLE,ESTADO,PRIORIDAD,SOLUCION,PSD_SOLICITUD.FECHA_INGRESO FROM PSD_SOLICITUD PSD_SOLICITUD  INNER JOIN PSD_USUARIO PSD_USUARIO ON PSD_SOLICITUD.PSD_USUARIO_INGRESO = PSD_USUARIO.PSD_USUARIO_ID WHERE PSD_SOLICITUD_ID =  @PSD_SOLICITUD_ID ";
+                Utils utils = new Utils();
+                utils.LimpiarSqlParameterCollection();
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_SOLICITUD_ID", psdSolicitudId));
+
+              
+                resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection));
+                UsuarioIngreso = logicaUsuario.ObtenerInfoUsuario(resultado.Rows[0][0].ToString());
+                NumeroIdentificador = Convert.ToInt16(resultado.Rows[0][1].ToString());
+                Titulo = resultado.Rows[0][2].ToString();
+                Tipo = resultado.Rows[0][3].ToString();
+                Detalle = resultado.Rows[0][4].ToString();
+                Estado = resultado.Rows[0][5].ToString();
+                Prioridad = Convert.ToInt16(resultado.Rows[0][6].ToString());
+                Solucion =  resultado.Rows[0][7].ToString();
+                FechaIngreso = Convert.ToDateTime(resultado.Rows[0][8].ToString());
+                    
+                try
+                {
+                    solicitud = new Solicitud(psdSolicitudId, NumeroIdentificador, Titulo, Tipo, Detalle, Estado, Prioridad, Solucion, UsuarioIngreso, FechaIngreso, null);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Ha ocurrido un error al momento de asignar la informacion de la solicitud " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            return solicitud;
         }
 
         //public void ValidarNombre(KeyPressEventArgs v)

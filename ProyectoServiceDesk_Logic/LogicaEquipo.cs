@@ -134,9 +134,9 @@ namespace ProyectoServiceDesk_Logic
 
                 resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection));
 
-                departamento.Id = Convert.ToInt16(resultado.Rows[0][1].ToString());
-                nombre = resultado.Rows[0][10].ToString();
-                descripcion = resultado.Rows[0][50].ToString();
+                nombre = resultado.Rows[0][0].ToString();                
+                descripcion = resultado.Rows[0][1].ToString();
+                departamento.Id = Convert.ToInt16(resultado.Rows[0][2].ToString());
 
                 try
                 {

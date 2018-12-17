@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ProyectoServiceDesk_Logic;
 using ProyectoServiceDesk_Controller;
 using ProyectoServiceDesk.Controlador;
+using ProyectoServiceDesk_Controller.LogicaNegocio;
 
 namespace ProyectoServiceDesk_View.Forms
 {
@@ -17,6 +18,8 @@ namespace ProyectoServiceDesk_View.Forms
     {
 
         LogicaSolicitud logicaSolicitud = new LogicaSolicitud();
+        LogicaTarea logicaTarea = new LogicaTarea();
+        LogicaUsuario logicaUsuario = new LogicaUsuario();
         public string UserName { get; set; }
         public TareaNueva()
         {
@@ -102,7 +105,19 @@ namespace ProyectoServiceDesk_View.Forms
         {
             try
             {
-                Tarea tarea = new Tarea(1, txtNombre.Text, Convert.ToInt32(txtHoras.Text), Convert.ToInt32(txtDificultad.Text), cmbEstadoTarea.Text.Substring(0, 1), txtUsuarioA.Text, dateFechaAtencion.Text, solicitud);
+                Usuario usuario = logicaUsuario.ObtenerInfoUsuario(txtUsuarioA.Text);
+                Solicitud solicitud = logicaSolicitud.ObtenerInfoCompletaSolicitud(Convert.ToInt16(cmbSolicitud.SelectedValue.ToString()));
+                Tarea tarea = new Tarea(0, txtNombre.Text, Convert.ToInt32(txtHoras.Text), Convert.ToInt32(txtDificultad.Text), cmbEstadoTarea.Text.Substring(0, 1), usuario, Convert.ToDateTime(dateFechaAtencion.Text), solicitud);
+                if(!logicaTarea.ValidarCamposRequeridos(tarea))
+                {
+                    MessageBox.Show("Existe información pendiente de ser llenada", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                if (logicaTarea.IngresarTarea(tarea.NumeroPrioridad, tarea.Nombre, tarea.TiempoHoras, tarea.Dificultad, tarea.EstadoProceso, tarea.UsuarioAtiende, tarea.FechaAtencion, tarea.Solicitud))
+                {
+                    MessageBox.Show("Informacion guardada con exito!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 
+                }
             }
             catch (Exception ex)
             {
