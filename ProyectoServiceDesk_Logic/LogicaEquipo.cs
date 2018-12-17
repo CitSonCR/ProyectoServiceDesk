@@ -89,7 +89,7 @@ namespace ProyectoServiceDesk_Logic
 
        
         //Esta funcion obtiene la informacion de los equipos, lo almacena en un datatable.
-         public DataTable ObtenerInfoEquipos()
+         public DataTable ObtenerNombreEquipos()
         {
             ConexionDB conexion = new ConexionDB();
             DataTable resultado = null;
@@ -112,8 +112,31 @@ namespace ProyectoServiceDesk_Logic
             return resultado;
         }
 
-       
-    }
+        public DataTable ObtenerInfoEquipos(int id)
+        {
+            ConexionDB conexion = new ConexionDB();
+            DataTable resultado = null;
+            try
+            {
+                string strSelect = " SELECT NOMBRE,DESCRIPCION FROM PSD_EQUIPO WHERE PSD_EQUIPO_ID = @ID ";
+
+                Utils utils = new Utils();
+                utils.LimpiarSqlParameterCollection();
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@ID", id));
+                resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection));
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            return resultado;
+        }
 
     }
+
+}
 
