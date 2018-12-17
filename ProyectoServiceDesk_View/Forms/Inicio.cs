@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoServiceDesk_Controller.LogicaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,22 @@ namespace ProyectoServiceDesk_View.Forms
 {
     public partial class Inicio : Form
     {
+        public string UserNameTxt { get; set; }
+        LogicaUsuario logicaUsuario = new LogicaUsuario();
         public Inicio()
         {
             InitializeComponent();
+            MostrarBotones();
         }
 
-
+        private void MostrarBotones()
+        {
+            btnAdmDepartamento.Visible = true;
+            btnAdmiEquipo.Visible = true;
+            btnManejoTarea.Visible = true;
+            btnSolicitud.Visible = true;
+            btnTarea.Visible = true;
+        }
        
         private void btnIniciar_Click(object sender, EventArgs e)
         {
@@ -70,6 +81,29 @@ namespace ProyectoServiceDesk_View.Forms
         {
             AdministrarEquipo equipo = new AdministrarEquipo();
             equipo.Show();
+        }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+            lblUserName.Text = UserNameTxt;
+            string tipoUsuario = logicaUsuario.ObtenerTipoUsuario(UserNameTxt);
+            /*Se valida por el tipo de usuario para mostrarle las opciones del menu*/
+            if (tipoUsuario.Equals("A"))
+            {
+                
+            }
+            if (tipoUsuario.Equals("D"))            
+            {
+                btnAdmDepartamento.Visible = false;
+                btnAdmiEquipo.Visible = false;
+            }
+            if (tipoUsuario.Equals("G"))
+            {
+                btnAdmDepartamento.Visible = false;
+                btnAdmiEquipo.Visible = false;
+                btnManejoTarea.Visible = false;
+                btnTarea.Visible = false;
+            }
         }
     }
 }

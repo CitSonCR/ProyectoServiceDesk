@@ -171,11 +171,11 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
 
             if (utils.YES.Equals(resultado))
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
 
@@ -211,5 +211,30 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
             return false;
         }
 
+        public string ObtenerTipoUsuario(string userName)
+        {
+            ConexionDB conexion = new ConexionDB();
+            Utils utils = new Utils();
+            string resultado = string.Empty;
+            string strSelect = string.Empty;
+            try
+            {
+                strSelect = " SELECT TIPO_USUARIO FROM PSD_USUARIO WHERE USERNAME = @P_USERNAME";
+
+
+                utils.LimpiarSqlParameterCollection();
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_USERNAME", userName));
+
+                resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection).Rows[0][0].ToString());
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+
+            return resultado;
+
+        }
     }
 }

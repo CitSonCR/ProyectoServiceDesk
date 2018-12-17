@@ -33,11 +33,8 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtSolucion = new System.Windows.Forms.RichTextBox();
             this.lblSolucion = new System.Windows.Forms.Label();
-            this.txtPrioridad = new System.Windows.Forms.TextBox();
             this.lblCorreo = new System.Windows.Forms.Label();
-            this.txtdetalle = new System.Windows.Forms.TextBox();
             this.lblApellido1 = new System.Windows.Forms.Label();
-            this.txtEstado = new System.Windows.Forms.TextBox();
             this.lblApellido2 = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.lbltipo = new System.Windows.Forms.Label();
@@ -50,16 +47,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.listViewTareas = new System.Windows.Forms.ListView();
             this.lbllista = new System.Windows.Forms.Label();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.cmbPrioridad = new System.Windows.Forms.ComboBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // btnRegresar
             // 
             this.btnRegresar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
-            this.btnRegresar.Location = new System.Drawing.Point(47, 547);
-            this.btnRegresar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRegresar.Location = new System.Drawing.Point(28, 524);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(49, 49);
+            this.btnRegresar.Size = new System.Drawing.Size(44, 39);
             this.btnRegresar.TabIndex = 49;
             this.btnRegresar.UseVisualStyleBackColor = true;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
@@ -71,10 +70,9 @@
             this.btnGuardar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.Location = new System.Drawing.Point(548, 537);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnGuardar.Location = new System.Drawing.Point(502, 516);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(73, 59);
+            this.btnGuardar.Size = new System.Drawing.Size(65, 47);
             this.btnGuardar.TabIndex = 48;
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -82,10 +80,9 @@
             // txtSolucion
             // 
             this.txtSolucion.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSolucion.Location = new System.Drawing.Point(692, 105);
-            this.txtSolucion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSolucion.Location = new System.Drawing.Point(615, 84);
             this.txtSolucion.Name = "txtSolucion";
-            this.txtSolucion.Size = new System.Drawing.Size(357, 153);
+            this.txtSolucion.Size = new System.Drawing.Size(327, 123);
             this.txtSolucion.TabIndex = 47;
             this.txtSolucion.Text = "";
             // 
@@ -93,115 +90,88 @@
             // 
             this.lblSolucion.AutoSize = true;
             this.lblSolucion.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSolucion.Location = new System.Drawing.Point(687, 72);
+            this.lblSolucion.Location = new System.Drawing.Point(611, 58);
             this.lblSolucion.Name = "lblSolucion";
-            this.lblSolucion.Size = new System.Drawing.Size(95, 25);
+            this.lblSolucion.Size = new System.Drawing.Size(83, 22);
             this.lblSolucion.TabIndex = 41;
             this.lblSolucion.Text = "Solucion";
-            // 
-            // txtPrioridad
-            // 
-            this.txtPrioridad.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrioridad.Location = new System.Drawing.Point(120, 487);
-            this.txtPrioridad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPrioridad.Name = "txtPrioridad";
-            this.txtPrioridad.Size = new System.Drawing.Size(98, 32);
-            this.txtPrioridad.TabIndex = 40;
             // 
             // lblCorreo
             // 
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreo.Location = new System.Drawing.Point(115, 441);
+            this.lblCorreo.Location = new System.Drawing.Point(99, 205);
             this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(100, 25);
+            this.lblCorreo.Size = new System.Drawing.Size(86, 22);
             this.lblCorreo.TabIndex = 39;
             this.lblCorreo.Text = "Prioridad";
-            // 
-            // txtdetalle
-            // 
-            this.txtdetalle.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdetalle.Location = new System.Drawing.Point(116, 299);
-            this.txtdetalle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtdetalle.Name = "txtdetalle";
-            this.txtdetalle.Size = new System.Drawing.Size(367, 32);
-            this.txtdetalle.TabIndex = 35;
             // 
             // lblApellido1
             // 
             this.lblApellido1.AutoSize = true;
             this.lblApellido1.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellido1.Location = new System.Drawing.Point(111, 267);
+            this.lblApellido1.Location = new System.Drawing.Point(99, 363);
             this.lblApellido1.Name = "lblApellido1";
-            this.lblApellido1.Size = new System.Drawing.Size(78, 25);
+            this.lblApellido1.Size = new System.Drawing.Size(69, 22);
             this.lblApellido1.TabIndex = 34;
             this.lblApellido1.Text = "Detalle";
-            // 
-            // txtEstado
-            // 
-            this.txtEstado.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstado.Location = new System.Drawing.Point(116, 395);
-            this.txtEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(367, 32);
-            this.txtEstado.TabIndex = 33;
             // 
             // lblApellido2
             // 
             this.lblApellido2.AutoSize = true;
             this.lblApellido2.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellido2.Location = new System.Drawing.Point(111, 356);
+            this.lblApellido2.Location = new System.Drawing.Point(99, 285);
             this.lblApellido2.Name = "lblApellido2";
-            this.lblApellido2.Size = new System.Drawing.Size(81, 25);
+            this.lblApellido2.Size = new System.Drawing.Size(70, 22);
             this.lblApellido2.TabIndex = 32;
             this.lblApellido2.Text = "Estado";
             // 
             // txtTipo
             // 
             this.txtTipo.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipo.Location = new System.Drawing.Point(116, 201);
+            this.txtTipo.Location = new System.Drawing.Point(103, 161);
             this.txtTipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(367, 32);
+            this.txtTipo.Size = new System.Drawing.Size(327, 28);
             this.txtTipo.TabIndex = 31;
             // 
             // lbltipo
             // 
             this.lbltipo.AutoSize = true;
             this.lbltipo.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltipo.Location = new System.Drawing.Point(111, 169);
+            this.lbltipo.Location = new System.Drawing.Point(99, 135);
             this.lbltipo.Name = "lbltipo";
-            this.lbltipo.Size = new System.Drawing.Size(55, 25);
+            this.lbltipo.Size = new System.Drawing.Size(47, 22);
             this.lbltipo.TabIndex = 30;
             this.lbltipo.Text = "Tipo";
             // 
             // txttitulo
             // 
             this.txttitulo.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttitulo.Location = new System.Drawing.Point(116, 105);
+            this.txttitulo.Location = new System.Drawing.Point(103, 84);
             this.txttitulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txttitulo.MaxLength = 10;
             this.txttitulo.Name = "txttitulo";
-            this.txttitulo.Size = new System.Drawing.Size(367, 32);
+            this.txttitulo.Size = new System.Drawing.Size(327, 28);
             this.txttitulo.TabIndex = 29;
             // 
             // lbltitulo
             // 
             this.lbltitulo.AutoSize = true;
             this.lbltitulo.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltitulo.Location = new System.Drawing.Point(111, 72);
+            this.lbltitulo.Location = new System.Drawing.Point(99, 58);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbltitulo.Size = new System.Drawing.Size(55, 22);
             this.lbltitulo.TabIndex = 28;
             this.lbltitulo.Text = "Titulo";
-            
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(369, 21);
+            this.label1.Location = new System.Drawing.Point(328, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(344, 38);
+            this.label1.Size = new System.Drawing.Size(296, 33);
             this.label1.TabIndex = 50;
             this.label1.Text = "Registro de Solicitud";
             // 
@@ -209,9 +179,9 @@
             // 
             this.lblfecha.AutoSize = true;
             this.lblfecha.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfecha.Location = new System.Drawing.Point(249, 441);
+            this.lblfecha.Location = new System.Drawing.Point(218, 205);
             this.lblfecha.Name = "lblfecha";
-            this.lblfecha.Size = new System.Drawing.Size(178, 25);
+            this.lblfecha.Size = new System.Drawing.Size(158, 22);
             this.lblfecha.TabIndex = 71;
             this.lblfecha.Text = "Fecha de ingreso";
             // 
@@ -219,36 +189,37 @@
             // 
             this.dateFechaAtencion.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateFechaAtencion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFechaAtencion.Location = new System.Drawing.Point(254, 487);
+            this.dateFechaAtencion.Location = new System.Drawing.Point(223, 242);
             this.dateFechaAtencion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateFechaAtencion.Name = "dateFechaAtencion";
-            this.dateFechaAtencion.Size = new System.Drawing.Size(176, 32);
+            this.dateFechaAtencion.Size = new System.Drawing.Size(157, 28);
             this.dateFechaAtencion.TabIndex = 70;
             // 
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(692, 325);
+            this.txtUsuario.Location = new System.Drawing.Point(615, 260);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(367, 32);
+            this.txtUsuario.Size = new System.Drawing.Size(327, 28);
             this.txtUsuario.TabIndex = 73;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(687, 287);
+            this.label2.Location = new System.Drawing.Point(611, 230);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 25);
+            this.label2.Size = new System.Drawing.Size(74, 22);
             this.label2.TabIndex = 72;
             this.label2.Text = "Usuario";
             // 
             // listViewTareas
             // 
-            this.listViewTareas.Location = new System.Drawing.Point(692, 422);
+            this.listViewTareas.Location = new System.Drawing.Point(615, 388);
+            this.listViewTareas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listViewTareas.Name = "listViewTareas";
-            this.listViewTareas.Size = new System.Drawing.Size(357, 174);
+            this.listViewTareas.Size = new System.Drawing.Size(327, 175);
             this.listViewTareas.TabIndex = 74;
             this.listViewTareas.UseCompatibleStateImageBehavior = false;
             // 
@@ -256,18 +227,46 @@
             // 
             this.lbllista.AutoSize = true;
             this.lbllista.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbllista.Location = new System.Drawing.Point(687, 379);
+            this.lbllista.Location = new System.Drawing.Point(611, 321);
             this.lbllista.Name = "lbllista";
-            this.lbllista.Size = new System.Drawing.Size(160, 25);
+            this.lbllista.Size = new System.Drawing.Size(139, 22);
             this.lbllista.TabIndex = 75;
             this.lbllista.Text = "Lista de Tareas";
             // 
+            // cmbEstado
+            // 
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(104, 319);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(326, 24);
+            this.cmbEstado.TabIndex = 76;
+            // 
+            // cmbPrioridad
+            // 
+            this.cmbPrioridad.FormattingEnabled = true;
+            this.cmbPrioridad.Location = new System.Drawing.Point(104, 242);
+            this.cmbPrioridad.Name = "cmbPrioridad";
+            this.cmbPrioridad.Size = new System.Drawing.Size(102, 24);
+            this.cmbPrioridad.TabIndex = 77;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(104, 388);
+            this.richTextBox1.MaxLength = 100;
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(326, 175);
+            this.richTextBox1.TabIndex = 78;
+            this.richTextBox1.Text = "";
+            // 
             // Solicitud
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1099, 626);
+            this.ClientSize = new System.Drawing.Size(1058, 594);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.cmbPrioridad);
+            this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.lbllista);
             this.Controls.Add(this.listViewTareas);
             this.Controls.Add(this.txtUsuario);
@@ -279,20 +278,17 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtSolucion);
             this.Controls.Add(this.lblSolucion);
-            this.Controls.Add(this.txtPrioridad);
             this.Controls.Add(this.lblCorreo);
-            this.Controls.Add(this.txtdetalle);
             this.Controls.Add(this.lblApellido1);
-            this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.lblApellido2);
             this.Controls.Add(this.txtTipo);
             this.Controls.Add(this.lbltipo);
             this.Controls.Add(this.txttitulo);
             this.Controls.Add(this.lbltitulo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Solicitud";
             this.Text = "Solicitud";
-            
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,11 +300,8 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.RichTextBox txtSolucion;
         private System.Windows.Forms.Label lblSolucion;
-        private System.Windows.Forms.TextBox txtPrioridad;
         private System.Windows.Forms.Label lblCorreo;
-        private System.Windows.Forms.TextBox txtdetalle;
         private System.Windows.Forms.Label lblApellido1;
-        private System.Windows.Forms.TextBox txtEstado;
         private System.Windows.Forms.Label lblApellido2;
         private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.Label lbltipo;
@@ -321,5 +314,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListView listViewTareas;
         private System.Windows.Forms.Label lbllista;
+        private System.Windows.Forms.ComboBox cmbEstado;
+        private System.Windows.Forms.ComboBox cmbPrioridad;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

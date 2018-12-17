@@ -157,7 +157,6 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
             return true;
         }
 
-
         public Boolean ValidarEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
@@ -200,6 +199,23 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
             {
                 return false;
             }
+        }
+
+        public Boolean ValidarEdadYFecha(Persona persona)
+        {
+            try
+            {
+                if (persona.FechaNacimiento >= DateTime.Now)
+                    return false;
+                if ( ( Convert.ToInt16(DateTime.Now.Year) - Convert.ToInt16(persona.FechaNacimiento.Year)) != persona.Edad )
+                    return false;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error al momento de validar la informacion del formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            return true;
         }
 
         //public int GetPsdPersonaIdPorNumeroIdentificador(int numeroIdentificacion)

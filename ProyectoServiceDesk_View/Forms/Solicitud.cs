@@ -28,7 +28,15 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Ha ocurrido un error inesperado !! "+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

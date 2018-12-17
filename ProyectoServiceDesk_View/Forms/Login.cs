@@ -30,8 +30,9 @@ namespace ProyectoServiceDesk_View.Forms
             LogicaUsuario logicaUsuario = new LogicaUsuario();
             if (logicaUsuario.ValidarUsuario(txtUsuario.Text, txtContraseña.Text))
             {
-                Inicio inicio = new Inicio();
+                Inicio inicio = new Inicio();                
                 this.Hide();
+                inicio.UserNameTxt = txtUsuario.Text;
                 inicio.ShowDialog();
                 this.Close();
             }

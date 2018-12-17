@@ -63,7 +63,7 @@
             this.txtCedula.MaxLength = 10;
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(327, 28);
-            this.txtCedula.TabIndex = 3;
+            this.txtCedula.TabIndex = 1;
             this.txtCedula.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
@@ -86,7 +86,7 @@
             this.txtNombre.MaxLength = 15;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(327, 28);
-            this.txtNombre.TabIndex = 5;
+            this.txtNombre.TabIndex = 2;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblNombre
@@ -107,7 +107,7 @@
             this.txtApellido2.MaxLength = 15;
             this.txtApellido2.Name = "txtApellido2";
             this.txtApellido2.Size = new System.Drawing.Size(327, 28);
-            this.txtApellido2.TabIndex = 7;
+            this.txtApellido2.TabIndex = 4;
             this.txtApellido2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido2_KeyPress);
             // 
             // lblApellido2
@@ -128,7 +128,7 @@
             this.txtApellido1.MaxLength = 15;
             this.txtApellido1.Name = "txtApellido1";
             this.txtApellido1.Size = new System.Drawing.Size(327, 28);
-            this.txtApellido1.TabIndex = 9;
+            this.txtApellido1.TabIndex = 3;
             this.txtApellido1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido1_KeyPress);
             // 
             // lblApellido1
@@ -168,7 +168,7 @@
             this.cmbEdad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbEdad.Name = "cmbEdad";
             this.cmbEdad.Size = new System.Drawing.Size(156, 28);
-            this.cmbEdad.TabIndex = 14;
+            this.cmbEdad.TabIndex = 7;
             this.cmbEdad.Value = new decimal(new int[] {
             1,
             0,
@@ -183,7 +183,7 @@
             this.txtCorreo.MaxLength = 35;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(439, 28);
-            this.txtCorreo.TabIndex = 16;
+            this.txtCorreo.TabIndex = 5;
             // 
             // lblCorreo
             // 
@@ -204,7 +204,7 @@
             this.txtTelefono.MaxLength = 8;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(156, 28);
-            this.txtTelefono.TabIndex = 18;
+            this.txtTelefono.TabIndex = 6;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // lblTelefono
@@ -229,13 +229,14 @@
             // 
             // dateNacimiento
             // 
+            this.dateNacimiento.CustomFormat = "dd/mm/yyyy";
             this.dateNacimiento.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateNacimiento.Location = new System.Drawing.Point(583, 318);
             this.dateNacimiento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateNacimiento.Name = "dateNacimiento";
             this.dateNacimiento.Size = new System.Drawing.Size(157, 28);
-            this.dateNacimiento.TabIndex = 21;
+            this.dateNacimiento.TabIndex = 9;
             // 
             // lblNacimiento
             // 
@@ -253,14 +254,12 @@
             this.cmbGenero.FormattingEnabled = true;
             this.cmbGenero.Items.AddRange(new object[] {
             "Hombre",
-            "Mujer",
-            "Otro",
-            "Ambos"});
+            "Mujer"});
             this.cmbGenero.Location = new System.Drawing.Point(582, 240);
             this.cmbGenero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbGenero.Name = "cmbGenero";
             this.cmbGenero.Size = new System.Drawing.Size(158, 29);
-            this.cmbGenero.TabIndex = 23;
+            this.cmbGenero.TabIndex = 8;
             // 
             // txtDireccion
             // 
@@ -269,7 +268,7 @@
             this.txtDireccion.MaxLength = 100;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(318, 63);
-            this.txtDireccion.TabIndex = 24;
+            this.txtDireccion.TabIndex = 10;
             this.txtDireccion.Text = "";
             // 
             // btnGuardar

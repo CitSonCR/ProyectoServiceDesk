@@ -45,15 +45,33 @@ namespace ProyectoServiceDesk_View.Forms
         {
             try
             {
+
                 Persona persona = new Persona(Convert.ToInt32(txtCedula.Text), txtNombre.Text, txtApellido1.Text, txtApellido2.Text, Convert.ToInt32(cmbEdad.Value.ToString()), txtDireccion.Text, Convert.ToInt32(txtTelefono.Text), txtCorreo.Text, "H", Convert.ToDateTime(dateNacimiento.Text));
-                
+                //Valida que se este ingresando toda la informacion
+                if(!logicaPersona.ValidarCamposRequeridos(persona))
+                {
+                    MessageBox.Show("Existe información pendiente de ser llenada", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                //Valida que el email sea valido
+                if (!logicaPersona.ValidarEmail(persona.CorreoElectronico))
+                {
+                    MessageBox.Show("El correo electrónico no es una dirección válida", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                if (!logicaPersona.ValidarEdadYFecha(persona))
+                {
+                    MessageBox.Show("La informacion de la edad y la fecha de nacimiento no coinciden", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }                
                 if (logicaPersona.IngresarPersona(persona.NumeroIdentificacion, persona.Nombre, persona.PrimerApellido, persona.SegundoApellido, persona.Edad, persona.Direccion, persona.Telefono, persona.CorreoElectronico, persona.Genero, persona.FechaNacimiento))
                 {
-                    MessageBox.Show("informacion guardada con exito!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Informacion guardada con exito!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     UsuarioNuevo usuario = new UsuarioNuevo();
+                    this.Hide();
                     usuario.persona = persona;
                     usuario.ShowDialog();
-                    
+                    this.Close();
                 }
                 else
                 {

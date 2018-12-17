@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tarea));
-            this.dataSet1 = new ProyectoServiceDesk_View.DataSet1();
+            //this.dataSet1 = new ProyectoServiceDesk_View.DataSet1();
             this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
@@ -49,19 +49,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblfecha = new System.Windows.Forms.Label();
             this.dateFechaAtencion = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataSet1
             // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            //this.dataSet1.DataSetName = "DataSet1";
+//            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataSet1BindingSource
             // 
-            this.dataSet1BindingSource.DataSource = this.dataSet1;
-            this.dataSet1BindingSource.Position = 0;
+//            this.dataSet1BindingSource.DataSource = this.dataSet1;
+  //          this.dataSet1BindingSource.Position = 0;
             // 
             // label1
             // 
@@ -260,8 +260,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Tarea";
             this.Text = "Tarea";
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
+            ////((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,7 +269,7 @@
 
         #endregion
         private System.Windows.Forms.BindingSource dataSet1BindingSource;
-        private DataSet1 dataSet1;
+        //private DataSet1 dataSet1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnGuardar;

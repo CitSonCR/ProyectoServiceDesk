@@ -137,8 +137,6 @@
             // 
             this.cmbTipoUsuario.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoUsuario.FormattingEnabled = true;
-            this.cmbTipoUsuario.Items.AddRange(new object[] {
-            "T"});
             this.cmbTipoUsuario.Location = new System.Drawing.Point(246, 266);
             this.cmbTipoUsuario.Name = "cmbTipoUsuario";
             this.cmbTipoUsuario.Size = new System.Drawing.Size(238, 29);
@@ -161,7 +159,7 @@
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.Location = new System.Drawing.Point(246, 375);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(80, 31);
+            this.btnGuardar.Size = new System.Drawing.Size(80, 48);
             this.btnGuardar.TabIndex = 11;
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);

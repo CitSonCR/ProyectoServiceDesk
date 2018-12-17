@@ -12,7 +12,7 @@ namespace ProyectoServiceDesk_Logic
 {
     class LogicaSolicitud
     {
-        public Boolean IngresarPersona(int id, int NumeroIdentificador, string Titulo, string Tipo, int Detalle, string Estado, int Prioridad, string Solucion,Usuario UsuarioIngreso, DateTime FechaIngreso,List<Tarea> tareas)
+        public Boolean IngresarSolicitud(int id, int NumeroIdentificador, string Titulo, string Tipo, int Detalle, string Estado, int Prioridad, string Solucion,Usuario UsuarioIngreso, DateTime FechaIngreso,List<Tarea> tareas)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -20,12 +20,11 @@ namespace ProyectoServiceDesk_Logic
             string strInsert = string.Empty;
             try
             {
-                strInsert = "INSERT INTO PSD_SOLICITUD (ID, NUMERO_IDENTIFICADOR, TITULO,TIPO, DETALLE, ESTADO, PRIORIDAD, SOLUCION, PSD_USUARIO_INGRESO, FECHA_INGRESO,PSD) " +
+                strInsert = "INSERT INTO PSD_SOLICITUD ( NUMERO_IDENTIFICADOR, TITULO,TIPO, DETALLE, ESTADO, PRIORIDAD, SOLUCION, PSD_USUARIO_INGRESO, FECHA_INGRESO) " +
                             " VALUES (@ID,@NUMERO_IDENTIFICADOR,@TITULO,@TIPO,@DETALLE,@ESTADO,@PRIORIDAD,@SOLUCION,@PSD_USUARIO_INGRESO,@FECHA_INGRESO)";
 
                 Utils utils = new Utils();
-                utils.LimpiarSqlParameterCollection();
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@ID", id));
+                utils.LimpiarSqlParameterCollection();                
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@NUMERO_IDENTIFICADOR", NumeroIdentificador));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TITULO", Titulo));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@TIPO", Tipo));
@@ -48,7 +47,7 @@ namespace ProyectoServiceDesk_Logic
             return resultado;
         }
 
-        public Boolean EditarPersona(string Estado, int Prioridad, string Solucion, Usuario UsuarioIngreso)
+        public Boolean EditarSolicitud(string Estado, int Prioridad, string Solucion, Usuario UsuarioIngreso, int psdSolicitudId)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -69,7 +68,7 @@ namespace ProyectoServiceDesk_Logic
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PRIORIDAD", Prioridad));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@SOLUCION", Solucion));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@USUARIOINGRESO", UsuarioIngreso.FechaIngreso));
-
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_SOLICITUD_ID", psdSolicitudId));
 
                 conexion.setDatosBD(strUpdate, utils.ParameterCollection);
             }
@@ -83,7 +82,7 @@ namespace ProyectoServiceDesk_Logic
             return resultado;
         }
 
-        public Boolean EliminarPersona(int psdUsuarioId)
+        public Boolean EliminarSolicitud(int psdUsuarioId)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -91,11 +90,11 @@ namespace ProyectoServiceDesk_Logic
             string strDelete = string.Empty;
             try
             {
-                strDelete = " DELETE FROM PSD_PERSONA WHERE  PSD_USUARIO_ID = @PSD_USUARIO_ID ";
+                strDelete = " DELETE FROM PSD_SOLICITUD WHERE PSD_SOLICITUD_ID = @PSD_SOLICITUD_ID ";
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_PERSONA_ID", psdUsuarioId));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_SOLICITUD_ID", psdUsuarioId));
 
                 conexion.setDatosBD(strDelete, utils.ParameterCollection);
             }
@@ -109,30 +108,30 @@ namespace ProyectoServiceDesk_Logic
             return resultado;
         }
 
-        public void ValidarNombre(KeyPressEventArgs v)
-        {
+        //public void ValidarNombre(KeyPressEventArgs v)
+        //{
 
-            if (Char.IsLetter(v.KeyChar))
-            {
-                v.Handled = false;
-            }
-            else if (Char.IsSeparator(v.KeyChar))
-            {
+        //    if (Char.IsLetter(v.KeyChar))
+        //    {
+        //        v.Handled = false;
+        //    }
+        //    else if (Char.IsSeparator(v.KeyChar))
+        //    {
 
-                v.Handled = false;
-            }
-            else if (Char.IsControl(v.KeyChar))
-            {
-                v.Handled = false;
-            }
-            else
-            {
-                //Tiramos un mensaje que diga que solo se aceptan letras cuando la variables "v" sea verdadera, que en este caso significa que hay valores diferentes a letras en el textbox
-                v.Handled = true;
-                MessageBox.Show("Solo letras por favor. Gracias!");
-            }
+        //        v.Handled = false;
+        //    }
+        //    else if (Char.IsControl(v.KeyChar))
+        //    {
+        //        v.Handled = false;
+        //    }
+        //    else
+        //    {
+        //        //Tiramos un mensaje que diga que solo se aceptan letras cuando la variables "v" sea verdadera, que en este caso significa que hay valores diferentes a letras en el textbox
+        //        v.Handled = true;
+        //        MessageBox.Show("Solo letras por favor. Gracias!");
+        //    }
 
-        }
+        //}
 
         public Boolean ValidarFecha(Solicitud solicitud)
         {
