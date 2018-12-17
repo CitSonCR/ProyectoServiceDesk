@@ -42,11 +42,12 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(43, 103);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNombre.MaxLength = 15;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(89, 20);
             this.txtNombre.TabIndex = 7;
-            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblNombre
             // 
@@ -62,7 +63,8 @@
             // txtTipo
             // 
             this.txtTipo.Location = new System.Drawing.Point(172, 97);
-            this.txtTipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTipo.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTipo.MaxLength = 10;
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(89, 20);
             this.txtTipo.TabIndex = 9;
@@ -81,10 +83,12 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(308, 97);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDescripcion.MaxLength = 20;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(218, 20);
             this.txtDescripcion.TabIndex = 11;
+            this.txtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripcion_KeyPress);
             // 
             // lblDescripcion
             // 
@@ -138,7 +142,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NuevoDepartamento";
             this.Text = "NuevoDepartamento";
             this.ResumeLayout(false);

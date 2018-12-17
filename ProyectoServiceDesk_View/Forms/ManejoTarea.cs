@@ -16,5 +16,15 @@ namespace ProyectoServiceDesk_View.Forms
         {
             InitializeComponent();
         }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace ProyectoServiceDesk_View.Forms
         LogicaDepartamento logicaDepartamento = new LogicaDepartamento();
         public NuevoDepartamento()
         {
+
             InitializeComponent();
         }
 
@@ -71,11 +72,35 @@ namespace ProyectoServiceDesk_View.Forms
             this.Close();
         }
 
-        private void txtNombre_TextChanged(object sender, KeyPressEventArgs e)
+        //Esta funcion en el txt del nombre del departamento valida que el usuario solo digite letras en este campo, con la propiedad IsLetter alojada en un char 
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //llamamos al metodo "ValidarNombre" que valida que no hayan valores diferentes de letras en el textbox
-            logicaDepartamento.ValidarNombre(e);
+            if (Char.IsLetter(e.KeyChar) || 8.Equals(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
+
+         //Esta funcion en el txt del descripcion del departamento valida que el usuario solo digite letras en este campo, con la propiedad IsLetter alojada en un char 
+        private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || 8.Equals(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+      
     }
     }
+    
+    
 

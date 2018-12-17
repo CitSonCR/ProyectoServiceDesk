@@ -47,5 +47,29 @@ namespace ProyectoServiceDesk_View.Forms
         {
             this.Close();
         }
+
+        private void btnManejoTarea_Click(object sender, EventArgs e)
+        {
+            ManejoTarea mt = new ManejoTarea();
+            mt.Show();
+        }
+
+        private void btnTarea_Click(object sender, EventArgs e)
+        {
+            Tarea tarea = new Tarea();
+            tarea.Show();
+        }
+
+        private void btnSolicitud_Click(object sender, EventArgs e)
+        {
+            Solicitud soli = new Solicitud();
+            soli.Show();
+        }
+
+        private void btnAdmiEquipo_Click(object sender, EventArgs e)
+        {
+            AdministrarEquipo equipo = new AdministrarEquipo();
+            equipo.Show();
+        }
     }
 }

@@ -29,22 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
-            this.btnAdmEquipo = new System.Windows.Forms.Button();
             this.btnAdmDepartamento = new System.Windows.Forms.Button();
             this.btnRegresar = new System.Windows.Forms.Button();
+            this.btnAdmiEquipo = new System.Windows.Forms.Button();
+            this.btnTarea = new System.Windows.Forms.Button();
+            this.btnManejoTarea = new System.Windows.Forms.Button();
+            this.btnSolicitud = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnAdmEquipo
-            // 
-            this.btnAdmEquipo.Font = new System.Drawing.Font("Arial", 10.8F);
-            this.btnAdmEquipo.Location = new System.Drawing.Point(576, 173);
-            this.btnAdmEquipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAdmEquipo.Name = "btnAdmEquipo";
-            this.btnAdmEquipo.Size = new System.Drawing.Size(205, 85);
-            this.btnAdmEquipo.TabIndex = 2;
-            this.btnAdmEquipo.Text = "Administar Equipo";
-            this.btnAdmEquipo.UseVisualStyleBackColor = true;
-            this.btnAdmEquipo.Click += new System.EventHandler(this.btnEquipo_Click);
             // 
             // btnAdmDepartamento
             // 
@@ -70,15 +61,66 @@
             this.btnRegresar.UseVisualStyleBackColor = true;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
+            // btnAdmiEquipo
+            // 
+            this.btnAdmiEquipo.Font = new System.Drawing.Font("Arial", 10.8F);
+            this.btnAdmiEquipo.Location = new System.Drawing.Point(197, 62);
+            this.btnAdmiEquipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdmiEquipo.Name = "btnAdmiEquipo";
+            this.btnAdmiEquipo.Size = new System.Drawing.Size(205, 85);
+            this.btnAdmiEquipo.TabIndex = 38;
+            this.btnAdmiEquipo.Text = "Administrar Equipo";
+            this.btnAdmiEquipo.UseVisualStyleBackColor = true;
+            this.btnAdmiEquipo.Click += new System.EventHandler(this.btnAdmiEquipo_Click);
+            // 
+            // btnTarea
+            // 
+            this.btnTarea.Font = new System.Drawing.Font("Arial", 10.8F);
+            this.btnTarea.Location = new System.Drawing.Point(576, 173);
+            this.btnTarea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTarea.Name = "btnTarea";
+            this.btnTarea.Size = new System.Drawing.Size(205, 85);
+            this.btnTarea.TabIndex = 39;
+            this.btnTarea.Text = "Ingresar Tareas";
+            this.btnTarea.UseVisualStyleBackColor = true;
+            this.btnTarea.Click += new System.EventHandler(this.btnTarea_Click);
+            // 
+            // btnManejoTarea
+            // 
+            this.btnManejoTarea.Font = new System.Drawing.Font("Arial", 10.8F);
+            this.btnManejoTarea.Location = new System.Drawing.Point(199, 293);
+            this.btnManejoTarea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnManejoTarea.Name = "btnManejoTarea";
+            this.btnManejoTarea.Size = new System.Drawing.Size(205, 85);
+            this.btnManejoTarea.TabIndex = 40;
+            this.btnManejoTarea.Text = "Manejo de tareas";
+            this.btnManejoTarea.UseVisualStyleBackColor = true;
+            this.btnManejoTarea.Click += new System.EventHandler(this.btnManejoTarea_Click);
+            // 
+            // btnSolicitud
+            // 
+            this.btnSolicitud.Font = new System.Drawing.Font("Arial", 10.8F);
+            this.btnSolicitud.Location = new System.Drawing.Point(576, 62);
+            this.btnSolicitud.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSolicitud.Name = "btnSolicitud";
+            this.btnSolicitud.Size = new System.Drawing.Size(205, 85);
+            this.btnSolicitud.TabIndex = 41;
+            this.btnSolicitud.Text = "Ingresar Solicitud";
+            this.btnSolicitud.UseVisualStyleBackColor = true;
+            this.btnSolicitud.Click += new System.EventHandler(this.btnSolicitud_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1008, 608);
+            this.Controls.Add(this.btnSolicitud);
+            this.Controls.Add(this.btnManejoTarea);
+            this.Controls.Add(this.btnTarea);
+            this.Controls.Add(this.btnAdmiEquipo);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnAdmDepartamento);
-            this.Controls.Add(this.btnAdmEquipo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Inicio";
@@ -89,8 +131,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnAdmEquipo;
         private System.Windows.Forms.Button btnAdmDepartamento;
         private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.Button btnAdmiEquipo;
+        private System.Windows.Forms.Button btnTarea;
+        private System.Windows.Forms.Button btnManejoTarea;
+        private System.Windows.Forms.Button btnSolicitud;
     }
 }

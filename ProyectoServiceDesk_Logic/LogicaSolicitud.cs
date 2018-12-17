@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ProyectoServiceDesk_Logic
 {
@@ -133,6 +134,21 @@ namespace ProyectoServiceDesk_Logic
 
         }
 
+        public Boolean ValidarFecha(Solicitud solicitud)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(Convert.ToString(solicitud.FechaIngreso)))
+                    return false;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error al momento de validar la informacion del formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }             
+            return true;
+            
+        }
 
     }
 }

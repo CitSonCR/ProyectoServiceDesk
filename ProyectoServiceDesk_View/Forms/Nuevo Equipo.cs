@@ -18,9 +18,18 @@ namespace ProyectoServiceDesk_View.Forms
     {
         
         LogicaEquipo logicaEquipo = new LogicaEquipo();
+        //Hacemos instancia de la clase LogicaDepartamento para utilizarla en el main del nuevo equipo para obtener los datos del departamento en el combobox del departamento en la vista de equipo 
+        LogicaDepartamento logicaDepartamento = new LogicaDepartamento();
         public Nuevo_Equipo()
         {
+            
             InitializeComponent();
+            //Un valor del combo box es ID del departamento 
+            cboxDepartamento.ValueMember = "PSD_DEPARTAMENTO_ID";
+            //Lo que mostramos es el nombre en el display a la hora que se ve en el combo box 
+            cboxDepartamento.DisplayMember = "NOMBRE";
+            //con el data source obtenemos la info que está contenida en el departamento 
+            cboxDepartamento.DataSource = logicaDepartamento.ObtenerInfoDepartamentos();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -72,10 +81,32 @@ namespace ProyectoServiceDesk_View.Forms
             this.Close();
         }
 
-        private void txtNombre_TextChanged(object sender,KeyPressEventArgs e)
+
+        //Esta funcion en el txt del nombre del equipo valida que el usuario solo digite letras en este campo, con la propiedad IsLetter alojada en un char 
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //llamamos al metodo "ValidarNombre" que valida que no hayan valores diferentes de letras en el textbox
-            logicaEquipo.ValidarNombre(e);
+            if (Char.IsLetter(e.KeyChar) || 8.Equals(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
+
+        //Esta funcion en el txt del nombre del equipo valida que el usuario solo digite letras en este campo, con la propiedad IsLetter alojada en un char 
+        private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar) || 8.Equals(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
     }
 }

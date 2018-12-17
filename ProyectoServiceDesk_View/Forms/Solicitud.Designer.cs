@@ -77,6 +77,7 @@
             this.btnGuardar.Size = new System.Drawing.Size(73, 59);
             this.btnGuardar.TabIndex = 48;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtSolucion
             // 
@@ -192,7 +193,7 @@
             this.lbltitulo.Size = new System.Drawing.Size(64, 25);
             this.lbltitulo.TabIndex = 28;
             this.lbltitulo.Text = "Titulo";
-            this.lbltitulo.Click += new System.EventHandler(this.lblCedula_Click);
+            
             // 
             // label1
             // 
@@ -291,7 +292,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Solicitud";
             this.Text = "Solicitud";
-            this.Load += new System.EventHandler(this.Solicitud_Load);
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -8,6 +8,7 @@ using ProyectoServiceDesk.Controlador;
 using ProyectoServiceDesk.Utils;
 using ProyectoServiceDesk.Modelo;
 using System.Windows.Forms;
+using System.Data;
 
 namespace ProyectoServiceDesk_Logic
 {
@@ -82,48 +83,20 @@ namespace ProyectoServiceDesk_Logic
             return resultado;
         }
 
-        //Aqui el concepto es el mismo que en la insercion de la informacion en la base de datos, solo que esta eliminará el dato que queramos dependiendo del ID del departamento
-        public Boolean EliminarDepartamento(int id)
+        
+        //Este metodo obtiene los datos de Departamentos y los aloja en un datatable propiedad de la libreria data
+        public DataTable ObtenerInfoDepartamentos()
         {
-            
+            //se hace la conexion con la BD
             ConexionDB conexion = new ConexionDB();
-            bool resultado = true;
-            string strDelete = string.Empty;
+            DataTable resultado = null;
             try
             {
-                strDelete = " DELETE FROM PSD_DEPARTAMENTO WHERE PSD_DEPARTAMENTO_ID= @PSD_DEPARTAMENTO_ID";
+                string strSelect = " SELECT NOMBRE,PSD_DEPARTAMENTO_ID FROM PSD_DEPARTAMENTO ";
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_DEPARTAMENTO_ID", id));
-
-                conexion.setDatosBD(strDelete, utils.ParameterCollection);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-
-            return resultado;
-        }
-
-        //Aqui el concepto es el mismo que en la insercion de la informacion en la base de datos, solo que esta obtendrá el dato que queramos dependiendo del ID del departamento //Aqui el concepto es el mismo que en la insercion de la informacion en la base de datos, solo que esta obtendrá el dato que queramos dependiendo del ID del departamento
-        public int GetPsdDepartamentoIdPorID(int id)
-        {
-            
-            ConexionDB conexion = new ConexionDB();
-            int resultado = 0;
-            try
-            {
-                string strSelect = " SELECT PSD_DEPARTAMENTO_NOMBBRE FROM PSD_DEPARTAMENTO WHERE PSD_DEPARTAMENTO_ID = @ID";
-
-                Utils utils = new Utils();
-                utils.LimpiarSqlParameterCollection();
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@ID", id));
-
-                resultado = int.Parse(conexion.getDatosBD(strSelect, utils.ParameterCollection).Rows[0][0].ToString());
+                resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection));
 
             }
             catch (Exception)
@@ -136,33 +109,10 @@ namespace ProyectoServiceDesk_Logic
             return resultado;
         }
 
-        //Esta funcion valida que en el textbox en las vistas, sea llenado solo con letras y no con numeros para el campo nombre 
-        public void ValidarNombre(KeyPressEventArgs v)
-        {
-
-            if (Char.IsLetter(v.KeyChar))
-            {
-                v.Handled = false;
-            }
-            else if (Char.IsSeparator(v.KeyChar))
-            {
-
-                v.Handled = false;
-            }
-            else if (Char.IsControl(v.KeyChar))
-            {
-                v.Handled = false;
-            }
-            else
-            {
-                //Tiramos un mensaje que diga que solo se aceptan letras cuando la variables "v" sea verdadera, que en este caso significa que hay valores diferentes a letras en el textbox
-                v.Handled = true;
-                MessageBox.Show("Solo letras por favor. Gracias!");
-            }
-
-        }
-
-
+        
 
     }
+
+
 }
+

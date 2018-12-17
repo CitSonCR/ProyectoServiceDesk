@@ -1,6 +1,7 @@
 ﻿using ProyectoServiceDesk.Controlador;
 using ProyectoServiceDesk_Controller;
 using ProyectoServiceDesk_Controller.LogicaNegocio;
+using ProyectoServiceDesk_Logic;
 using ProyectoServiceDesk_View.Forms;
 using System;
 using System.Collections.Generic;
@@ -18,11 +19,16 @@ namespace ProyectoServiceDesk_View
     {
         public Persona persona;        
         public LogicaUsuario logicaUsuario = new LogicaUsuario();
+        public LogicaEquipo logicaEquipo = new LogicaEquipo();
 
         public UsuarioNuevo()
         {
+           
             InitializeComponent();
-            
+            cmbEquipo.ValueMember = "PSD_EQUIPO_ID";
+            cmbEquipo.DisplayMember = "NOMBRE";
+            cmbEquipo.DataSource = logicaEquipo.ObtenerInfoEquipos();
+
         }
 
 
@@ -37,8 +43,10 @@ namespace ProyectoServiceDesk_View
             {
 
                 Equipo equipo = null;
-                
+                Usuario usuario = new Usuario(txtNombreUsuario.Text, txtPassword.Text,DateTime.Now, cmbTipoUsuario.Text, equipo, persona);
+
                 if (logicaUsuario.IngresarUsuario(txtNombreUsuario.Text, txtPassword.Text, cmbTipoUsuario.Text, equipo, persona))
+
                 {
                     MessageBox.Show("informacion guardada con exito!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
