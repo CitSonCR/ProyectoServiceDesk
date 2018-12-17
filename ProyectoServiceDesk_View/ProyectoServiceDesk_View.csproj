@@ -195,14 +195,5 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\right-arrow.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\left-arrow%281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\right-arrow%281%29.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
