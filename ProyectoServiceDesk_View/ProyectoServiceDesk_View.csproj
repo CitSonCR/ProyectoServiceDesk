@@ -75,6 +75,12 @@
     <Compile Include="Forms\ManejoTarea.Designer.cs">
       <DependentUpon>ManejoTarea.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NuevaContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NuevaContraseña.Designer.cs">
+      <DependentUpon>NuevaContraseña.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Nuevo Equipo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManejoTarea.resx">
       <DependentUpon>ManejoTarea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NuevaContraseña.resx">
+      <DependentUpon>NuevaContraseña.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Nuevo Equipo.resx">
       <DependentUpon>Nuevo Equipo.cs</DependentUpon>

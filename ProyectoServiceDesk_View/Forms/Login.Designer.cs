@@ -99,6 +99,7 @@
             this.btnCambioPassword.TabIndex = 13;
             this.btnCambioPassword.Text = "Cambiar contraseña";
             this.btnCambioPassword.UseVisualStyleBackColor = true;
+            this.btnCambioPassword.Click += new System.EventHandler(this.btnCambioPassword_Click);
             // 
             // Login
             // 
