@@ -58,6 +58,7 @@
             this.btnEliminarEquipo.Text = "Eliminar Equipo";
             this.btnEliminarEquipo.UseVisualStyleBackColor = true;
             this.btnEliminarEquipo.Visible = false;
+            this.btnEliminarEquipo.Click += new System.EventHandler(this.btnEliminarEquipo_Click);
             // 
             // btnAddEquipo
             // 

@@ -22,5 +22,10 @@ namespace ProyectoServiceDesk_View.Forms
             Nuevo_Equipo equipo = new Nuevo_Equipo();
             equipo.ShowDialog();
         }
+
+        private void btnEliminarEquipo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

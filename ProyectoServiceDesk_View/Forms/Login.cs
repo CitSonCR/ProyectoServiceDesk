@@ -59,5 +59,11 @@ namespace ProyectoServiceDesk_View.Forms
         {
 
         }
+
+        private void btnCambioPassword_Click(object sender, EventArgs e)
+        {
+            NuevaContraseña contra = new NuevaContraseña();
+            contra.Show();
+        }
     }
 }
