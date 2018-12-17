@@ -65,5 +65,11 @@ namespace ProyectoServiceDesk_View.Forms
             Solicitud soli = new Solicitud();
             soli.Show();
         }
+
+        private void btnAdmiEquipo_Click(object sender, EventArgs e)
+        {
+            AdministrarEquipo equipo = new AdministrarEquipo();
+            equipo.Show();
+        }
     }
 }

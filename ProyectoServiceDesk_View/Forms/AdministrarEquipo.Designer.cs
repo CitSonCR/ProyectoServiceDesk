@@ -45,6 +45,7 @@
             this.btnModificarEquipo.TabIndex = 9;
             this.btnModificarEquipo.Text = "Modificar Equipo";
             this.btnModificarEquipo.UseVisualStyleBackColor = true;
+            this.btnModificarEquipo.Visible = false;
             // 
             // btnEliminarEquipo
             // 
@@ -56,6 +57,7 @@
             this.btnEliminarEquipo.TabIndex = 8;
             this.btnEliminarEquipo.Text = "Eliminar Equipo";
             this.btnEliminarEquipo.UseVisualStyleBackColor = true;
+            this.btnEliminarEquipo.Visible = false;
             // 
             // btnAddEquipo
             // 

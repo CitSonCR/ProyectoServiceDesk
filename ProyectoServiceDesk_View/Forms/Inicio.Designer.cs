@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.btnAdmDepartamento = new System.Windows.Forms.Button();
             this.btnRegresar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAdmiEquipo = new System.Windows.Forms.Button();
             this.btnTarea = new System.Windows.Forms.Button();
             this.btnManejoTarea = new System.Windows.Forms.Button();
             this.btnSolicitud = new System.Windows.Forms.Button();
@@ -61,16 +61,17 @@
             this.btnRegresar.UseVisualStyleBackColor = true;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
-            // button1
+            // btnAdmiEquipo
             // 
-            this.button1.Font = new System.Drawing.Font("Arial", 10.8F);
-            this.button1.Location = new System.Drawing.Point(197, 62);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(205, 85);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "Administrar Departamentos";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAdmiEquipo.Font = new System.Drawing.Font("Arial", 10.8F);
+            this.btnAdmiEquipo.Location = new System.Drawing.Point(197, 62);
+            this.btnAdmiEquipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdmiEquipo.Name = "btnAdmiEquipo";
+            this.btnAdmiEquipo.Size = new System.Drawing.Size(205, 85);
+            this.btnAdmiEquipo.TabIndex = 38;
+            this.btnAdmiEquipo.Text = "Administrar Equipo";
+            this.btnAdmiEquipo.UseVisualStyleBackColor = true;
+            this.btnAdmiEquipo.Click += new System.EventHandler(this.btnAdmiEquipo_Click);
             // 
             // btnTarea
             // 
@@ -117,7 +118,7 @@
             this.Controls.Add(this.btnSolicitud);
             this.Controls.Add(this.btnManejoTarea);
             this.Controls.Add(this.btnTarea);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAdmiEquipo);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnAdmDepartamento);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -132,7 +133,7 @@
         #endregion
         private System.Windows.Forms.Button btnAdmDepartamento;
         private System.Windows.Forms.Button btnRegresar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAdmiEquipo;
         private System.Windows.Forms.Button btnTarea;
         private System.Windows.Forms.Button btnManejoTarea;
         private System.Windows.Forms.Button btnSolicitud;

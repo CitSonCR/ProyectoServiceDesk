@@ -17,20 +17,14 @@ namespace ProyectoServiceDesk_View.Forms
             InitializeComponent();
         }
 
-        private void lblCedula_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void Solicitud_Load(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
