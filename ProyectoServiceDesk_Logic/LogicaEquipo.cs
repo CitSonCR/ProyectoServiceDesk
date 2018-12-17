@@ -112,10 +112,10 @@ namespace ProyectoServiceDesk_Logic
             return resultado;
         }
 
-        public DataTable ObtenerInfoEquipos(int id)
+        public Equipo ObtenerInfoEquipos(int id)
         {
             ConexionDB conexion = new ConexionDB();
-            DataTable resultado = null;
+            Equipo equipo = new Equipo();
             try
             {
                 string strSelect = " SELECT NOMBRE,DESCRIPCION FROM PSD_EQUIPO WHERE PSD_EQUIPO_ID = @ID ";
@@ -123,7 +123,7 @@ namespace ProyectoServiceDesk_Logic
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@ID", id));
-                resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection));
+                conexion.setDatosBD(strSelect, utils.ParameterCollection);
 
             }
             catch (Exception)
@@ -133,7 +133,7 @@ namespace ProyectoServiceDesk_Logic
             }
 
 
-            return resultado;
+            return equipo;
         }
 
     }
