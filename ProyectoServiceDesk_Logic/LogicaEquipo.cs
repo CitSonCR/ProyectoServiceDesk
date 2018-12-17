@@ -112,28 +112,50 @@ namespace ProyectoServiceDesk_Logic
             return resultado;
         }
 
-        public Equipo ObtenerInfoEquipos(int id)
+        public Equipo ObtenerInfoEquipo(int id)
         {
             ConexionDB conexion = new ConexionDB();
-            Equipo equipo = new Equipo();
+            Utils utils = new Utils();
+            DataTable resultado = null;
+            string nombre = string.Empty;
+            string descripcion = string.Empty;
+            string strSelect = string.Empty;
+            Departamento departamento = null;
+            Equipo equipo = null;
+
+
             try
             {
-                string strSelect = " SELECT NOMBRE,DESCRIPCION FROM PSD_EQUIPO WHERE PSD_EQUIPO_ID = @ID ";
+                strSelect = "  SELECT NOMBRE,DESCRIPCION,PSD_DEPARTAMENTO_ID FROM PSD_EQUIPO WHERE PSD_EQUIPO_ID = @ID";
 
-                Utils utils = new Utils();
+
                 utils.LimpiarSqlParameterCollection();
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@ID", id));
-                conexion.setDatosBD(strSelect, utils.ParameterCollection);
 
+                resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection));
+
+                departamento.Id = Convert.ToInt16(resultado.Rows[0][1].ToString());
+                nombre = resultado.Rows[0][10].ToString();
+                descripcion = resultado.Rows[0][50].ToString();
+
+                try
+                {
+                    equipo = new Equipo(nombre,descripcion,departamento);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Ha ocurrido un error al momento de asignar la informacion del equipo " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                Console.WriteLine(e.Message);
             }
 
-
             return equipo;
+
         }
 
     }
