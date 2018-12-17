@@ -9,10 +9,7 @@ using System.Windows.Forms;
 using ProyectoServiceDesk.Controlador;
 using ProyectoServiceDesk.Modelo;
 using ProyectoServiceDesk.Utils;
-
-
-
-
+          
 namespace ProyectoServiceDesk_Logic
 {
     public class LogicaEquipo

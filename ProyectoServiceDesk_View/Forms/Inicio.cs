@@ -66,15 +66,21 @@ namespace ProyectoServiceDesk_View.Forms
         }
 
         private void btnTarea_Click(object sender, EventArgs e)
-        {
+        {         
             Tarea tarea = new Tarea();
-            tarea.Show();
+            this.Hide();
+            tarea.UserName = lblUserName.Text;
+            tarea.ShowDialog();
+            this.Close();
         }
 
         private void btnSolicitud_Click(object sender, EventArgs e)
         {
             Solicitud soli = new Solicitud();
-            soli.Show();
+            this.Hide();
+            soli.UserName = lblUserName.Text;
+            soli.ShowDialog();
+            this.Close();
         }
 
         private void btnAdmiEquipo_Click(object sender, EventArgs e)

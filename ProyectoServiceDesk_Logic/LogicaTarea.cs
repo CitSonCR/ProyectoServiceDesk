@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoServiceDesk_Logic
 {
-    class LogicaTarea
+    public class LogicaTarea
     {
         public Boolean IngresarTarea(int numeroPrioridad, string nombre, int tiempoHoras, int dificultad, string estadoProceso, Usuario usuarioAtiende, DateTime fechaAtencion, Solicitud solicitud)
         {

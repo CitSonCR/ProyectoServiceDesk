@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
 
 namespace ProyectoServiceDesk_Logic
 {
-    class LogicaSolicitud
+    public class LogicaSolicitud
     {
         public Boolean IngresarSolicitud(int id, int NumeroIdentificador, string Titulo, string Tipo, int Detalle, string Estado, int Prioridad, string Solucion,Usuario UsuarioIngreso, DateTime FechaIngreso,List<Tarea> tareas)
         {
@@ -97,6 +98,30 @@ namespace ProyectoServiceDesk_Logic
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_SOLICITUD_ID", psdUsuarioId));
 
                 conexion.setDatosBD(strDelete, utils.ParameterCollection);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            return resultado;
+        }
+
+        //Esta funcion obtiene la informacion de los equipos, lo almacena en un datatable.
+        public DataTable ObtenerInfoSolicitud()
+        {
+            ConexionDB conexion = new ConexionDB();
+            DataTable resultado = null;
+            try
+            {
+                string strSelect = " SELECT TITULO,PSD_SOLICITUD_ID FROM PSD_SOLICITUD WHERE ESTADO = 'S'  ";
+
+                Utils utils = new Utils();
+                utils.LimpiarSqlParameterCollection();
+                resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection));
+
             }
             catch (Exception)
             {

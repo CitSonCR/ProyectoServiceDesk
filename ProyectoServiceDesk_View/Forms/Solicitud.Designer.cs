@@ -59,7 +59,7 @@
             this.btnRegresar.Location = new System.Drawing.Point(28, 524);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(44, 39);
-            this.btnRegresar.TabIndex = 49;
+            this.btnRegresar.TabIndex = 10;
             this.btnRegresar.UseVisualStyleBackColor = true;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
@@ -73,7 +73,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(502, 516);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(65, 47);
-            this.btnGuardar.TabIndex = 48;
+            this.btnGuardar.TabIndex = 9;
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -83,7 +83,7 @@
             this.txtSolucion.Location = new System.Drawing.Point(615, 84);
             this.txtSolucion.Name = "txtSolucion";
             this.txtSolucion.Size = new System.Drawing.Size(327, 123);
-            this.txtSolucion.TabIndex = 47;
+            this.txtSolucion.TabIndex = 6;
             this.txtSolucion.Text = "";
             // 
             // lblSolucion
@@ -131,9 +131,10 @@
             this.txtTipo.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTipo.Location = new System.Drawing.Point(103, 161);
             this.txtTipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTipo.MaxLength = 10;
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(327, 28);
-            this.txtTipo.TabIndex = 31;
+            this.txtTipo.TabIndex = 1;
             // 
             // lbltipo
             // 
@@ -153,7 +154,7 @@
             this.txttitulo.MaxLength = 10;
             this.txttitulo.Name = "txttitulo";
             this.txttitulo.Size = new System.Drawing.Size(327, 28);
-            this.txttitulo.TabIndex = 29;
+            this.txttitulo.TabIndex = 0;
             // 
             // lbltitulo
             // 
@@ -169,7 +170,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(328, 17);
+            this.label1.Location = new System.Drawing.Point(380, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(296, 33);
             this.label1.TabIndex = 50;
@@ -187,13 +188,14 @@
             // 
             // dateFechaAtencion
             // 
+            this.dateFechaAtencion.CustomFormat = "dd/mm/yyyy";
             this.dateFechaAtencion.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateFechaAtencion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateFechaAtencion.Location = new System.Drawing.Point(223, 242);
             this.dateFechaAtencion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateFechaAtencion.Name = "dateFechaAtencion";
             this.dateFechaAtencion.Size = new System.Drawing.Size(157, 28);
-            this.dateFechaAtencion.TabIndex = 70;
+            this.dateFechaAtencion.TabIndex = 3;
             // 
             // txtUsuario
             // 
@@ -202,7 +204,7 @@
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(327, 28);
-            this.txtUsuario.TabIndex = 73;
+            this.txtUsuario.TabIndex = 7;
             // 
             // label2
             // 
@@ -220,14 +222,14 @@
             this.listViewTareas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listViewTareas.Name = "listViewTareas";
             this.listViewTareas.Size = new System.Drawing.Size(327, 175);
-            this.listViewTareas.TabIndex = 74;
+            this.listViewTareas.TabIndex = 8;
             this.listViewTareas.UseCompatibleStateImageBehavior = false;
             // 
             // lbllista
             // 
             this.lbllista.AutoSize = true;
             this.lbllista.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbllista.Location = new System.Drawing.Point(611, 321);
+            this.lbllista.Location = new System.Drawing.Point(611, 348);
             this.lbllista.Name = "lbllista";
             this.lbllista.Size = new System.Drawing.Size(139, 22);
             this.lbllista.TabIndex = 75;
@@ -239,7 +241,7 @@
             this.cmbEstado.Location = new System.Drawing.Point(104, 319);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(326, 24);
-            this.cmbEstado.TabIndex = 76;
+            this.cmbEstado.TabIndex = 4;
             // 
             // cmbPrioridad
             // 
@@ -247,7 +249,7 @@
             this.cmbPrioridad.Location = new System.Drawing.Point(104, 242);
             this.cmbPrioridad.Name = "cmbPrioridad";
             this.cmbPrioridad.Size = new System.Drawing.Size(102, 24);
-            this.cmbPrioridad.TabIndex = 77;
+            this.cmbPrioridad.TabIndex = 2;
             // 
             // richTextBox1
             // 
@@ -255,7 +257,7 @@
             this.richTextBox1.MaxLength = 100;
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(326, 175);
-            this.richTextBox1.TabIndex = 78;
+            this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
             // 
             // Solicitud
@@ -288,7 +290,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Solicitud";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Solicitud";
+            this.Load += new System.EventHandler(this.Solicitud_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
