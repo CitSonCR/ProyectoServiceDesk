@@ -80,7 +80,7 @@
             this.btnGuardar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.Location = new System.Drawing.Point(438, 340);
+            this.btnGuardar.Location = new System.Drawing.Point(439, 330);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(65, 47);
             this.btnGuardar.TabIndex = 5;
@@ -236,7 +236,7 @@
             this.cmbEstadoTarea.Size = new System.Drawing.Size(325, 24);
             this.cmbEstadoTarea.TabIndex = 72;
             // 
-            // Tarea
+            // TareaNueva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -262,7 +262,7 @@
             this.Controls.Add(this.lblNombre);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Tarea";
+            this.Name = "TareaNueva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tarea";
             this.Load += new System.EventHandler(this.Tarea_Load);

@@ -9,11 +9,15 @@ using ProyectoServiceDesk.Utils;
 using ProyectoServiceDesk.Controlador;
 using System.Windows.Forms;
 using System.Data;
+using ProyectoServiceDesk_Logic;
 
 namespace ProyectoServiceDesk_Controller.LogicaNegocio
 {
     public class LogicaUsuario
     {
+        LogicaEquipo logicaEquipo = new LogicaEquipo();
+        LogicaPersona logicaPersona = new LogicaPersona();
+
         public Boolean IngresarUsuario(string userName, string password, string tipoUsuario, Equipo equipo, Persona persona)
         {
 
@@ -264,8 +268,9 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
                 resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection));
 
                 Id = Convert.ToInt16(resultado.Rows[0][0].ToString());
-                Equipo.Id = Convert.ToInt16(resultado.Rows[0][1].ToString());
-                Persona.Id = Convert.ToInt16(resultado.Rows[0][2].ToString());
+                Equipo = logicaEquipo.ObtenerInfoEquipo(Convert.ToInt16(resultado.Rows[0][1].ToString()));
+
+                Persona = logicaPersona.ObtenerInfoPersona(userName);
                 Password = resultado.Rows[0][3].ToString();
                 FechaIngreso = Convert.ToDateTime(resultado.Rows[0][4].ToString());
                 TipoUsuario = resultado.Rows[0][5].ToString();
@@ -273,6 +278,7 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
                 try
                 {
                     usuario = new Usuario(userName, Password, FechaIngreso, TipoUsuario, Equipo, Persona);
+                    usuario.Id = Id;
                 }
                 catch (Exception ex)
                 {

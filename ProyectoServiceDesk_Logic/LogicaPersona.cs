@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -218,6 +219,67 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
             return true;
         }
 
+        public Persona ObtenerInfoPersona(string userName)
+        {
+            ConexionDB conexion = new ConexionDB();
+            Utils utils = new Utils();
+            DataTable resultado = null;
+            string strSelect = string.Empty;
+            int Id = 0;
+            int NumeroIdentificacion = 0;
+            string Nombre = string.Empty;
+            string PrimerApellido = string.Empty;
+            string SegundoApellido = string.Empty;
+            int Edad = 0;
+            string Direccion = string.Empty;
+            int Telefono = 0;
+            string CorreoElectronico = string.Empty;
+            string Genero = string.Empty;
+            DateTime FechaNacimiento = DateTime.Now;
+
+            Persona persona = null;
+            try
+            {
+                strSelect = " SELECT PSD_PERSONA.PSD_PERSONA_ID,NUMERO_IDENTIFICACION,NOMBRE,PRIMER_APELLIDO,SEGUNDO_APELLIDO,EDAD,DIRECCION,TELEFONO,CORREO_ELECTRONICO,GENERO,FECHA_NACIMIENTO FROM PSD_PERSONA PSD_PERSONA INNER JOIN PSD_USUARIO  PSD_USUARIO  ON PSD_PERSONA.PSD_PERSONA_ID =  PSD_USUARIO.PSD_USUARIO_ID WHERE PSD_USUARIO.USERNAME =  @P_USERNAME";
+
+
+                utils.LimpiarSqlParameterCollection();
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_USERNAME", userName));
+
+                resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection));
+
+                Id = Convert.ToInt16(resultado.Rows[0][0].ToString());
+                NumeroIdentificacion = Convert.ToInt16(resultado.Rows[0][1].ToString());
+                Nombre = resultado.Rows[0][2].ToString();
+                PrimerApellido = resultado.Rows[0][3].ToString();
+                SegundoApellido = resultado.Rows[0][4].ToString();
+                Edad = Convert.ToInt16(resultado.Rows[0][5].ToString());
+                Direccion = resultado.Rows[0][6].ToString();
+                Telefono  = Convert.ToInt16(resultado.Rows[0][7].ToString());
+                CorreoElectronico = resultado.Rows[0][8].ToString();
+                Genero = resultado.Rows[0][9].ToString();
+                FechaNacimiento = Convert.ToDateTime(resultado.Rows[0][10].ToString());
+
+                try
+                {
+                    persona = new Persona(NumeroIdentificacion, Nombre, PrimerApellido, SegundoApellido, Edad, Direccion, Telefono, CorreoElectronico, Genero, FechaNacimiento);
+                    persona.Id = Id;
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Ha ocurrido un error al momento de asignar la informacion del usuario " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+
+            return persona;
+
+        }
         //public int GetPsdPersonaIdPorNumeroIdentificador(int numeroIdentificacion)
         //{
         //    ConexionDB conexion = new ConexionDB();

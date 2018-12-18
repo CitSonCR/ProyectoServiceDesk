@@ -140,7 +140,7 @@ namespace ProyectoServiceDesk_Logic
             ConexionDB conexion = new ConexionDB();
             DataTable resultado = null;
             Solicitud solicitud = null;
-
+            int Id = 0;
             int NumeroIdentificador = 0;
             string Titulo = string.Empty;
             string Tipo = string.Empty;
@@ -152,7 +152,7 @@ namespace ProyectoServiceDesk_Logic
             DateTime FechaIngreso = DateTime.Now;
             try
             {
-                string strSelect = " SELECT PSD_USUARIO.USERNAME,NUMERO_IDENTIFICADOR,TITULO,TIPO,DETALLE,ESTADO,PRIORIDAD,SOLUCION,PSD_SOLICITUD.FECHA_INGRESO FROM PSD_SOLICITUD PSD_SOLICITUD  INNER JOIN PSD_USUARIO PSD_USUARIO ON PSD_SOLICITUD.PSD_USUARIO_INGRESO = PSD_USUARIO.PSD_USUARIO_ID WHERE PSD_SOLICITUD_ID =  @PSD_SOLICITUD_ID ";
+                string strSelect = " SELECT PSD_USUARIO.USERNAME,NUMERO_IDENTIFICADOR,TITULO,TIPO,DETALLE,ESTADO,PRIORIDAD,SOLUCION,PSD_SOLICITUD.FECHA_INGRESO,PSD_SOLICITUD.PSD_SOLICITUD_ID FROM PSD_SOLICITUD PSD_SOLICITUD  INNER JOIN PSD_USUARIO PSD_USUARIO ON PSD_SOLICITUD.PSD_USUARIO_INGRESO = PSD_USUARIO.PSD_USUARIO_ID WHERE PSD_SOLICITUD_ID =  @PSD_SOLICITUD_ID ";
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_SOLICITUD_ID", psdSolicitudId));
@@ -168,10 +168,12 @@ namespace ProyectoServiceDesk_Logic
                 Prioridad = Convert.ToInt16(resultado.Rows[0][6].ToString());
                 Solucion =  resultado.Rows[0][7].ToString();
                 FechaIngreso = Convert.ToDateTime(resultado.Rows[0][8].ToString());
-                    
+                Id = Convert.ToInt16(resultado.Rows[0][9].ToString());
+
                 try
                 {
                     solicitud = new Solicitud(psdSolicitudId, NumeroIdentificador, Titulo, Tipo, Detalle, Estado, Prioridad, Solucion, UsuarioIngreso, FechaIngreso, null);
+                    solicitud.Id = Id; 
                 }
                 catch (Exception ex)
                 {
