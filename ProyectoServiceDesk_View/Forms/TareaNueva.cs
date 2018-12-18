@@ -108,7 +108,9 @@ namespace ProyectoServiceDesk_View.Forms
                 Usuario usuario = logicaUsuario.ObtenerInfoUsuario(txtUsuarioA.Text);
                 Solicitud solicitud = logicaSolicitud.ObtenerInfoCompletaSolicitud(Convert.ToInt16(cmbSolicitud.SelectedValue.ToString()));
                 Tarea tarea = new Tarea(0, txtNombre.Text, Convert.ToInt32(txtHoras.Text), Convert.ToInt32(txtDificultad.Text), cmbEstadoTarea.Text.Substring(0, 1), usuario, Convert.ToDateTime(dateFechaAtencion.Text), solicitud);
-                if(!logicaTarea.ValidarCamposRequeridos(tarea))
+                tarea.UsuarioAtiende = usuario;
+                tarea.Solicitud = solicitud;
+                if (!logicaTarea.ValidarCamposRequeridos(tarea))
                 {
                     MessageBox.Show("Existe información pendiente de ser llenada", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;

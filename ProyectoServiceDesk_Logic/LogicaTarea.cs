@@ -3,6 +3,7 @@ using ProyectoServiceDesk.Modelo;
 using ProyectoServiceDesk.Utils;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -140,6 +141,32 @@ namespace ProyectoServiceDesk_Logic
                 MessageBox.Show("Ha ocurrido un error al momento de validar la informacion del formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return true;
+        }
+
+        //Esta funcion obtiene la informacion de los equipos, lo almacena en un datatable.
+        public DataTable ObtenerInfoTareas(int psdSolicitudId)
+        {
+            ConexionDB conexion = new ConexionDB();
+            DataTable resultado = null;
+            try
+            {
+                string strSelect = " SELECT NOMBRE,DIFICULTAD, ESTADO_PROCESO FROM PSD_TAREA WHERE PSD_SOLICITUD_ID = @P_PSD_SOLICITUD_ID  ";
+
+                Utils utils = new Utils();
+                utils.LimpiarSqlParameterCollection();
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_SOLICITUD_ID", psdSolicitudId));
+                resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection));
+                
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            return resultado;
         }
     }
 }

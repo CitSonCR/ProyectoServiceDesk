@@ -43,6 +43,10 @@
             this.btnRetrocederTareaToDo = new System.Windows.Forms.Button();
             this.btnAvanzarTareaDoing = new System.Windows.Forms.Button();
             this.btnRegresar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbSolicitud = new System.Windows.Forms.ComboBox();
+            this.btnMostrarTareas = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgToDo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDoing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDone)).BeginInit();
@@ -55,14 +59,13 @@
             this.dtgToDo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgToDo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            this.dtgToDo.Location = new System.Drawing.Point(15, 50);
+            this.dtgToDo.Location = new System.Drawing.Point(28, 133);
             this.dtgToDo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgToDo.Name = "dtgToDo";
             this.dtgToDo.ReadOnly = true;
             this.dtgToDo.RowTemplate.Height = 28;
             this.dtgToDo.Size = new System.Drawing.Size(268, 358);
             this.dtgToDo.TabIndex = 1;
-            this.dtgToDo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column1
             // 
@@ -78,7 +81,7 @@
             this.dtgDoing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgDoing.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1});
-            this.dtgDoing.Location = new System.Drawing.Point(375, 50);
+            this.dtgDoing.Location = new System.Drawing.Point(386, 133);
             this.dtgDoing.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgDoing.Name = "dtgDoing";
             this.dtgDoing.ReadOnly = true;
@@ -100,7 +103,7 @@
             this.dtgDone.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgDone.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2});
-            this.dtgDone.Location = new System.Drawing.Point(724, 50);
+            this.dtgDone.Location = new System.Drawing.Point(737, 133);
             this.dtgDone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgDone.Name = "dtgDone";
             this.dtgDone.ReadOnly = true;
@@ -118,7 +121,7 @@
             // btnFinalizar
             // 
             this.btnFinalizar.Font = new System.Drawing.Font("Arial", 10.8F);
-            this.btnFinalizar.Location = new System.Drawing.Point(740, 439);
+            this.btnFinalizar.Location = new System.Drawing.Point(782, 513);
             this.btnFinalizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(225, 50);
@@ -130,7 +133,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(371, 7);
+            this.label1.Location = new System.Drawing.Point(407, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(246, 33);
             this.label1.TabIndex = 67;
@@ -141,14 +144,14 @@
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 499);
+            this.splitter1.Size = new System.Drawing.Size(3, 580);
             this.splitter1.TabIndex = 69;
             this.splitter1.TabStop = false;
             // 
             // btnAvanzarTareaDone
             // 
             this.btnAvanzarTareaDone.Image = global::ProyectoServiceDesk_View.Properties.Resources.right_arrow_1_;
-            this.btnAvanzarTareaDone.Location = new System.Drawing.Point(646, 172);
+            this.btnAvanzarTareaDone.Location = new System.Drawing.Point(657, 255);
             this.btnAvanzarTareaDone.Name = "btnAvanzarTareaDone";
             this.btnAvanzarTareaDone.Size = new System.Drawing.Size(75, 53);
             this.btnAvanzarTareaDone.TabIndex = 71;
@@ -157,7 +160,7 @@
             // btnRetrocederTareaDoing
             // 
             this.btnRetrocederTareaDoing.Image = global::ProyectoServiceDesk_View.Properties.Resources.left_arrow_1_;
-            this.btnRetrocederTareaDoing.Location = new System.Drawing.Point(646, 231);
+            this.btnRetrocederTareaDoing.Location = new System.Drawing.Point(657, 314);
             this.btnRetrocederTareaDoing.Name = "btnRetrocederTareaDoing";
             this.btnRetrocederTareaDoing.Size = new System.Drawing.Size(75, 53);
             this.btnRetrocederTareaDoing.TabIndex = 72;
@@ -166,7 +169,7 @@
             // btnRetrocederTareaToDo
             // 
             this.btnRetrocederTareaToDo.Image = global::ProyectoServiceDesk_View.Properties.Resources.left_arrow_1_;
-            this.btnRetrocederTareaToDo.Location = new System.Drawing.Point(294, 231);
+            this.btnRetrocederTareaToDo.Location = new System.Drawing.Point(305, 314);
             this.btnRetrocederTareaToDo.Name = "btnRetrocederTareaToDo";
             this.btnRetrocederTareaToDo.Size = new System.Drawing.Size(75, 53);
             this.btnRetrocederTareaToDo.TabIndex = 73;
@@ -175,7 +178,7 @@
             // btnAvanzarTareaDoing
             // 
             this.btnAvanzarTareaDoing.Image = global::ProyectoServiceDesk_View.Properties.Resources.right_arrow_1_;
-            this.btnAvanzarTareaDoing.Location = new System.Drawing.Point(292, 172);
+            this.btnAvanzarTareaDoing.Location = new System.Drawing.Point(303, 255);
             this.btnAvanzarTareaDoing.Name = "btnAvanzarTareaDoing";
             this.btnAvanzarTareaDoing.Size = new System.Drawing.Size(75, 53);
             this.btnAvanzarTareaDoing.TabIndex = 70;
@@ -185,18 +188,63 @@
             // 
             this.btnRegresar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
-            this.btnRegresar.Location = new System.Drawing.Point(22, 450);
+            this.btnRegresar.Location = new System.Drawing.Point(22, 524);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(44, 39);
             this.btnRegresar.TabIndex = 65;
             this.btnRegresar.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(23, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 25);
+            this.label2.TabIndex = 74;
+            this.label2.Text = "Solicitud";
+            // 
+            // cmbSolicitud
+            // 
+            this.cmbSolicitud.FormattingEnabled = true;
+            this.cmbSolicitud.Location = new System.Drawing.Point(124, 72);
+            this.cmbSolicitud.Name = "cmbSolicitud";
+            this.cmbSolicitud.Size = new System.Drawing.Size(167, 24);
+            this.cmbSolicitud.TabIndex = 75;
+            // 
+            // btnMostrarTareas
+            // 
+            this.btnMostrarTareas.Location = new System.Drawing.Point(314, 67);
+            this.btnMostrarTareas.Name = "btnMostrarTareas";
+            this.btnMostrarTareas.Size = new System.Drawing.Size(131, 31);
+            this.btnMostrarTareas.TabIndex = 76;
+            this.btnMostrarTareas.Text = "Mostrar tareas";
+            this.btnMostrarTareas.UseVisualStyleBackColor = true;
+            this.btnMostrarTareas.Click += new System.EventHandler(this.btnMostrarTareas_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.AccessibleDescription = "Guardar";
+            this.btnGuardar.AccessibleName = "Guardar";
+            this.btnGuardar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGuardar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.Location = new System.Drawing.Point(689, 515);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(65, 47);
+            this.btnGuardar.TabIndex = 77;
+            this.btnGuardar.UseVisualStyleBackColor = true;
             // 
             // ManejoTarea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1004, 499);
+            this.ClientSize = new System.Drawing.Size(1032, 580);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnMostrarTareas);
+            this.Controls.Add(this.cmbSolicitud);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnRetrocederTareaToDo);
             this.Controls.Add(this.btnRetrocederTareaDoing);
             this.Controls.Add(this.btnAvanzarTareaDone);
@@ -236,5 +284,9 @@
         private System.Windows.Forms.Button btnAvanzarTareaDone;
         private System.Windows.Forms.Button btnRetrocederTareaDoing;
         private System.Windows.Forms.Button btnRetrocederTareaToDo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbSolicitud;
+        private System.Windows.Forms.Button btnMostrarTareas;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }
