@@ -16,7 +16,7 @@ namespace ProyectoServiceDesk_Logic
     {
         LogicaUsuario logicaUsuario = new LogicaUsuario();
 
-        public Boolean IngresarSolicitud(int id, int NumeroIdentificador, string Titulo, string Tipo, string Detalle, string Estado, int Prioridad, string Solucion,Usuario UsuarioIngreso, DateTime FechaIngreso,List<Tarea> tareas)
+        public Boolean IngresarSolicitud(int NumeroIdentificador, string Titulo, string Tipo, string Detalle, string Estado, int Prioridad, string Solucion,Usuario UsuarioIngreso, DateTime FechaIngreso,List<Tarea> tareas)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -195,6 +195,7 @@ namespace ProyectoServiceDesk_Logic
 
         public Boolean ValidarCamposRequeridos(Solicitud solicitud)
         {
+           
             try
             {
 

@@ -44,6 +44,7 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            this.Close();
             Inicio inicio = new Inicio();
             inicio.Show();
         }
@@ -56,15 +57,16 @@ namespace ProyectoServiceDesk_View.Forms
                 try
                 {
                     Usuario usuario = logicaUsuario.ObtenerInfoUsuario(txtUsuario.Text);
-                List<Tarea> tareas = null;
+                    List<Tarea> tareas = null;
                     Solicitud solicitud = new Solicitud(0,txttitulo.Text,txtTipo.Text,richTextBox1.Text,cmbEstado.Text.Substring(0,1),Convert.ToInt16(txtPrioridad.Text),txtSolucion.Text,usuario,Convert.ToDateTime(dateFechaAtencion.Text),tareas);
-                
+
                 if (!logicaSolicitud.ValidarCamposRequeridos(solicitud))
-                    {
-                        MessageBox.Show("Existe información pendiente de ser llenada", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-                    if (logicaSolicitud.IngresarSolicitud(solicitud.Id,solicitud.NumeroIdentificador,solicitud.Titulo,solicitud.Tipo,solicitud.Detalle,solicitud.Estado,solicitud.Prioridad,solicitud.Solucion,usuario,solicitud.FechaIngreso,tareas))
+                {
+                    MessageBox.Show("Existe información pendiente de ser llenada", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+
+                }
+                if (logicaSolicitud.IngresarSolicitud(solicitud.NumeroIdentificador,solicitud.Titulo,solicitud.Tipo,solicitud.Detalle,solicitud.Estado,solicitud.Prioridad,solicitud.Solucion,usuario,solicitud.FechaIngreso,tareas))
                     {
                         MessageBox.Show("Informacion guardada con exito!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
