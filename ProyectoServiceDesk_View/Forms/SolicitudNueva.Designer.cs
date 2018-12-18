@@ -48,8 +48,8 @@
             this.listViewTareas = new System.Windows.Forms.ListView();
             this.lbllista = new System.Windows.Forms.Label();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
-            this.cmbPrioridad = new System.Windows.Forms.ComboBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txtPrioridad = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnRegresar
@@ -243,14 +243,6 @@
             this.cmbEstado.Size = new System.Drawing.Size(326, 24);
             this.cmbEstado.TabIndex = 4;
             // 
-            // cmbPrioridad
-            // 
-            this.cmbPrioridad.FormattingEnabled = true;
-            this.cmbPrioridad.Location = new System.Drawing.Point(104, 242);
-            this.cmbPrioridad.Name = "cmbPrioridad";
-            this.cmbPrioridad.Size = new System.Drawing.Size(102, 24);
-            this.cmbPrioridad.TabIndex = 2;
-            // 
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(104, 388);
@@ -260,14 +252,24 @@
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
             // 
-            // Solicitud
+            // txtPrioridad
+            // 
+            this.txtPrioridad.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrioridad.Location = new System.Drawing.Point(103, 245);
+            this.txtPrioridad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPrioridad.MaxLength = 10;
+            this.txtPrioridad.Name = "txtPrioridad";
+            this.txtPrioridad.Size = new System.Drawing.Size(97, 28);
+            this.txtPrioridad.TabIndex = 76;
+            // 
+            // SolicitudNueva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1058, 594);
+            this.Controls.Add(this.txtPrioridad);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.cmbPrioridad);
             this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.lbllista);
             this.Controls.Add(this.listViewTareas);
@@ -289,7 +291,7 @@
             this.Controls.Add(this.lbltitulo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Solicitud";
+            this.Name = "SolicitudNueva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Solicitud";
             this.Load += new System.EventHandler(this.Solicitud_Load);
@@ -319,7 +321,7 @@
         private System.Windows.Forms.ListView listViewTareas;
         private System.Windows.Forms.Label lbllista;
         private System.Windows.Forms.ComboBox cmbEstado;
-        private System.Windows.Forms.ComboBox cmbPrioridad;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox txtPrioridad;
     }
 }

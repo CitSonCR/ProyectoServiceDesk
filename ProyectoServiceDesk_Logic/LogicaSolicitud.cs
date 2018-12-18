@@ -25,7 +25,7 @@ namespace ProyectoServiceDesk_Logic
             try
             {
                 strInsert = "INSERT INTO PSD_SOLICITUD ( NUMERO_IDENTIFICADOR, TITULO,TIPO, DETALLE, ESTADO, PRIORIDAD, SOLUCION, PSD_USUARIO_INGRESO, FECHA_INGRESO) " +
-                            " VALUES (@ID,@NUMERO_IDENTIFICADOR,@TITULO,@TIPO,@DETALLE,@ESTADO,@PRIORIDAD,@SOLUCION,@PSD_USUARIO_INGRESO,@FECHA_INGRESO)";
+                            " VALUES (@NUMERO_IDENTIFICADOR,@TITULO,@TIPO,@DETALLE,@ESTADO,@PRIORIDAD,@SOLUCION,@PSD_USUARIO_INGRESO,@FECHA_INGRESO)";
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();                
@@ -36,7 +36,7 @@ namespace ProyectoServiceDesk_Logic
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@ESTADO", Estado));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PRIORIDAD", Prioridad));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@SOLUCION", Solucion));
-                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_USUARIO_INGRESO", UsuarioIngreso.FechaIngreso));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_USUARIO_INGRESO", UsuarioIngreso.Id));
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@FECHA_INGRESO", FechaIngreso));
 
                 conexion.setDatosBD(strInsert, utils.ParameterCollection);
@@ -152,7 +152,7 @@ namespace ProyectoServiceDesk_Logic
             DateTime FechaIngreso = DateTime.Now;
             try
             {
-                string strSelect = " SELECT PSD_USUARIO.USERNAME,NUMERO_IDENTIFICADOR,TITULO,TIPO,DETALLE,ESTADO,PRIORIDAD,SOLUCION,PSD_SOLICITUD.FECHA_INGRESO,PSD_SOLICITUD.PSD_SOLICITUD_ID FROM PSD_SOLICITUD PSD_SOLICITUD  INNER JOIN PSD_USUARIO PSD_USUARIO ON PSD_SOLICITUD.PSD_USUARIO_INGRESO = PSD_USUARIO.PSD_USUARIO_ID WHERE PSD_SOLICITUD_ID =  @PSD_SOLICITUD_ID ";
+                string strSelect = " SELECT PSD_USUARIO.USERNAME,NUMERO_IDENTIFICADOR,TITULO,TIPO,DETALLE,ESTADO,PRIORIDAD,SOLUCION,PSD_SOLICITUD.FECHA_INGRESO FROM PSD_SOLICITUD PSD_SOLICITUD  INNER JOIN PSD_USUARIO PSD_USUARIO ON PSD_SOLICITUD.PSD_USUARIO_INGRESO = PSD_USUARIO.PSD_USUARIO_ID WHERE PSD_SOLICITUD_ID =  @PSD_SOLICITUD_ID ";
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@PSD_SOLICITUD_ID", psdSolicitudId));
@@ -172,8 +172,8 @@ namespace ProyectoServiceDesk_Logic
 
                 try
                 {
-                    solicitud = new Solicitud(psdSolicitudId, NumeroIdentificador, Titulo, Tipo, Detalle, Estado, Prioridad, Solucion, UsuarioIngreso, FechaIngreso, null);
-                    solicitud.Id = Id; 
+                    solicitud = new Solicitud( NumeroIdentificador, Titulo, Tipo, Detalle, Estado, Prioridad, Solucion, UsuarioIngreso, FechaIngreso, null);
+                    solicitud.Id = psdSolicitudId; 
                 }
                 catch (Exception ex)
                 {
@@ -197,9 +197,8 @@ namespace ProyectoServiceDesk_Logic
         {
             try
             {
-                if (string.IsNullOrEmpty(solicitud.Solucion))
-                    return false;
-                if (string.IsNullOrEmpty(solicitud.Titulo));
+
+                if (string.IsNullOrEmpty(solicitud.Titulo))
                     return false;
                 if (string.IsNullOrEmpty(solicitud.Tipo))
                     return false;

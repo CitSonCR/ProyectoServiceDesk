@@ -32,9 +32,9 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void CargarCombos()
         {
-            cmbPrioridad.Items.Add("BAJA");
-            cmbPrioridad.Items.Add("MEDIA");
-            cmbPrioridad.Items.Add("ALTA");
+            //cmbPrioridad.Items.Add("BAJA");
+            //cmbPrioridad.Items.Add("MEDIA");
+            //cmbPrioridad.Items.Add("ALTA");
 
             cmbEstado.Items.Add("SOLICITUD");
             cmbEstado.Items.Add("PROCESO");
@@ -56,7 +56,7 @@ namespace ProyectoServiceDesk_View.Forms
                 {
                     Usuario usuario = logicaUsuario.ObtenerInfoUsuario(txtUsuario.Text);
                 List<Tarea> tareas = null;
-                    Solicitud solicitud = new Solicitud(0,0,txttitulo.Text,txtTipo.Text,richTextBox1.Text,cmbEstado.Text,Convert.ToInt16(cmbPrioridad.Text),txtSolucion.Text,usuario,Convert.ToDateTime(dateFechaAtencion.Text),tareas);
+                    Solicitud solicitud = new Solicitud(0,txttitulo.Text,txtTipo.Text,richTextBox1.Text,cmbEstado.Text.Substring(0,1),Convert.ToInt16(txtPrioridad.Text),txtSolucion.Text,usuario,Convert.ToDateTime(dateFechaAtencion.Text),tareas);
                 
                 if (!logicaSolicitud.ValidarCamposRequeridos(solicitud))
                     {
