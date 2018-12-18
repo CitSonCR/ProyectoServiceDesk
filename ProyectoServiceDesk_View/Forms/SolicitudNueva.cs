@@ -7,13 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoServiceDesk.Controlador;
+using ProyectoServiceDesk_Controller.LogicaNegocio;
+using ProyectoServiceDesk_Logic;
 
 namespace ProyectoServiceDesk_View.Forms
 {
     public partial class SolicitudNueva : Form
     {
         public string UserName { get; set; }
-        
+
+
+        LogicaTarea logicatarea = new LogicaTarea();
+        LogicaUsuario logicaUsuario = new LogicaUsuario();
+        LogicaSolicitud logicaSolicitud = new LogicaSolicitud();
+
+
         public SolicitudNueva()
         {
             InitializeComponent();
@@ -42,16 +51,30 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
+            
+                try
+                {
+                    Usuario usuario = logicaUsuario.ObtenerInfoUsuario(txtUsuario.Text);
+                List<Tarea> tareas = null;
+                    Solicitud solicitud = new Solicitud(0,0,txttitulo.Text,txtTipo.Text,richTextBox1.Text,cmbEstado.Text,Convert.ToInt16(cmbPrioridad.Text),txtSolucion.Text,usuario,Convert.ToDateTime(dateFechaAtencion.Text),tareas);
+                
+                if (!logicaSolicitud.ValidarCamposRequeridos(solicitud))
+                    {
+                        MessageBox.Show("Existe información pendiente de ser llenada", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    if (logicaSolicitud.IngresarSolicitud(solicitud.Id,solicitud.NumeroIdentificador,solicitud.Titulo,solicitud.Tipo,solicitud.Detalle,solicitud.Estado,solicitud.Prioridad,solicitud.Solucion,usuario,solicitud.FechaIngreso,tareas))
+                    {
+                        MessageBox.Show("Informacion guardada con exito!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ha ocurrio un error inesperado!! " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Ha ocurrido un error inesperado !! "+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
 
         private void Solicitud_Load(object sender, EventArgs e)
         {

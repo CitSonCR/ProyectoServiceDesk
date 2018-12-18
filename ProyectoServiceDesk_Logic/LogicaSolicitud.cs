@@ -16,7 +16,7 @@ namespace ProyectoServiceDesk_Logic
     {
         LogicaUsuario logicaUsuario = new LogicaUsuario();
 
-        public Boolean IngresarSolicitud(int id, int NumeroIdentificador, string Titulo, string Tipo, int Detalle, string Estado, int Prioridad, string Solucion,Usuario UsuarioIngreso, DateTime FechaIngreso,List<Tarea> tareas)
+        public Boolean IngresarSolicitud(int id, int NumeroIdentificador, string Titulo, string Tipo, string Detalle, string Estado, int Prioridad, string Solucion,Usuario UsuarioIngreso, DateTime FechaIngreso,List<Tarea> tareas)
         {
 
             ConexionDB conexion = new ConexionDB();
@@ -190,30 +190,27 @@ namespace ProyectoServiceDesk_Logic
             return solicitud;
         }
 
-        //public void ValidarNombre(KeyPressEventArgs v)
-        //{
 
-        //    if (Char.IsLetter(v.KeyChar))
-        //    {
-        //        v.Handled = false;
-        //    }
-        //    else if (Char.IsSeparator(v.KeyChar))
-        //    {
+        public Boolean ValidarCamposRequeridos(Solicitud solicitud)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(solicitud.Solucion))
+                    return false;
+                if (string.IsNullOrEmpty(solicitud.Titulo));
+                    return false;
+                if (string.IsNullOrEmpty(solicitud.Tipo))
+                    return false;
+                if (null == solicitud.UsuarioIngreso)
+                    return false;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error al momento de validar la informacion del formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            return true;
+        }
 
-        //        v.Handled = false;
-        //    }
-        //    else if (Char.IsControl(v.KeyChar))
-        //    {
-        //        v.Handled = false;
-        //    }
-        //    else
-        //    {
-        //        //Tiramos un mensaje que diga que solo se aceptan letras cuando la variables "v" sea verdadera, que en este caso significa que hay valores diferentes a letras en el textbox
-        //        v.Handled = true;
-        //        MessageBox.Show("Solo letras por favor. Gracias!");
-        //    }
-
-        //}
 
         public Boolean ValidarFecha(Solicitud solicitud)
         {
