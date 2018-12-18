@@ -102,6 +102,7 @@ namespace ProyectoServiceDesk_View.Forms
             {
                 btnAdmDepartamento.Visible = false;
                 btnAdmiEquipo.Visible = false;
+                btnRegistrarse.Visible = false;
             }
             if (tipoUsuario.Equals("G"))
             {
