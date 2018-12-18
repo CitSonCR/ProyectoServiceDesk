@@ -44,7 +44,8 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Inicio inicio = new Inicio();
+            inicio.Show();
         }
 
 
