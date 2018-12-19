@@ -295,5 +295,32 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
             return usuario;
 
         }
+
+        public Boolean EditarContrasena(string username,string password)
+        {
+            ConexionDB conexion = new ConexionDB();
+            bool resultado = true;
+            string strUpdate = string.Empty;
+            try
+            {
+
+                strUpdate = " UPDATE PSD_USUARIO " +
+                           " SET   PASSWORD = @P_PASSWORD, " +
+                           " WHERE PSD_USUARIO_PASSWORD = @P_PSD_USUARIO_PASSWORD ";
+
+                Utils utils = new Utils();
+                utils.LimpiarSqlParameterCollection();
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PASSWORD",password));
+
+
+            }
+            catch(Exception ex)
+            {
+               MessageBox.Show("La contraseña nueva no coincide o digitó mal la vieja contraseña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            return resultado;
+        }
+
     }
 }
