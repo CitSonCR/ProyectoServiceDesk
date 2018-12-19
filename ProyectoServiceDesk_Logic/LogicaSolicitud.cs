@@ -168,7 +168,6 @@ namespace ProyectoServiceDesk_Logic
                 Prioridad = Convert.ToInt16(resultado.Rows[0][6].ToString());
                 Solucion =  resultado.Rows[0][7].ToString();
                 FechaIngreso = Convert.ToDateTime(resultado.Rows[0][8].ToString());
-                Id = Convert.ToInt16(resultado.Rows[0][9].ToString());
 
                 try
                 {

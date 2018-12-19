@@ -49,6 +49,9 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            Inicio inicio = new Inicio();
+            this.Hide();
+            inicio.ShowDialog();
             this.Close();
         }
 

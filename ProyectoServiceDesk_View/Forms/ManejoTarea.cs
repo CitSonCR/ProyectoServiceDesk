@@ -85,12 +85,13 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnMostrarTareas_Click(object sender, EventArgs e)
         {
-            dtgToDo.Rows.Clear();
             dtgToDo.DataSource = null;
-            dtgDoing.Rows.Clear();
             dtgDoing.DataSource = null;
-            dtgDone.Rows.Clear();
             dtgDone.DataSource = null;
+            dtgToDo.Rows.Clear();
+            dtgDoing.Rows.Clear();
+            dtgDone.Rows.Clear();
+
             if (string.IsNullOrEmpty(cmbSolicitud.Text))
             {
                 MessageBox.Show("Debe escoger una solicitud para ver la informacion", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
