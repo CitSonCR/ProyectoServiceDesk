@@ -38,8 +38,11 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnDepartamento_Click(object sender, EventArgs e)
         {
-            AdministrarDepartamento dep = new AdministrarDepartamento();
-            dep.Show();
+            NuevoDepartamento dep = new NuevoDepartamento();
+            this.Hide();
+            dep.UserName = lblUserName.Text;
+            dep.ShowDialog();
+            this.Close();
         }
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
@@ -50,8 +53,11 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnEquipo_Click(object sender, EventArgs e)
         {
-            AdministrarEquipo equipo = new AdministrarEquipo();
-            equipo.Show();
+            Nuevo_Equipo equipo = new Nuevo_Equipo();
+            this.Hide();
+            equipo.UserName = lblUserName.Text;
+            equipo.ShowDialog();
+            this.Close();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -62,7 +68,10 @@ namespace ProyectoServiceDesk_View.Forms
         private void btnManejoTarea_Click(object sender, EventArgs e)
         {
             ManejoTarea mt = new ManejoTarea();
-            mt.Show();
+            this.Hide();
+            mt.UserName = lblUserName.Text;
+            mt.ShowDialog();            
+            this.Close();
         }
 
         private void btnTarea_Click(object sender, EventArgs e)
@@ -85,8 +94,11 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnAdmiEquipo_Click(object sender, EventArgs e)
         {
-            AdministrarEquipo equipo = new AdministrarEquipo();
-            equipo.Show();
+            Nuevo_Equipo equipo = new Nuevo_Equipo();
+            this.Hide();
+            equipo.UserName = lblUserName.Text;
+            equipo.ShowDialog();
+            this.Close();
         }
 
         private void Inicio_Load(object sender, EventArgs e)
@@ -110,13 +122,26 @@ namespace ProyectoServiceDesk_View.Forms
                 btnAdmiEquipo.Visible = false;
                 btnManejoTarea.Visible = false;
                 btnTarea.Visible = false;
+                btnRegistrarse.Visible = false;
             }
         }
 
         private void btnRegistrarse_Click_1(object sender, EventArgs e)
         {
             PersonaNueva person = new PersonaNueva();
+            this.Hide();
+            person.UserName = lblUserName.Text;
             person.ShowDialog();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            VisualizarEstadoSolicitud visualizar = new VisualizarEstadoSolicitud();
+            this.Hide();
+            visualizar.UserName = lblUserName.Text;
+            visualizar.ShowDialog();
+            this.Close();
         }
     }
 }

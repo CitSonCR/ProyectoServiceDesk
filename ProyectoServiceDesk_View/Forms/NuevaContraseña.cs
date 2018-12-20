@@ -16,6 +16,7 @@ namespace ProyectoServiceDesk_View.Forms
 {
     public partial class NuevaContraseña : Form
     {
+        LogicaUsuario logicausuario = new LogicaUsuario();
         public NuevaContraseña()
         {
             InitializeComponent();
@@ -40,30 +41,32 @@ namespace ProyectoServiceDesk_View.Forms
         {
             try
             {
-                LogicaUsuario logicausuario = new LogicaUsuario();
-                Usuario usuario = null;
-                if (txtAnterior.Text.Equals(usuario.Password) && txtNueva.Text.Equals(txtConfirmarNueva))
+                
+                Usuario usuario = logicausuario.ObtenerInfoUsuario(txtUserName.Text);
+                if (txtAnterior.Text.Equals(usuario.Password))
                 {
-                    if (!logicausuario.EditarContrasena(txtAnterior.Text, txtNueva.Text))
-                    {
-                        MessageBox.Show("Cambio de contraseña sin ser exitoso, vuelva a intentar!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
+                    if(txtNueva.Text.Equals(txtConfirmarNueva.Text))
+                    {                    
+                        if (logicausuario.EditarContrasena(usuario.Id, txtNueva.Text))
+                            MessageBox.Show("Cambio de contraseña exitoso!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);                                                
+                        else
+                            MessageBox.Show("Cambio de contraseña sin ser exitoso, vuelva a intentar!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);                        
                     }
                     else
-                    {
-                        if (logicausuario.EditarContrasena(txtAnterior.Text, txtNueva.Text))
-                        {
-                            MessageBox.Show("Cambio de contraseña exitoso!!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
+                        MessageBox.Show("La contraseña nueva no coincide con la contraseña de confirmacion", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
+                else
+                    MessageBox.Show("La contraseña actual no coincide con la digitada en el campo de contraseña anterior", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception)
             {
                 MessageBox.Show("Ha ocurrio un error inesperado!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

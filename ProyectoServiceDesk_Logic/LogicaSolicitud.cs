@@ -229,5 +229,56 @@ namespace ProyectoServiceDesk_Logic
             
         }
 
+        public Boolean ActualizarEstadoSolicitud(int psdSolicitudId, string estado)
+        {
+
+            ConexionDB conexion = new ConexionDB();
+            bool resultado = true;
+            string strDelete = string.Empty;
+            try
+            {
+                strDelete = " UPDATE PSD_SOLICITUD SET ESTADO = @P_ESTADO WHERE PSD_SOLICITUD_ID = @P_PSD_SOLICITUD_ID ";
+
+                Utils utils = new Utils();
+                utils.LimpiarSqlParameterCollection();
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_SOLICITUD_ID", psdSolicitudId));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_ESTADO", estado));
+
+                conexion.setDatosBD(strDelete, utils.ParameterCollection);
+            }
+            catch (Exception ex)
+            {
+                resultado = false;
+                MessageBox.Show("Error al actualizar el estado de la solicitud " + ex.Message, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
+            return resultado;
+        }
+
+        public DataTable ObtenerReporteSolicitudes()
+        {
+            ConexionDB conexion = new ConexionDB();
+            DataTable resultado = null;
+            try
+            {
+                string strSelect = " SELECT PSD_USUARIO.USERNAME, TITULO, DETALLE, CASE WHEN ESTADO = 'S' THEN 'EN SOLICITUD' WHEN ESTADO = 'P' THEN 'EN PROCESO' WHEN ESTADO = 'F' THEN 'FINALIZADO' END AS ESTADO, PRIORIDAD, SOLUCION, PSD_SOLICITUD.FECHA_INGRESO FROM PSD_SOLICITUD PSD_SOLICITUD LEFT JOIN PSD_USUARIO PSD_USUARIO ON PSD_SOLICITUD.PSD_USUARIO_INGRESO = PSD_USUARIO.PSD_USUARIO_ID  ";
+
+                Utils utils = new Utils();
+                utils.LimpiarSqlParameterCollection();
+                resultado = (conexion.getDatosBD(strSelect, utils.ParameterCollection));
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            return resultado;
+        }
+
+        
     }
 }

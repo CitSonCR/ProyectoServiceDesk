@@ -51,7 +51,8 @@ namespace ProyectoServiceDesk_View.Forms
         {
             Inicio inicio = new Inicio();
             this.Hide();
-            inicio.ShowDialog();
+            inicio.UserNameTxt = UserName;
+            inicio.ShowDialog();            
             this.Close();
         }
 

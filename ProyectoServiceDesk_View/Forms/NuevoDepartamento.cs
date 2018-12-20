@@ -16,6 +16,7 @@ namespace ProyectoServiceDesk_View.Forms
 {
     public partial class NuevoDepartamento : Form
     {
+        public string UserName { get; set; }
         LogicaDepartamento logicaDepartamento = new LogicaDepartamento();
         public NuevoDepartamento()
         {
@@ -69,6 +70,10 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnRegresar_Click_1(object sender, EventArgs e)
         {
+            Inicio inicio = new Inicio();
+            this.Hide();
+            inicio.UserNameTxt = UserName;
+            inicio.ShowDialog();
             this.Close();
         }
 

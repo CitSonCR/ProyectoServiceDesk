@@ -296,7 +296,7 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
 
         }
 
-        public Boolean EditarContrasena(string username,string password)
+        public Boolean EditarContrasena(int psdUsuarioId,string password)
         {
             ConexionDB conexion = new ConexionDB();
             bool resultado = true;
@@ -306,17 +306,19 @@ namespace ProyectoServiceDesk_Controller.LogicaNegocio
 
                 strUpdate = " UPDATE PSD_USUARIO " +
                            " SET   PASSWORD = @P_PASSWORD, " +
-                           " WHERE PSD_USUARIO_PASSWORD = @P_PSD_USUARIO_PASSWORD ";
+                           " WHERE PSD_USUARIO_ID = @P_PSD_USUARIO_ID ";
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
                 utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PASSWORD",password));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_USUARIO_ID", psdUsuarioId));
 
 
             }
             catch(Exception ex)
             {
-               MessageBox.Show("La contraseña nueva no coincide o digitó mal la vieja contraseña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                resultado = false;
+               MessageBox.Show("Ha ocurrido un error al actualizar la contraseña " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             return resultado;

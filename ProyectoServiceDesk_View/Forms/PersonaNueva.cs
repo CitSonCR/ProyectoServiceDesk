@@ -15,6 +15,7 @@ namespace ProyectoServiceDesk_View.Forms
     public partial class PersonaNueva : Form
     {
         LogicaPersona logicaPersona = new LogicaPersona();
+        public string UserName { get; set; }
 
         public PersonaNueva()
         {
@@ -87,6 +88,10 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            Inicio inicio = new Inicio();
+            this.Hide();
+            inicio.UserNameTxt = UserName;
+            inicio.ShowDialog();
             this.Close();
         }
         //Solo numeros y backspace

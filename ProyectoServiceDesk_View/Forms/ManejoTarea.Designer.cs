@@ -43,6 +43,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.EnProcesoASolicitud = new System.Windows.Forms.Button();
+            this.EnProcesoAFinalizado = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgToDo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDoing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDone)).BeginInit();
@@ -52,40 +54,47 @@
             // 
             this.dtgToDo.AllowUserToAddRows = false;
             this.dtgToDo.AllowUserToDeleteRows = false;
+            this.dtgToDo.AllowUserToResizeColumns = false;
+            this.dtgToDo.AllowUserToResizeRows = false;
+            this.dtgToDo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgToDo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgToDo.Location = new System.Drawing.Point(28, 161);
+            this.dtgToDo.Location = new System.Drawing.Point(12, 161);
             this.dtgToDo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgToDo.Name = "dtgToDo";
             this.dtgToDo.ReadOnly = true;
             this.dtgToDo.RowTemplate.Height = 28;
-            this.dtgToDo.Size = new System.Drawing.Size(268, 330);
+            this.dtgToDo.Size = new System.Drawing.Size(279, 330);
             this.dtgToDo.TabIndex = 1;
+            this.dtgToDo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgToDo_CellContentClick);
             // 
             // dtgDoing
             // 
             this.dtgDoing.AllowUserToAddRows = false;
             this.dtgDoing.AllowUserToDeleteRows = false;
+            this.dtgDoing.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgDoing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgDoing.Location = new System.Drawing.Point(386, 161);
+            this.dtgDoing.Location = new System.Drawing.Point(374, 161);
             this.dtgDoing.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgDoing.Name = "dtgDoing";
             this.dtgDoing.ReadOnly = true;
             this.dtgDoing.RowTemplate.Height = 28;
-            this.dtgDoing.Size = new System.Drawing.Size(267, 330);
+            this.dtgDoing.Size = new System.Drawing.Size(279, 330);
             this.dtgDoing.TabIndex = 2;
             // 
             // dtgDone
             // 
             this.dtgDone.AllowUserToAddRows = false;
             this.dtgDone.AllowUserToDeleteRows = false;
+            this.dtgDone.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgDone.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgDone.Location = new System.Drawing.Point(737, 161);
+            this.dtgDone.Location = new System.Drawing.Point(732, 161);
             this.dtgDone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgDone.Name = "dtgDone";
             this.dtgDone.ReadOnly = true;
             this.dtgDone.RowTemplate.Height = 28;
-            this.dtgDone.Size = new System.Drawing.Size(267, 330);
+            this.dtgDone.Size = new System.Drawing.Size(288, 330);
             this.dtgDone.TabIndex = 3;
+            this.dtgDone.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDone_CellContentClick);
             // 
             // btnFinalizar
             // 
@@ -97,6 +106,7 @@
             this.btnFinalizar.TabIndex = 66;
             this.btnFinalizar.Text = "Finalizar Solicitud";
             this.btnFinalizar.UseVisualStyleBackColor = true;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // label1
             // 
@@ -126,6 +136,7 @@
             this.btnRegresar.Size = new System.Drawing.Size(44, 39);
             this.btnRegresar.TabIndex = 65;
             this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // label2
             // 
@@ -167,6 +178,7 @@
             this.btnGuardar.Size = new System.Drawing.Size(65, 47);
             this.btnGuardar.TabIndex = 77;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // label3
             // 
@@ -182,7 +194,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(806, 118);
+            this.label4.Location = new System.Drawing.Point(797, 118);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(134, 29);
             this.label4.TabIndex = 79;
@@ -192,11 +204,31 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(447, 118);
+            this.label5.Location = new System.Drawing.Point(437, 118);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(148, 29);
             this.label5.TabIndex = 80;
             this.label5.Text = "En Proceso";
+            // 
+            // EnProcesoASolicitud
+            // 
+            this.EnProcesoASolicitud.Image = ((System.Drawing.Image)(resources.GetObject("EnProcesoASolicitud.Image")));
+            this.EnProcesoASolicitud.Location = new System.Drawing.Point(293, 265);
+            this.EnProcesoASolicitud.Name = "EnProcesoASolicitud";
+            this.EnProcesoASolicitud.Size = new System.Drawing.Size(75, 35);
+            this.EnProcesoASolicitud.TabIndex = 81;
+            this.EnProcesoASolicitud.UseVisualStyleBackColor = true;
+            this.EnProcesoASolicitud.Click += new System.EventHandler(this.EnProcesoASolicitud_Click);
+            // 
+            // EnProcesoAFinalizado
+            // 
+            this.EnProcesoAFinalizado.Image = ((System.Drawing.Image)(resources.GetObject("EnProcesoAFinalizado.Image")));
+            this.EnProcesoAFinalizado.Location = new System.Drawing.Point(655, 265);
+            this.EnProcesoAFinalizado.Name = "EnProcesoAFinalizado";
+            this.EnProcesoAFinalizado.Size = new System.Drawing.Size(75, 35);
+            this.EnProcesoAFinalizado.TabIndex = 82;
+            this.EnProcesoAFinalizado.UseVisualStyleBackColor = true;
+            this.EnProcesoAFinalizado.Click += new System.EventHandler(this.EnProcesoAFinalizado_Click);
             // 
             // ManejoTarea
             // 
@@ -204,6 +236,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1032, 580);
+            this.Controls.Add(this.EnProcesoAFinalizado);
+            this.Controls.Add(this.EnProcesoASolicitud);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -221,6 +255,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ManejoTarea";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManejoTarea";
             ((System.ComponentModel.ISupportInitialize)(this.dtgToDo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDoing)).EndInit();
@@ -246,5 +281,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button EnProcesoASolicitud;
+        private System.Windows.Forms.Button EnProcesoAFinalizado;
     }
 }

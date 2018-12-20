@@ -142,7 +142,6 @@ namespace ProyectoServiceDesk_Logic
             }
             return true;
         }
-
         //Esta funcion obtiene la informacion de los equipos, lo almacena en un datatable.
         public DataTable ObtenerInfoTareas(int psdSolicitudId)
         {
@@ -150,7 +149,7 @@ namespace ProyectoServiceDesk_Logic
             DataTable resultado = null;
             try
             {
-                string strSelect = " SELECT NOMBRE,DIFICULTAD, ESTADO_PROCESO FROM PSD_TAREA WHERE PSD_SOLICITUD_ID = @P_PSD_SOLICITUD_ID  ";
+                string strSelect = " SELECT NOMBRE,DIFICULTAD,ESTADO_PROCESO,PSD_TAREA_ID FROM PSD_TAREA WHERE PSD_SOLICITUD_ID = @P_PSD_SOLICITUD_ID  ";
 
                 Utils utils = new Utils();
                 utils.LimpiarSqlParameterCollection();
@@ -163,6 +162,33 @@ namespace ProyectoServiceDesk_Logic
             {
 
                 throw;
+            }
+
+
+            return resultado;
+        }
+
+        public Boolean ActualizarEstadoTarea(int psdTareaId, string estado)
+        {
+
+            ConexionDB conexion = new ConexionDB();
+            bool resultado = true;
+            string strDelete = string.Empty;
+            try
+            {
+                strDelete = " UPDATE PSD_TAREA SET ESTADO_PROCESO = @P_ESTADO_PROCESO WHERE PSD_TAREA_ID = @P_PSD_TAREA_ID ";
+
+                Utils utils = new Utils();
+                utils.LimpiarSqlParameterCollection();
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_PSD_TAREA_ID", psdTareaId));
+                utils.ParameterCollection.Add(new System.Data.SqlClient.SqlParameter("@P_ESTADO_PROCESO", estado));
+
+                conexion.setDatosBD(strDelete, utils.ParameterCollection);
+            }
+            catch (Exception ex)
+            {
+                resultado = false;
+                MessageBox.Show("Error al actualizar el estado de las tareas "+ ex.Message, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
 

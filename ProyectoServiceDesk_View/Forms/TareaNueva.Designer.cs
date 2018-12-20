@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TareaNueva));
-            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -49,7 +47,6 @@
             this.cmbSolicitud = new System.Windows.Forms.ComboBox();
             this.btnAtender = new System.Windows.Forms.Button();
             this.cmbEstadoTarea = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -266,14 +263,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tarea";
             this.Load += new System.EventHandler(this.Tarea_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.BindingSource dataSet1BindingSource;
         //private DataSet1 dataSet1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRegresar;

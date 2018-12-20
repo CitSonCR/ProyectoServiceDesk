@@ -38,10 +38,10 @@
             // btnAddDepartamento
             // 
             this.btnAddDepartamento.Font = new System.Drawing.Font("Arial", 10.8F);
-            this.btnAddDepartamento.Location = new System.Drawing.Point(396, 82);
+            this.btnAddDepartamento.Location = new System.Drawing.Point(352, 66);
             this.btnAddDepartamento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddDepartamento.Name = "btnAddDepartamento";
-            this.btnAddDepartamento.Size = new System.Drawing.Size(205, 85);
+            this.btnAddDepartamento.Size = new System.Drawing.Size(182, 68);
             this.btnAddDepartamento.TabIndex = 4;
             this.btnAddDepartamento.Text = "Agregar Departamentos";
             this.btnAddDepartamento.UseVisualStyleBackColor = true;
@@ -50,22 +50,23 @@
             // btnEliminarDep
             // 
             this.btnEliminarDep.Font = new System.Drawing.Font("Arial", 10.8F);
-            this.btnEliminarDep.Location = new System.Drawing.Point(396, 343);
+            this.btnEliminarDep.Location = new System.Drawing.Point(352, 274);
             this.btnEliminarDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminarDep.Name = "btnEliminarDep";
-            this.btnEliminarDep.Size = new System.Drawing.Size(205, 85);
+            this.btnEliminarDep.Size = new System.Drawing.Size(182, 68);
             this.btnEliminarDep.TabIndex = 5;
             this.btnEliminarDep.Text = "Eliminar Departamentos";
             this.btnEliminarDep.UseVisualStyleBackColor = true;
             this.btnEliminarDep.Visible = false;
+            this.btnEliminarDep.Click += new System.EventHandler(this.btnEliminarDep_Click);
             // 
             // btnModificarDep
             // 
             this.btnModificarDep.Font = new System.Drawing.Font("Arial", 10.8F);
-            this.btnModificarDep.Location = new System.Drawing.Point(396, 214);
+            this.btnModificarDep.Location = new System.Drawing.Point(352, 171);
             this.btnModificarDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificarDep.Name = "btnModificarDep";
-            this.btnModificarDep.Size = new System.Drawing.Size(205, 85);
+            this.btnModificarDep.Size = new System.Drawing.Size(182, 68);
             this.btnModificarDep.TabIndex = 6;
             this.btnModificarDep.Text = "Modificar Departamentos";
             this.btnModificarDep.UseVisualStyleBackColor = true;
@@ -75,24 +76,24 @@
             // 
             this.btnRegresar.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
-            this.btnRegresar.Location = new System.Drawing.Point(12, 560);
-            this.btnRegresar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRegresar.Location = new System.Drawing.Point(11, 448);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(49, 49);
+            this.btnRegresar.Size = new System.Drawing.Size(44, 39);
             this.btnRegresar.TabIndex = 37;
             this.btnRegresar.UseVisualStyleBackColor = true;
             // 
             // AdministrarDepartamento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1025, 622);
+            this.ClientSize = new System.Drawing.Size(911, 498);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnModificarDep);
             this.Controls.Add(this.btnEliminarDep);
             this.Controls.Add(this.btnAddDepartamento);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AdministrarDepartamento";
             this.Text = "AdministrarDepartamento";
             this.ResumeLayout(false);

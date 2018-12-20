@@ -245,6 +245,7 @@
             // 
             // richTextBox1
             // 
+            this.richTextBox1.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(104, 388);
             this.richTextBox1.MaxLength = 100;
             this.richTextBox1.Name = "richTextBox1";

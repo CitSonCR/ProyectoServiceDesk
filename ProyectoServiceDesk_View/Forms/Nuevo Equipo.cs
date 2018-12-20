@@ -16,7 +16,7 @@ namespace ProyectoServiceDesk_View.Forms
 {
     public partial class Nuevo_Equipo : Form
     {
-        
+        public string UserName { get; set; }
         LogicaEquipo logicaEquipo = new LogicaEquipo();
         //Hacemos instancia de la clase LogicaDepartamento para utilizarla en el main del nuevo equipo para obtener los datos del departamento en el combobox del departamento en la vista de equipo 
         LogicaDepartamento logicaDepartamento = new LogicaDepartamento();
@@ -78,6 +78,10 @@ namespace ProyectoServiceDesk_View.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Inicio inicio = new Inicio();
+            this.Hide();
+            inicio.UserNameTxt = UserName;
+            inicio.ShowDialog();
             this.Close();
         }
 

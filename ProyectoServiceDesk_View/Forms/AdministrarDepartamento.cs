@@ -23,5 +23,10 @@ namespace ProyectoServiceDesk_View
             NuevoDepartamento dep = new NuevoDepartamento();
             dep.ShowDialog();
         }
+
+        private void btnEliminarDep_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
